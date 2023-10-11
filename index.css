@@ -45,14 +45,14 @@ body {
 
 .runner {
 	background-color: #1d1c2b;
-	padding: 12px;
-	vertical-align: middle;
+	padding-top: 8px;
+	padding-left: 5px;
+	padding-right: 5px;
+	margin-bottom: 7px;
 	margin-top: 7px;
 	border-radius: 10px;
 	align-self: center;
 	width: 90%;
-	display : flex;
-	align-items : center;
 }
 
 
