@@ -25,14 +25,14 @@ body {
 }
 
 .cat-btn {
-	margin-bottom: 40px;
+	margin-bottom: 20px;
 	font-weight: bold;
 	overflow-y: auto;
-	margin-top: 40px;
+	margin-top: 20px;
 	font-size: 1.3vw;
 	width: 6vw;
 	height: 6vh;
-	border-radius: 20px;
+	border-radius: 10px;
 	background-color: #4f4d74;
 	border: none;
 	color: aliceblue;
@@ -45,10 +45,10 @@ body {
 
 .runner {
 	background-color: #1d1c2b;
-	margin-bottom: 15px;
-	margin-top: 15px;
-	padding: 30px;
-	border-radius: 20px;
+	margin-bottom: 7px;
+	margin-top: 7px;
+	padding: 15px;
+	border-radius: 10px;
 	align-self: center;
 	width: 90%;
 }
@@ -67,7 +67,7 @@ body {
 
 
 ::-webkit-scrollbar {
-	width: 20px;
+	width: 10px;
   }
 
 
