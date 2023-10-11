@@ -25,14 +25,14 @@ body {
 }
 
 .cat-btn {
-	margin-bottom: 10px;
+	margin-bottom: 6px;
 	font-weight: bold;
 	overflow-y: auto;
-	margin-top: 10px;
+	margin-top: 6px;
 	font-size: 1.3vw;
 	width: 8vw;
-	height: 8vh;
-	border-radius: 6px;
+	height: 6vh;
+	border-radius: 10px;
 	background-color: #4f4d74;
 	border: none;
 	color: aliceblue;
@@ -45,12 +45,11 @@ body {
 
 .runner {
 	background-color: #1d1c2b;
-	padding-top: 12px;
-	padding-left: 5px;
-	padding-right: 5px;
-	margin-bottom: 7px;
-	margin-top: 7px;
-	border-radius: 10px;
+	margin-bottom: 15px;
+	margin-top: 15px;
+	padding: 30px;
+	border-radius: 20px;
+	align-self: center;
 	width: 90%;
 }
 
