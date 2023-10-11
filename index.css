@@ -45,6 +45,7 @@ body {
 
 .runner {
 	background-color: #1d1c2b;
+	line-height: 200px;
 	margin-bottom: 15px;
 	margin-top: 15px;
 	padding: 30px;
