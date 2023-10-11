@@ -15,7 +15,7 @@ am4core.ready(function () {
     var polygonTemplate = polygonSeries.mapPolygons.template;
     polygonTemplate.togglable = true;
     polygonTemplate.stroke = am4core.color("#000000");
-    polygonTemplate.strokeWidth = 3;
+    polygonTemplate.strokeWidth = 2;
 
 
 
