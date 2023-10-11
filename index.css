@@ -45,7 +45,8 @@ body {
 
 .runner {
 	background-color: #1d1c2b;
-	padding: 12px;
+	margin-bottom: 7px;
+	margin-top: 7px;
 	border-radius: 10px;
 	align-self: center;
 	width: 90%;
