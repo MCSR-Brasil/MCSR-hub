@@ -1,0 +1,87 @@
+#chartdiv {
+	width: 100%;
+	height: 100%;
+  }
+
+.test {
+	
+	position: fixed;
+	font-size: 1.5vw;
+	z-index: 1;
+	background-color: rgb(41, 47, 70);
+	color: white;
+	width: 30vw;
+	height: 100%;
+}
+
+body {
+	background-color: #000000;
+	background-image: url("https://static.planetminecraft.com/files/image/minecraft/texture-pack/2020/887/13327895-pack_xl.webp");
+}
+
+.Title {
+	font-size: 2.5vw;
+	font-weight: bold;
+}
+
+.cat-btn {
+	margin-bottom: 40px;
+	font-weight: bold;
+	overflow-y: auto;
+	margin-top: 40px;
+	font-size: 1.3vw;
+	width: 6vw;
+	height: 6vh;
+	border-radius: 20px;
+	background-color: #4f4d74;
+	border: none;
+	color: aliceblue;
+}
+
+.cat-btn:hover {
+	background-color: #666494;
+
+}
+
+.runner {
+	background-color: #1d1c2b;
+	margin-bottom: 15px;
+	margin-top: 15px;
+	padding: 30px;
+	border-radius: 20px;
+	align-self: center;
+	width: 90%;
+}
+
+
+.test2 {
+	width: 100%;
+}
+
+.times {
+	white-space: nowrap; 
+	overflow-y: auto;
+}
+
+
+
+
+::-webkit-scrollbar {
+	width: 20px;
+  }
+
+
+  
+
+::-webkit-scrollbar-track {
+	background: #f1f1f1;
+  }
+  
+
+::-webkit-scrollbar-thumb {
+	background: #888;
+  }
+
+::-webkit-scrollbar-thumb:hover {
+	background: #525258;
+  }
