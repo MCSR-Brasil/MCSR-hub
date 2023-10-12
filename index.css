@@ -33,10 +33,27 @@ body {
 	font-size: 1.3vw;
 	width: 8vw;
 	height: 6vh;
-	border-radius: 10px;
+	border-radius: 6px;
 	background-color: #4f4d74;
 	border: none;
 	color: aliceblue;
+}
+
+.ver-btn {
+	margin-bottom: 6px;
+	font-weight: bold;
+	overflow-y: auto;
+	font-size: 1.1vw;
+	width: 7vw;
+	height: 5vh;
+	border-radius: 6px;
+	background-color: #3d3b5a;
+	border: none;
+	color: aliceblue;
+}
+
+.ver-btn:hover {
+	background-color: #55537a;
 }
 
 .cat-btn:hover {
@@ -70,7 +87,7 @@ body {
 
 
 ::-webkit-scrollbar {
-	width: 10px;
+	width: 6px;
   }
 
 

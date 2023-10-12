@@ -23,13 +23,13 @@ function generateDivWithValues(container, values, rowIndex) {
   div.classList.add('d-flex', 'justify-content-between', 'runner');
   
   let pIndex = document.createElement('p');
-  pIndex.textContent = '#' + rowIndex; // Display the row index
+  pIndex.textContent = values[0]; // Display the row index
 
   let p1 = document.createElement('p');
-  p1.textContent = values[0]; // Use the first value from the array
+  p1.textContent = values[1]; // Use the first value from the array
   
   let p2 = document.createElement('p');
-  p2.textContent = values[1]; // Use the second value from the array
+  p2.textContent = values[2]; // Use the second value from the array
   
   div.appendChild(pIndex);
   div.appendChild(p1);
@@ -76,13 +76,13 @@ function clearContainer(container) {
 
 // Add event listeners for different buttons to change slice values
 document.getElementById("ssgBtn").addEventListener("click", function() {
-  sliceValue1 = 13;
+  sliceValue1 = 12;
   sliceValue2 = 15;
   parseAndCreateElements();
 });
 
 document.getElementById("rsgBtn").addEventListener("click", function() {
-  sliceValue1 = 1;
+  sliceValue1 = 0;
   sliceValue2 = 3;
   parseAndCreateElements();
   console.log(test);
