@@ -1,4 +1,4 @@
-let sliceValue1 = 1;
+let sliceValue1 = 0;
 let sliceValue2 = 3;
 
 // Function to parse and create elements
@@ -61,8 +61,13 @@ function parseAndCreateElements() {
 
       for (let i = 1; i < data.length; i++) {
         let rowData = data[i].slice(sliceValue1, sliceValue2);
-        
         generateDivWithValues(divContainer, rowData, i);
+        if (rowData[0]){
+          console.log(i)
+        }
+        else {
+          return
+        }
       }
     }
   });
@@ -78,18 +83,44 @@ function clearContainer(container) {
 document.getElementById("ssgBtn").addEventListener("click", function() {
   sliceValue1 = 12;
   sliceValue2 = 15;
+  document.getElementById("verDiv").style = "visibility: hidden;"
   parseAndCreateElements();
 });
 
 document.getElementById("rsgBtn").addEventListener("click", function() {
   sliceValue1 = 0;
   sliceValue2 = 3;
+  document.getElementById("verDiv").style = "visibility: visible;"
   parseAndCreateElements();
-  console.log(test);
+  
 });
 
 document.getElementById("outrasBtn").addEventListener("click", function() {
 
+});
+
+document.getElementById("1.7Btn").addEventListener("click", function() {
+  sliceValue1 = 8;
+  sliceValue2 = 11;
+
+  parseAndCreateElements();
+  
+});
+
+document.getElementById("1.14Btn").addEventListener("click", function() {
+  sliceValue1 = 4;
+  sliceValue2 = 8;
+
+  parseAndCreateElements();
+  
+});
+
+document.getElementById("1.16Btn").addEventListener("click", function() {
+  sliceValue1 = 0;
+  sliceValue2 = 3;
+
+  parseAndCreateElements();
+  
 });
 
 // Initial data load
