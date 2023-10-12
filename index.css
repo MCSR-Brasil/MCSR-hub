@@ -106,3 +106,9 @@ body {
 ::-webkit-scrollbar-thumb:hover {
 	background: #525258;
   }
+
+  .testing {
+	position: fixed;
+	z-index: 0;
+	align-self: flex-end;
+  }
