@@ -20,8 +20,10 @@ body {
 }
 
 .Title {
-	font-size: 2.5vw;
+	font-size: 3.5vw;
 	font-weight: bold;
+	text-align: center;
+	justify-self: center;
 }
 
 .cat-btn {
@@ -47,8 +49,8 @@ body {
 	background-color: #1d1c2b;
 	margin-bottom: 6px;
 	margin-top: 6px;
-	padding-left: 5px;
-	padding-right: 5px;
+	padding-left: 7px;
+	padding-right: 7px;
 	padding-top: 11px;
 	border-radius: 10px;
 	align-self: center;
