@@ -1,6 +1,9 @@
 let sliceValue1 = 0;
 let sliceValue2 = 3;
 
+selectedCat = "1.16rsg"
+
+
 document.getElementById("brBtn").addEventListener("click", function(){
   document.getElementById("estado").innerHTML = "Brasil"
 });
@@ -93,18 +96,33 @@ function clearContainer(container) {
 
 // Add event listeners for different buttons to change slice values
 document.getElementById("ssgBtn").addEventListener("click", function() {
-  sliceValue1 = 13;
-  sliceValue2 = 17;
-  document.getElementById("verDiv").style = "visibility: hidden;"
-  parseAndCreateElements();
+  selectedCat = "1.16ssg"
+  if (selectedState != "none"){
+    getState();
+  } 
+  else {
+    sliceValue1 = 13;
+    sliceValue2 = 17;
+    document.getElementById("verDiv").style = "visibility: hidden;"
+    
+    parseAndCreateElements();
+  }
 });
 
 document.getElementById("rsgBtn").addEventListener("click", function() {
-  sliceValue1 = 0;
-  sliceValue2 = 3;
-  document.getElementById("verDiv").style = "visibility: visible;"
-  parseAndCreateElements();
-  
+  selectedCat = "1.16rsg"
+
+  if (selectedState != "none"){
+    getState();
+  } 
+  else {
+    sliceValue1 = 0;
+    sliceValue2 = 4;
+    document.getElementById("verDiv").style = "visibility: visible;"
+    
+    parseAndCreateElements();
+  }
+
 });
 
 document.getElementById("outrasBtn").addEventListener("click", function() {
@@ -114,6 +132,7 @@ document.getElementById("outrasBtn").addEventListener("click", function() {
 document.getElementById("1.7Btn").addEventListener("click", function() {
   sliceValue1 = 9;
   sliceValue2 = 12;
+  selectedCat = "1.7rsg"
 
   parseAndCreateElements();
   
@@ -122,17 +141,24 @@ document.getElementById("1.7Btn").addEventListener("click", function() {
 document.getElementById("1.14Btn").addEventListener("click", function() {
   sliceValue1 = 5;
   sliceValue2 = 8;
+  selectedCat = "1.14rsg"
 
   parseAndCreateElements();
   
 });
 
 document.getElementById("1.16Btn").addEventListener("click", function() {
-  sliceValue1 = 0;
-  sliceValue2 = 3;
+  selectedCat = "1.16rsg"
 
-  parseAndCreateElements();
-  
+  if (selectedState != "none"){
+    getState();
+  } 
+  else {
+    sliceValue1 = 0;
+    sliceValue2 = 3;
+    parseAndCreateElements();
+  }
+
 });
 
 // Initial data load

@@ -1,3 +1,4 @@
+
 selectedState = "none"
 
 am4core.ready(function () {
@@ -27,8 +28,10 @@ am4core.ready(function () {
     
     var stateName = clickedPolygonData.name;
     console.log("Clicked State: " + stateName);
-    test = stateName
-    document.getElementById("estado").innerHTML = stateName
+
+    document.getElementById("estado").innerHTML = stateName;
+    selectedState = stateName;
+    getState();
 
     if (currentActive) {
         currentActive.setState("default");
