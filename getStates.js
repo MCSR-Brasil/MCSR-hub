@@ -10,6 +10,16 @@ function getState() {
       sliceValue2 = 25;
       parseAndCreateElements();
     }
+    if (selectedCat == "1.14rsg") {
+      sliceValue1 = 26;
+      sliceValue2 = 29;
+      parseAndCreateElements();
+    }
+    if (selectedCat == "1.7rsg") {
+      sliceValue1 = 30;
+      sliceValue2 = 33;
+      parseAndCreateElements();
+    }
   }
 
 }

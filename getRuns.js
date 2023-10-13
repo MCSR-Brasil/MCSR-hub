@@ -6,6 +6,7 @@ selectedCat = "1.16rsg"
 
 document.getElementById("brBtn").addEventListener("click", function(){
   document.getElementById("estado").innerHTML = "Brasil"
+  selectedState = "none"
 });
 
 
@@ -99,8 +100,9 @@ document.getElementById("ssgBtn").addEventListener("click", function() {
   selectedCat = "1.16ssg"
   if (selectedState != "none"){
     getState();
+    document.getElementById("verDiv").style = "visibility: hidden;"
   } 
-  else {
+  if (selectedState == "none"){
     sliceValue1 = 13;
     sliceValue2 = 17;
     document.getElementById("verDiv").style = "visibility: hidden;"
@@ -114,8 +116,9 @@ document.getElementById("rsgBtn").addEventListener("click", function() {
 
   if (selectedState != "none"){
     getState();
+    document.getElementById("verDiv").style = "visibility: visible;"
   } 
-  else {
+  if (selectedState == "none"){
     sliceValue1 = 0;
     sliceValue2 = 4;
     document.getElementById("verDiv").style = "visibility: visible;"
@@ -130,18 +133,29 @@ document.getElementById("outrasBtn").addEventListener("click", function() {
 });
 
 document.getElementById("1.7Btn").addEventListener("click", function() {
-  sliceValue1 = 9;
-  sliceValue2 = 12;
   selectedCat = "1.7rsg"
+  if (selectedState != "none"){
+    getState();
+  } 
+  if (selectedState == "none"){
+    sliceValue1 = 9;
+    sliceValue2 = 12;
+  }
+
 
   parseAndCreateElements();
   
 });
 
 document.getElementById("1.14Btn").addEventListener("click", function() {
+  selectedCat = "1.14rsg"
+  if (selectedState != "none"){
+    getState();
+  } 
+  if (selectedState == "none"){
   sliceValue1 = 5;
   sliceValue2 = 8;
-  selectedCat = "1.14rsg"
+  }
 
   parseAndCreateElements();
   
