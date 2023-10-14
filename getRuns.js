@@ -7,6 +7,7 @@ selectedCat = "1.16rsg"
 document.getElementById("brBtn").addEventListener("click", function(){
   document.getElementById("estado").innerHTML = "Brasil"
   selectedState = "none"
+  getState();
 });
 
 
