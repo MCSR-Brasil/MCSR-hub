@@ -1,4 +1,26 @@
 function getState() {
+  if (selectedState == "none") {
+    if (selectedCat == "1.16rsg") {
+      sliceValue1 = 0;
+      sliceValue2 = 4;
+      parseAndCreateElements();
+    }
+    if (selectedCat == "1.16ssg") {
+      sliceValue1 = 13;
+      sliceValue2 = 17;
+      parseAndCreateElements();
+    }
+    if (selectedCat == "1.14rsg") {
+      sliceValue1 = 5;
+      sliceValue2 = 8;
+      parseAndCreateElements();
+    }
+    if (selectedCat == "1.7rsg") {
+      sliceValue1 = 9;
+      sliceValue2 = 12;
+      parseAndCreateElements();
+    }
+  }
   if (selectedState == "Rio Grande do Sul") {
     if (selectedCat == "1.16rsg") {
       sliceValue1 = 17;
