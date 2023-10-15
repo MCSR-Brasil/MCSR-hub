@@ -1,4 +1,4 @@
-
+stateColors = ["#038ba6", "#02b093", "#02b31c", "#76b002", "#b08702", "#ad5a02", "#b04400", "#b00202", "#6e011a"]
 selectedState = "none"
 
 am4core.ready(function () {
@@ -44,85 +44,85 @@ am4core.ready(function () {
       polygonSeries.mapPolygons.each(function (polygon) {
         var stateId = polygon.dataItem.dataContext.id;
         if (stateId === "BR-AC") {
-          polygon.fill = am4core.color("#3d8da8");
+          polygon.fill = stateColors[0];;
         }
         else if (stateId === "BR-RS") {
-            polygon.fill = am4core.color("#bd751c");
+            polygon.fill = stateColors[6];;
           }         
         else if (stateId === "BR-RJ") {
-            polygon.fill = am4core.color("#a83d81");
+            polygon.fill = stateColors[3];
           }
         else if (stateId === "BR-SP") {
-            polygon.fill = am4core.color("#8a202a");
+            polygon.fill = stateColors[8];
           }  
         else if (stateId === "BR-DF") {
-            polygon.fill = am4core.color("#3da891");
+            polygon.fill = stateColors[1];
           } 
         else if (stateId === "BR-GO") {
-            polygon.fill = am4core.color("#3d8da8");
+            polygon.fill = stateColors[1];
           }  
         else if (stateId === "BR-MG") {
-            polygon.fill = am4core.color("#bd751c");
+            polygon.fill = stateColors[3];
           }
         else if (stateId === "BR-SC") {
-            polygon.fill = am4core.color("#bd971c");
+            polygon.fill = stateColors[4];
           }
         else if (stateId === "BR-PR") {
-            polygon.fill = am4core.color("#bd8f1c");
+            polygon.fill = stateColors[3];
           }
         else if (stateId === "BR-BA") {
-            polygon.fill = am4core.color("#5ba83d");
+            polygon.fill = stateColors[2];
           }    
         else if (stateId === "BR-AM") {
-            polygon.fill = am4core.color("#3d8da8");
+            polygon.fill = stateColors[0];
           }
         else if (stateId === "BR-PA") {
-            polygon.fill = am4core.color("#3d8da8");
+            polygon.fill = stateColors[1];
           }
         else if (stateId === "BR-RO") {
-            polygon.fill = am4core.color("#3d8da8");
+            polygon.fill = stateColors[0];
           }
         else if (stateId === "BR-RR") {
-            polygon.fill = am4core.color("#3d8da8");
+            polygon.fill = stateColors[0];
           }
         else if (stateId === "BR-AP") {
-            polygon.fill = am4core.color("#3d8da8");
+            polygon.fill = stateColors[0];
           }
         else if (stateId === "BR-CE") {
-            polygon.fill = am4core.color("#3d8da8");
+            polygon.fill = stateColors[0];
           }
         else if (stateId === "BR-RN") {
-            polygon.fill = am4core.color("#3da891");
+            polygon.fill = stateColors[1];
           }
         else if (stateId === "BR-TO") {
-            polygon.fill = am4core.color("#3d8da8");
+            polygon.fill = stateColors[0];
           }
         else if (stateId === "BR-MT") {
-            polygon.fill = am4core.color("#3d8da8");
+            polygon.fill = stateColors[0];
           }
         else if (stateId === "BR-MS") {
-            polygon.fill = am4core.color("#3d8da8");
+            polygon.fill = stateColors[0];
           }
         else if (stateId === "BR-ES") {
-            polygon.fill = am4core.color("#3d8da8");
+            polygon.fill = stateColors[0];
           }
         else if (stateId === "BR-PE") {
-            polygon.fill = am4core.color("#3d8da8");
+            polygon.fill = stateColors[1];
           }
         else if (stateId === "BR-MA") {
-            polygon.fill = am4core.color("#3d8da8");
+            polygon.fill = stateColors[0];
           }
         else if (stateId === "BR-PI") {
-            polygon.fill = am4core.color("#3d8da8");
+            polygon.fill = stateColors[0];
           }
         else if (stateId === "BR-PB") {
-            polygon.fill = am4core.color("#3d8da8");
+            polygon.fill = stateColors[1];
           }
         else if (stateId === "BR-AL") {
-            polygon.fill = am4core.color("#3d8da8");
+            polygon.fill = stateColors[1];
           }
         else if (stateId === "BR-SE") {
-            polygon.fill = am4core.color("#3d8da8");
+            polygon.fill = stateColors[0];
           }
       });
     });
