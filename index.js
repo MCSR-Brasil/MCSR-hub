@@ -1,4 +1,4 @@
-stateColors = ["#038ba6", "#02b093", "#02b31c", "#76b002", "#b08702", "#ad5a02", "#b04400", "#b00202", "#6e011a"]
+stateColors = ["#038ba6", "#02b093", "#02b31c", "#99b002", "#b07602", "#ad5a02", "#b04400", "#b00202", "#6e011a"]
 selectedState = "none"
 
 am4core.ready(function () {
