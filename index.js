@@ -61,7 +61,7 @@ am4core.ready(function () {
             polygon.fill = stateColors[1];
           }  
         else if (stateId === "BR-MG") {
-            polygon.fill = stateColors[3];
+            polygon.fill = stateColors[4];
           }
         else if (stateId === "BR-SC") {
             polygon.fill = stateColors[4];
