@@ -46,10 +46,10 @@ am4core.ready(function () {
           polygon.fill = stateColors[0];;
         }
         else if (stateId === "BR-RS") {
-            polygon.fill = stateColors[6];;
+            polygon.fill = stateColors[7];;
           }         
         else if (stateId === "BR-RJ") {
-            polygon.fill = stateColors[4];
+            polygon.fill = stateColors[6];
           }
         else if (stateId === "BR-SP") {
             polygon.fill = stateColors[8];
@@ -58,7 +58,7 @@ am4core.ready(function () {
             polygon.fill = stateColors[1];
           } 
         else if (stateId === "BR-GO") {
-            polygon.fill = stateColors[1];
+            polygon.fill = stateColors[2];
           }  
         else if (stateId === "BR-MG") {
             polygon.fill = stateColors[4];
