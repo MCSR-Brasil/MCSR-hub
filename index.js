@@ -27,7 +27,6 @@ am4core.ready(function () {
     var clickedPolygonData = event.target.dataItem.dataContext;
     
     var stateName = clickedPolygonData.name;
-    console.log("Clicked State: " + stateName);
 
     document.getElementById("estado").innerHTML = stateName;
     selectedState = stateName;
@@ -133,7 +132,6 @@ am4core.ready(function () {
 
 
     var activeState = polygonTemplate.states.create("active");
-    console.log(activeState);
 
     var zoomControl = new am4maps.ZoomControl();
     chart.zoomControl = zoomControl;
