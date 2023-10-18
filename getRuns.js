@@ -3,14 +3,11 @@ let sliceValue2 = 3;
 
 selectedCat = "1.16rsg"
 
-
 document.getElementById("brBtn").addEventListener("click", function(){
   document.getElementById("estado").innerHTML = "Brasil"
   selectedState = "none"
   getState();
 });
-
-
 
 // Function to parse and create elements
 function generateDivWithClasses(container, classes) {
@@ -29,7 +26,7 @@ function generateDivWithClasses(container, classes) {
   container.appendChild(div);
 }
 
-function generateDivWithValues(container, values, rowIndex) {
+function generateDivWithValues(container, values) {
   let div = document.createElement('div');
   div.classList.add('d-flex', 'justify-content-between', 'runner');
 
@@ -56,33 +53,23 @@ function generateDivWithValues(container, values, rowIndex) {
   container.appendChild(div);
 }
 
-
-
-
-
-
-
-function parseAndCreateElements() {
+function parseAndCreateElements(slice1, slice2) {
   Papa.parse("tabela.csv", {
     download: true,
     header: false,
     complete: function(results) {
-      console.log(results);
 
       let data = results.data.slice(0, 100); // Get data from A1 to C100
 
       let divContainer = document.getElementById('tbl-data');
       clearContainer(divContainer); // Clear existing elements
 
-      generateDivWithClasses(divContainer, data[0].slice(sliceValue1, sliceValue2));
+      generateDivWithClasses(divContainer, data[0].slice(slice1, slice2));
 
       for (let i = 1; i < data.length; i++) {
-        let rowData = data[i].slice(sliceValue1, sliceValue2);
-        generateDivWithValues(divContainer, rowData, i);
-        if (rowData[0]){
-          console.log(i)
-        }
-        else {
+        let rowData = data[i].slice(slice1, slice2);
+        generateDivWithValues(divContainer, rowData);
+        if (rowData[0] == false){
           return
         }
       }
@@ -103,12 +90,10 @@ document.getElementById("ssgBtn").addEventListener("click", function() {
     getState();
     document.getElementById("verDiv").style = "visibility: hidden;"
   } 
-  if (selectedState == "none"){
-    sliceValue1 = 13;
-    sliceValue2 = 17;
+  else if (selectedState == "none"){
     document.getElementById("verDiv").style = "visibility: hidden;"
     
-    parseAndCreateElements();
+    parseAndCreateElements(13,17);
   }
 });
 
@@ -119,12 +104,10 @@ document.getElementById("rsgBtn").addEventListener("click", function() {
     getState();
     document.getElementById("verDiv").style = "visibility: visible;"
   } 
-  if (selectedState == "none"){
-    sliceValue1 = 0;
-    sliceValue2 = 4;
+  else if (selectedState == "none"){
     document.getElementById("verDiv").style = "visibility: visible;"
     
-    parseAndCreateElements();
+    parseAndCreateElements(0,4);
   }
 
 });
@@ -138,13 +121,9 @@ document.getElementById("1.7Btn").addEventListener("click", function() {
   if (selectedState != "none"){
     getState();
   } 
-  if (selectedState == "none"){
-    sliceValue1 = 9;
-    sliceValue2 = 12;
+  else if (selectedState == "none"){
+    parseAndCreateElements(9,12);
   }
-
-
-  parseAndCreateElements();
   
 });
 
@@ -153,13 +132,10 @@ document.getElementById("1.14Btn").addEventListener("click", function() {
   if (selectedState != "none"){
     getState();
   } 
-  if (selectedState == "none"){
-  sliceValue1 = 5;
-  sliceValue2 = 8;
+  else if (selectedState == "none"){
+    parseAndCreateElements(5,8);
   }
 
-  parseAndCreateElements();
-  
 });
 
 document.getElementById("1.16Btn").addEventListener("click", function() {
@@ -168,10 +144,8 @@ document.getElementById("1.16Btn").addEventListener("click", function() {
   if (selectedState != "none"){
     getState();
   } 
-  else {
-    sliceValue1 = 0;
-    sliceValue2 = 3;
-    parseAndCreateElements();
+  else if (selectedState == "none"){
+    parseAndCreateElements(0,3);
   }
 
 });

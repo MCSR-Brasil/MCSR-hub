@@ -1,618 +1,394 @@
 function getState() {
   if (selectedState == "none") {
     if (selectedCat == "1.16rsg") {
-      sliceValue1 = 0;
-      sliceValue2 = 4;
-      parseAndCreateElements();
+      parseAndCreateElements(0,4);
     }
     if (selectedCat == "1.16ssg") {
-      sliceValue1 = 13;
-      sliceValue2 = 17;
-      parseAndCreateElements();
+      parseAndCreateElements(13,17);
     }
     if (selectedCat == "1.14rsg") {
-      sliceValue1 = 5;
-      sliceValue2 = 8;
-      parseAndCreateElements();
+      parseAndCreateElements(5,8);
     }
     if (selectedCat == "1.7rsg") {
-      sliceValue1 = 9;
-      sliceValue2 = 12;
-      parseAndCreateElements();
+      parseAndCreateElements(9,12);
     }
   }
   if (selectedState == "Rio Grande do Sul") {
     if (selectedCat == "1.16rsg") {
-      sliceValue1 = 17;
-      sliceValue2 = 20;
-      parseAndCreateElements();
+      parseAndCreateElements(17,20);
     }
     if (selectedCat == "1.16ssg") {
-      sliceValue1 = 22;
-      sliceValue2 = 25;
-      parseAndCreateElements();
+      parseAndCreateElements(22,25);
     }
     if (selectedCat == "1.14rsg") {
-      sliceValue1 = 26;
-      sliceValue2 = 29;
-      parseAndCreateElements();
+      parseAndCreateElements(26,29);
     }
     if (selectedCat == "1.7rsg") {
-      sliceValue1 = 30;
-      sliceValue2 = 33;
-      parseAndCreateElements();
+      parseAndCreateElements(30,33);
     }
   }
   if (selectedState == "Santa Catarina") {
     if (selectedCat == "1.16rsg") {
-      sliceValue1 = 34;
-      sliceValue2 = 37;
-      parseAndCreateElements();
+      parseAndCreateElements(34,37);
     }
     if (selectedCat == "1.16ssg") {
-      sliceValue1 = 38;
-      sliceValue2 = 41;
-      parseAndCreateElements();
+      parseAndCreateElements(38,41);
     }
     if (selectedCat == "1.14rsg") {
-      sliceValue1 = 42;
-      sliceValue2 = 45;
-      parseAndCreateElements();
+      parseAndCreateElements(42,45);
     }
     if (selectedCat == "1.7rsg") {
-      sliceValue1 = 46;
-      sliceValue2 = 49;
-      parseAndCreateElements();
+      parseAndCreateElements(46,49);
     }
   }
   if (selectedState == "Paraná") {
     if (selectedCat == "1.16rsg") {
-      sliceValue1 = 50;
-      sliceValue2 = 53;
-      parseAndCreateElements();
+      parseAndCreateElements(50,53);
     }
     if (selectedCat == "1.16ssg") {
-      sliceValue1 = 54;
-      sliceValue2 = 57;
-      parseAndCreateElements();
+      parseAndCreateElements(54,57);
     }
     if (selectedCat == "1.14rsg") {
-      sliceValue1 = 58;
-      sliceValue2 = 61;
-      parseAndCreateElements();
+      parseAndCreateElements(58,61);
     }
     if (selectedCat == "1.7rsg") {
-      sliceValue1 = 62;
-      sliceValue2 = 65;
-      parseAndCreateElements();
+      parseAndCreateElements(62,65);
     }
   }
   if (selectedState == "São Paulo") {
     if (selectedCat == "1.16rsg") {
-      sliceValue1 = 66;
-      sliceValue2 = 69;
-      parseAndCreateElements();
+      parseAndCreateElements(66,69);
     }
     if (selectedCat == "1.16ssg") {
-      sliceValue1 = 70;
-      sliceValue2 = 73;
-      parseAndCreateElements();
+      parseAndCreateElements(70,73);
     }
     if (selectedCat == "1.14rsg") {
-      sliceValue1 = 74;
-      sliceValue2 = 77;
-      parseAndCreateElements();
+      parseAndCreateElements(74,77);
     }
-    if (selectedCat == "1.7rsg") {
-      sliceValue1 = 78;
-      sliceValue2 = 81;
-      parseAndCreateElements();
+    if (selectedCat == "1.7rsg") {;
+      parseAndCreateElements(78,81);
     }
   }
   if (selectedState == "Mato Grosso do Sul") {
     if (selectedCat == "1.16rsg") {
-      sliceValue1 = 82;
-      sliceValue2 = 85;
-      parseAndCreateElements();
+      parseAndCreateElements(82,85);
     }
     if (selectedCat == "1.16ssg") {
-      sliceValue1 = 86;
-      sliceValue2 = 89;
-      parseAndCreateElements();
+      parseAndCreateElements(86,89);
     }
     if (selectedCat == "1.14rsg") {
-      sliceValue1 = 90;
-      sliceValue2 = 93;
-      parseAndCreateElements();
+      parseAndCreateElements(90,93);
     }
     if (selectedCat == "1.7rsg") {
-      sliceValue1 = 94;
-      sliceValue2 = 97;
-      parseAndCreateElements();
+      parseAndCreateElements(94,97);
     }
   }
   if (selectedState == "Rio de Janeiro") {
     if (selectedCat == "1.16rsg") {
-      sliceValue1 = 98;
-      sliceValue2 = 101;
-      parseAndCreateElements();
+      parseAndCreateElements(98,101);
     }
     if (selectedCat == "1.16ssg") {
-      sliceValue1 = 102;
-      sliceValue2 = 105;
-      parseAndCreateElements();
+      parseAndCreateElements(102,105);
     }
     if (selectedCat == "1.14rsg") {
-      sliceValue1 = 106;
-      sliceValue2 = 109;
-      parseAndCreateElements();
+      parseAndCreateElements(106,109);
     }
     if (selectedCat == "1.7rsg") {
-      sliceValue1 = 110;
-      sliceValue2 = 113;
-      parseAndCreateElements();
+      parseAndCreateElements(110,113);
     }
   }
   if (selectedState == "Minas Gerais") {
     if (selectedCat == "1.16rsg") {
-      sliceValue1 = 114;
-      sliceValue2 = 117;
-      parseAndCreateElements();
+      parseAndCreateElements(114,117);
     }
     if (selectedCat == "1.16ssg") {
-      sliceValue1 = 118;
-      sliceValue2 = 121;
-      parseAndCreateElements();
+      parseAndCreateElements(118,121);
     }
     if (selectedCat == "1.14rsg") {
-      sliceValue1 = 122;
-      sliceValue2 = 125;
-      parseAndCreateElements();
+      parseAndCreateElements(122,125);
     }
     if (selectedCat == "1.7rsg") {
-      sliceValue1 = 126;
-      sliceValue2 = 129;
-      parseAndCreateElements();
+      parseAndCreateElements(126,129);
     }
   }
   if (selectedState == "Goiás") {
     if (selectedCat == "1.16rsg") {
-      sliceValue1 = 130;
-      sliceValue2 = 133;
-      parseAndCreateElements();
+      parseAndCreateElements(130,133);
     }
     if (selectedCat == "1.16ssg") {
-      sliceValue1 = 134;
-      sliceValue2 = 137;
-      parseAndCreateElements();
+      parseAndCreateElements(134,137);
     }
     if (selectedCat == "1.14rsg") {
-      sliceValue1 = 138;
-      sliceValue2 = 141;
-      parseAndCreateElements();
+      parseAndCreateElements(138,141);
     }
     if (selectedCat == "1.7rsg") {
-      sliceValue1 = 142;
-      sliceValue2 = 145;
-      parseAndCreateElements();
+      parseAndCreateElements(142,145);
     }
   }
   if (selectedState == "Distrito Federal") {
     if (selectedCat == "1.16rsg") {
-      sliceValue1 = 146;
-      sliceValue2 = 149;
-      parseAndCreateElements();
+      parseAndCreateElements(146,149);
     }
     if (selectedCat == "1.16ssg") {
-      sliceValue1 = 150;
-      sliceValue2 = 153;
-      parseAndCreateElements();
+      parseAndCreateElements(150,153);
     }
     if (selectedCat == "1.14rsg") {
-      sliceValue1 = 154;
-      sliceValue2 = 157;
-      parseAndCreateElements();
+      parseAndCreateElements(154,157);
     }
     if (selectedCat == "1.7rsg") {
-      sliceValue1 = 158;
-      sliceValue2 = 161;
-      parseAndCreateElements();
+      parseAndCreateElements(158,161);
     }
   }
   if (selectedState == "Mato Grosso") {
     if (selectedCat == "1.16rsg") {
-      sliceValue1 = 82;
-      sliceValue2 = 85;
-      parseAndCreateElements();
+      parseAndCreateElements(82,85);
     }
     if (selectedCat == "1.16ssg") {
-      sliceValue1 = 86;
-      sliceValue2 = 89;
-      parseAndCreateElements();
+      parseAndCreateElements(86,89);
     }
     if (selectedCat == "1.14rsg") {
-      sliceValue1 = 90;
-      sliceValue2 = 93;
-      parseAndCreateElements();
+      parseAndCreateElements(90,93);
     }
     if (selectedCat == "1.7rsg") {
-      sliceValue1 = 94;
-      sliceValue2 = 97;
-      parseAndCreateElements();
+      parseAndCreateElements(94,97);
     }
   }
   if (selectedState == "Espírito Santo") {
     if (selectedCat == "1.16rsg") {
-      sliceValue1 = 82;
-      sliceValue2 = 85;
-      parseAndCreateElements();
+      parseAndCreateElements(82,85);
     }
     if (selectedCat == "1.16ssg") {
-      sliceValue1 = 86;
-      sliceValue2 = 89;
-      parseAndCreateElements();
+      parseAndCreateElements(86,89);
     }
     if (selectedCat == "1.14rsg") {
-      sliceValue1 = 90;
-      sliceValue2 = 93;
-      parseAndCreateElements();
+      parseAndCreateElements(90,93);
     }
     if (selectedCat == "1.7rsg") {
-      sliceValue1 = 94;
-      sliceValue2 = 97;
-      parseAndCreateElements();
+      parseAndCreateElements(94,97);
     }
   }
   if (selectedState == "Bahia") {
     if (selectedCat == "1.16rsg") {
-      sliceValue1 = 162;
-      sliceValue2 = 165;
-      parseAndCreateElements();
+      parseAndCreateElements(162,165);
     }
     if (selectedCat == "1.16ssg") {
-      sliceValue1 = 166;
-      sliceValue2 = 169;
-      parseAndCreateElements();
+      parseAndCreateElements(166,169);
     }
     if (selectedCat == "1.14rsg") {
-      sliceValue1 = 170;
-      sliceValue2 = 173;
-      parseAndCreateElements();
+      parseAndCreateElements(170,173);
     }
     if (selectedCat == "1.7rsg") {
-      sliceValue1 = 174;
-      sliceValue2 = 177;
-      parseAndCreateElements();
+      parseAndCreateElements(174,177);
     }
   }
   if (selectedState == "Tocantins") {
     if (selectedCat == "1.16rsg") {
-      sliceValue1 = 82;
-      sliceValue2 = 85;
-      parseAndCreateElements();
+      parseAndCreateElements(82,85);
     }
     if (selectedCat == "1.16ssg") {
-      sliceValue1 = 86;
-      sliceValue2 = 89;
-      parseAndCreateElements();
+      parseAndCreateElements(86,89);
     }
     if (selectedCat == "1.14rsg") {
-      sliceValue1 = 90;
-      sliceValue2 = 93;
-      parseAndCreateElements();
+      parseAndCreateElements(90,93);
     }
     if (selectedCat == "1.7rsg") {
-      sliceValue1 = 94;
-      sliceValue2 = 97;
-      parseAndCreateElements();
+      parseAndCreateElements(94,97);
     }
   }
   if (selectedState == "Pará") {
     if (selectedCat == "1.16rsg") {
-      sliceValue1 = 178;
-      sliceValue2 = 181;
-      parseAndCreateElements();
+      parseAndCreateElements(178,181);
     }
     if (selectedCat == "1.16ssg") {
-      sliceValue1 = 182;
-      sliceValue2 = 185;
-      parseAndCreateElements();
+      parseAndCreateElements(182,185);
     }
     if (selectedCat == "1.14rsg") {
-      sliceValue1 = 186;
-      sliceValue2 = 189;
-      parseAndCreateElements();
+      parseAndCreateElements(186,189);
     }
     if (selectedCat == "1.7rsg") {
-      sliceValue1 = 190;
-      sliceValue2 = 193;
-      parseAndCreateElements();
+      parseAndCreateElements(190,193);
     }
   }
   if (selectedState == "Amazonas") {
     if (selectedCat == "1.16rsg") {
-      sliceValue1 = 82;
-      sliceValue2 = 85;
-      parseAndCreateElements();
+      parseAndCreateElements(82,85);
     }
     if (selectedCat == "1.16ssg") {
-      sliceValue1 = 86;
-      sliceValue2 = 89;
-      parseAndCreateElements();
+      parseAndCreateElements(86,89);
     }
     if (selectedCat == "1.14rsg") {
-      sliceValue1 = 90;
-      sliceValue2 = 93;
-      parseAndCreateElements();
+      parseAndCreateElements(90,93);
     }
     if (selectedCat == "1.7rsg") {
-      sliceValue1 = 94;
-      sliceValue2 = 97;
-      parseAndCreateElements();
+      parseAndCreateElements(94,97);
     }
   }
   if (selectedState == "Acre") {
     if (selectedCat == "1.16rsg") {
-      sliceValue1 = 82;
-      sliceValue2 = 85;
-      parseAndCreateElements();
+      parseAndCreateElements(82,85);
     }
     if (selectedCat == "1.16ssg") {
-      sliceValue1 = 86;
-      sliceValue2 = 89;
-      parseAndCreateElements();
+      parseAndCreateElements(86,89);
     }
     if (selectedCat == "1.14rsg") {
-      sliceValue1 = 90;
-      sliceValue2 = 93;
-      parseAndCreateElements();
+      parseAndCreateElements(90,93);
     }
     if (selectedCat == "1.7rsg") {
-      sliceValue1 = 94;
-      sliceValue2 = 97;
-      parseAndCreateElements();
+      parseAndCreateElements(94,97);
     }
   }
   if (selectedState == "Rondônia") {
     if (selectedCat == "1.16rsg") {
-      sliceValue1 = 82;
-      sliceValue2 = 85;
-      parseAndCreateElements();
+      parseAndCreateElements(82,85);
     }
     if (selectedCat == "1.16ssg") {
-      sliceValue1 = 86;
-      sliceValue2 = 89;
-      parseAndCreateElements();
+      parseAndCreateElements(86,89);
     }
     if (selectedCat == "1.14rsg") {
-      sliceValue1 = 90;
-      sliceValue2 = 93;
-      parseAndCreateElements();
+      parseAndCreateElements(90,93);
     }
     if (selectedCat == "1.7rsg") {
-      sliceValue1 = 94;
-      sliceValue2 = 97;
-      parseAndCreateElements();
+      parseAndCreateElements(94,97);
     }
   }
   if (selectedState == "Sergipe") {
     if (selectedCat == "1.16rsg") {
-      sliceValue1 = 82;
-      sliceValue2 = 85;
-      parseAndCreateElements();
+      parseAndCreateElements(82,85);
     }
     if (selectedCat == "1.16ssg") {
-      sliceValue1 = 86;
-      sliceValue2 = 89;
-      parseAndCreateElements();
+      parseAndCreateElements(86,89);
     }
     if (selectedCat == "1.14rsg") {
-      sliceValue1 = 90;
-      sliceValue2 = 93;
-      parseAndCreateElements();
+      parseAndCreateElements(90,93);
     }
     if (selectedCat == "1.7rsg") {
-      sliceValue1 = 94;
-      sliceValue2 = 97;
-      parseAndCreateElements();
+      parseAndCreateElements(94,97);
     }
   }
   if (selectedState == "Alagoas") {
     if (selectedCat == "1.16rsg") {
-      sliceValue1 = 194;
-      sliceValue2 = 197;
-      parseAndCreateElements();
+      parseAndCreateElements(194,197);
     }
     if (selectedCat == "1.16ssg") {
-      sliceValue1 = 198;
-      sliceValue2 = 201;
-      parseAndCreateElements();
+      parseAndCreateElements(198,201);
     }
     if (selectedCat == "1.14rsg") {
-      sliceValue1 = 202;
-      sliceValue2 = 205;
-      parseAndCreateElements();
+      parseAndCreateElements(202,205);
     }
     if (selectedCat == "1.7rsg") {
-      sliceValue1 = 206;
-      sliceValue2 = 209;
-      parseAndCreateElements();
+      parseAndCreateElements(206,209);
     }
   }
   if (selectedState == "Pernambuco") {
     if (selectedCat == "1.16rsg") {
-      sliceValue1 = 210;
-      sliceValue2 = 213;
-      parseAndCreateElements();
+      parseAndCreateElements(210,213);
     }
     if (selectedCat == "1.16ssg") {
-      sliceValue1 = 214;
-      sliceValue2 = 217;
-      parseAndCreateElements();
+      parseAndCreateElements(214,217);
     }
     if (selectedCat == "1.14rsg") {
-      sliceValue1 = 218;
-      sliceValue2 = 221;
-      parseAndCreateElements();
+      parseAndCreateElements(218,221);
     }
     if (selectedCat == "1.7rsg") {
-      sliceValue1 = 222;
-      sliceValue2 = 225;
-      parseAndCreateElements();
+      parseAndCreateElements(222,225);
     }
   }
   if (selectedState == "Paraíba") {
     if (selectedCat == "1.16rsg") {
-      sliceValue1 = 226;
-      sliceValue2 = 229;
-      parseAndCreateElements();
+      parseAndCreateElements(226,229);
     }
     if (selectedCat == "1.16ssg") {
-      sliceValue1 = 230;
-      sliceValue2 = 233;
-      parseAndCreateElements();
+      parseAndCreateElements(230,233);
     }
     if (selectedCat == "1.14rsg") {
-      sliceValue1 = 234;
-      sliceValue2 = 237;
-      parseAndCreateElements();
+      parseAndCreateElements(234,237);
     }
     if (selectedCat == "1.7rsg") {
-      sliceValue1 = 238;
-      sliceValue2 = 241;
-      parseAndCreateElements();
+      parseAndCreateElements(238,241);
     }
   }
   if (selectedState == "Rio Grande do Norte") {
     if (selectedCat == "1.16rsg") {
-      sliceValue1 = 242;
-      sliceValue2 = 245;
-      parseAndCreateElements();
+      parseAndCreateElements(242,245);
     }
     if (selectedCat == "1.16ssg") {
-      sliceValue1 = 246;
-      sliceValue2 = 249;
-      parseAndCreateElements();
+      parseAndCreateElements(246,249);
     }
     if (selectedCat == "1.14rsg") {
-      sliceValue1 = 250;
-      sliceValue2 = 253;
-      parseAndCreateElements();
+      parseAndCreateElements(250,253);
     }
     if (selectedCat == "1.7rsg") {
-      sliceValue1 = 254;
-      sliceValue2 = 257;
-      parseAndCreateElements();
+      parseAndCreateElements(254,257);
     }
   }
   if (selectedState == "Ceará") {
     if (selectedCat == "1.16rsg") {
-      sliceValue1 = 82;
-      sliceValue2 = 85;
-      parseAndCreateElements();
+      parseAndCreateElements(82,85);
     }
     if (selectedCat == "1.16ssg") {
-      sliceValue1 = 86;
-      sliceValue2 = 89;
-      parseAndCreateElements();
+      parseAndCreateElements(86,89);
     }
     if (selectedCat == "1.14rsg") {
-      sliceValue1 = 90;
-      sliceValue2 = 93;
-      parseAndCreateElements();
+      parseAndCreateElements(90,93);
     }
     if (selectedCat == "1.7rsg") {
-      sliceValue1 = 94;
-      sliceValue2 = 97;
-      parseAndCreateElements();
+      parseAndCreateElements(94,97);
     }
   }
   if (selectedState == "Piauí") {
     if (selectedCat == "1.16rsg") {
-      sliceValue1 = 82;
-      sliceValue2 = 85;
-      parseAndCreateElements();
+      parseAndCreateElements(82,85);
     }
     if (selectedCat == "1.16ssg") {
-      sliceValue1 = 86;
-      sliceValue2 = 89;
-      parseAndCreateElements();
+      parseAndCreateElements(86,89);
     }
     if (selectedCat == "1.14rsg") {
-      sliceValue1 = 90;
-      sliceValue2 = 93;
-      parseAndCreateElements();
+      parseAndCreateElements(90,93);
     }
     if (selectedCat == "1.7rsg") {
-      sliceValue1 = 94;
-      sliceValue2 = 97;
-      parseAndCreateElements();
+      parseAndCreateElements(94,97);
     }
   }
   if (selectedState == "Maranhão") {
     if (selectedCat == "1.16rsg") {
-      sliceValue1 = 82;
-      sliceValue2 = 85;
-      parseAndCreateElements();
+      parseAndCreateElements(82,85);
     }
     if (selectedCat == "1.16ssg") {
-      sliceValue1 = 86;
-      sliceValue2 = 89;
-      parseAndCreateElements();
+      parseAndCreateElements(86,89);
     }
     if (selectedCat == "1.14rsg") {
-      sliceValue1 = 90;
-      sliceValue2 = 93;
-      parseAndCreateElements();
+      parseAndCreateElements(90,93);
     }
     if (selectedCat == "1.7rsg") {
-      sliceValue1 = 94;
-      sliceValue2 = 97;
-      parseAndCreateElements();
+      parseAndCreateElements(94,97);
     }
   }
   if (selectedState == "Amapá") {
     if (selectedCat == "1.16rsg") {
-      sliceValue1 = 82;
-      sliceValue2 = 85;
-      parseAndCreateElements();
+      parseAndCreateElements(82,85);
     }
     if (selectedCat == "1.16ssg") {
-      sliceValue1 = 86;
-      sliceValue2 = 89;
-      parseAndCreateElements();
+      parseAndCreateElements(86,89);
     }
     if (selectedCat == "1.14rsg") {
-      sliceValue1 = 90;
-      sliceValue2 = 93;
-      parseAndCreateElements();
+      parseAndCreateElements(90,93);
     }
     if (selectedCat == "1.7rsg") {
-      sliceValue1 = 94;
-      sliceValue2 = 97;
-      parseAndCreateElements();
+      parseAndCreateElements(94,97);
     }
   }
   if (selectedState == "Roraima") {
     if (selectedCat == "1.16rsg") {
-      sliceValue1 = 82;
-      sliceValue2 = 85;
-      parseAndCreateElements();
+      parseAndCreateElements(82,85);
     }
     if (selectedCat == "1.16ssg") {
-      sliceValue1 = 86;
-      sliceValue2 = 89;
-      parseAndCreateElements();
+      parseAndCreateElements(86,89);
     }
     if (selectedCat == "1.14rsg") {
-      sliceValue1 = 90;
-      sliceValue2 = 93;
-      parseAndCreateElements();
+      parseAndCreateElements(90,93);
     }
     if (selectedCat == "1.7rsg") {
-      sliceValue1 = 94;
-      sliceValue2 = 97;
-      parseAndCreateElements();
+      parseAndCreateElements(94,97);
     }
   }
 }
