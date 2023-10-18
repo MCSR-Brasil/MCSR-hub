@@ -38,7 +38,6 @@ function generateDivWithValues(container, values) {
   
   let p2 = document.createElement('p');
   p2.textContent = values[2];
-  p2.href = 'https://example.com'; // Replace with your desired URL
 
   let iconElement = document.createElement('i');
   iconElement.classList.add('fa-solid', 'fa-arrow-up-right-from-square');
