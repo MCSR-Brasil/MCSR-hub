@@ -1,5 +1,5 @@
-let sliceValue1 = 0;
-let sliceValue2 = 3;
+setButtons("rsgBtn");
+document.getElementById("1.16Btn").style = "background-color: #666494"
 
 selectedCat = "1.16rsg"
 
@@ -82,21 +82,41 @@ function clearContainer(container) {
   }
 }
 
-// Add event listeners for different buttons to change slice values
+function setButtons(selectedButtonId) {
+  var buttons = ["ssgBtn", "rsgBtn", "1.16Btn", "1.14Btn", "1.7Btn"];
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i] === selectedButtonId) {
+      document.getElementById(buttons[i]).style.backgroundColor = "#666494";
+    } else {
+      document.getElementById(buttons[i]).style.backgroundColor = "";
+    }
+  }
+
+}
+
+
+
 document.getElementById("ssgBtn").addEventListener("click", function() {
-  selectedCat = "1.16ssg"
+
+  setButtons("ssgBtn");
+
+  selectedCat = "1.16ssg";
   if (selectedState != "none"){
     getState();
     document.getElementById("verDiv").style = "visibility: hidden;"
   } 
   else if (selectedState == "none"){
-    document.getElementById("verDiv").style = "visibility: hidden;"
-    
     parseAndCreateElements(13,17);
+    document.getElementById("verDiv").style = "visibility: hidden;"
   }
 });
 
 document.getElementById("rsgBtn").addEventListener("click", function() {
+
+  setButtons("rsgBtn");
+  document.getElementById("1.16Btn").style = "background-color: #666494"
+
   selectedCat = "1.16rsg"
 
   if (selectedState != "none"){
@@ -104,9 +124,8 @@ document.getElementById("rsgBtn").addEventListener("click", function() {
     document.getElementById("verDiv").style = "visibility: visible;"
   } 
   else if (selectedState == "none"){
-    document.getElementById("verDiv").style = "visibility: visible;"
-    
     parseAndCreateElements(0,4);
+    document.getElementById("verDiv").style = "visibility: visible;"
   }
 
 });
@@ -116,6 +135,10 @@ document.getElementById("outrasBtn").addEventListener("click", function() {
 });
 
 document.getElementById("1.7Btn").addEventListener("click", function() {
+
+  setButtons("rsgBtn");
+  document.getElementById("1.7Btn").style = "background-color: #666494"
+
   selectedCat = "1.7rsg"
   if (selectedState != "none"){
     getState();
@@ -127,6 +150,11 @@ document.getElementById("1.7Btn").addEventListener("click", function() {
 });
 
 document.getElementById("1.14Btn").addEventListener("click", function() {
+
+  setButtons("rsgBtn");
+  document.getElementById("1.14Btn").style = "background-color: #666494"
+
+
   selectedCat = "1.14rsg"
   if (selectedState != "none"){
     getState();
@@ -138,6 +166,9 @@ document.getElementById("1.14Btn").addEventListener("click", function() {
 });
 
 document.getElementById("1.16Btn").addEventListener("click", function() {
+  setButtons("rsgBtn");
+  document.getElementById("1.16Btn").style = "background-color: #666494"
+
   selectedCat = "1.16rsg"
 
   if (selectedState != "none"){
@@ -150,4 +181,4 @@ document.getElementById("1.16Btn").addEventListener("click", function() {
 });
 
 // Initial data load
-parseAndCreateElements();
+parseAndCreateElements(0,3);

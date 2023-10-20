@@ -3,8 +3,7 @@
 	height: 100%;
   }
 
-.test {
-	
+.run-container {
 	position: fixed;
 	font-size: 1.5vw;
 	z-index: 2;
@@ -54,7 +53,7 @@ body {
 }
 
 .ver-btn:hover {
-	background-color: #55537a;
+	background-color: #666494;
 }
 
 .cat-btn:hover {
@@ -72,6 +71,7 @@ body {
 	border-radius: 10px;
 	align-self: center;
 	width: 90%;
+	font-weight: bold;
 }
 
 
