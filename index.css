@@ -74,25 +74,14 @@ body {
 	font-weight: bold;
 }
 
-
-.test2 {
-	width: 100%;
-}
-
 .times {
 	white-space: nowrap; 
 	overflow-y: auto;
 }
 
-
-
-
 ::-webkit-scrollbar {
 	width: 6px;
   }
-
-
-  
 
 ::-webkit-scrollbar-track {
 	background: #f1f1f1;
