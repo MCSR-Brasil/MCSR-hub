@@ -70,6 +70,11 @@ body {
     font-size: 2.5vmin;
 }
 
+.text-3 {
+    font-size: 2.2vmin;
+    
+}
+
 .vertical-line { 
     width: 0px; 
     border-left: 3px solid #ffffff; 
@@ -98,6 +103,10 @@ body {
 
 .see-more:hover {
     background-color: rgba(255, 255, 255, 0.322);
+}
+
+.see-more-text {
+    display: none;
 }
 
 .circle-icon {
