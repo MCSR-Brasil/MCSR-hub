@@ -53,7 +53,7 @@ function generateDivWithValues(container, values) {
 }
 
 function parseAndCreateElements(slice1, slice2) {
-  Papa.parse("tabela.csv", {
+  Papa.parse("./scripts/tabela.csv", {
     download: true,
     header: false,
     complete: function(results) {
