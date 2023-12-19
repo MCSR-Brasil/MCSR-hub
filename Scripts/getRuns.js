@@ -58,12 +58,12 @@ function parseAndCreateElements(slice1, slice2) {
     header: false,
     complete: function(results) {
 
-      let data = results.data.slice(0, 100); // Get data from A1 to C100
+      let data = results.data.slice(0, 100); //primeiras 100 linhas
 
       let divContainer = document.getElementById('tbl-data');
-      clearContainer(divContainer); // Clear existing elements
+      clearContainer(divContainer); // limpa a div
 
-      generateDivWithClasses(divContainer, data[0].slice(slice1, slice2));
+      generateDivWithClasses(divContainer, data[0].slice(slice1, slice2)); //corta as colunas que quer
 
       for (let i = 1; i < data.length; i++) {
         let rowData = data[i].slice(slice1, slice2);

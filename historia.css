@@ -57,8 +57,13 @@ body {
 }
 
 .run-outside-link{
+    padding-left: 20px;
     padding-top: 7vh;
     font-size: 3vmin;
+}
+
+.run-outside-link:hover{
+    cursor: pointer;
 }
 
 
@@ -88,16 +93,17 @@ body {
     padding-right: 220px;
     padding-left: 20px;
     line-height: 15px;
-    font-size: 3vmin;
+    font-size: 25px;
     font-weight: bold;
 }
 
 .see-more {
+    width: fit-content;
     background-color: rgba(255, 255, 255, 0.205);
     padding: 0.7vb;
     border-radius: 5px;
     margin-left: 10px;
-    font-size: medium;
+    font-size: 2.2vmin;
     color: aliceblue;
 }
 

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="./Scripts/papaparse.min.js"></script>
     <meta charset="UTF-8">
     <script src="https://kit.fontawesome.com/d1724c4f06.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
@@ -9,99 +10,9 @@
     <title>Rbs passados</title>
 </head>
 <body>
-    <div class="main-container">
+    <div class="main-container" id="main-container">
 
-        <div class="run-container d-flex justify-content-around">
-            <div class="run-circle-indicator">
-                <div class="d-flex justify-content-center">
-                    <p class="test">2020.01.04</p>
-                    <i class="fa-solid fa-circle circle-icon"></i>
-                </div>
-                <div class="vertical-line"></div> 
-            </div>
-            <div class="run">
-                <div class="runinfo-container">
-                    <h2 class="run-date"></h2>
-                    <div class="run-info text-1">
-                        <p><span style="color: red;"><b>Matheusrodf</b></span> conseguiu um novo recorde de <b>01h 56m 48s</b>!</p>
-                        <div class="run-desc-container">
-                            <p class="text-3 run-desc">O record durou <b>1</b> dia e melhorou ele em <b>Tudo</b> <button class="btn see-more" id="seeMoreBtn" onclick="toggleSeeMore(this)">Ver mais</button></p>
-                            <p class="see-more-text text-3" style="display: none;">Essa foi a primeira run de RSG brasileira a ser postada no speedrun.comEssa foi a primeira run de RSG brasileira a ser postada no speedrun.comEssa foi a primeira run de RSG brasileira a ser postada no speedrun.comEssa foi a primeira run de RSG brasileira a ser postada no speedrun.comEssa foi a primeira run de RSG brasileira a ser postada no speedrun.com</p>
-                        </div>         
-                    </div>
-                </div>   
-            </div>
-            <div class="run-outside-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
-        </div>
-    
-
-        <div class="run-container d-flex justify-content-around">
-            <div class="run-circle-indicator">
-                <div class="d-flex justify-content-center">
-                    <p class="test">2020.01.04</p>
-                    <i class="fa-solid fa-circle circle-icon"></i>
-                </div>
-                <div class="vertical-line"></div> 
-            </div>
-            <div class="run">
-                <div class="runinfo-container">
-                    <h2 class="run-date"></h2>
-                    <div class="run-info text-1">
-                        <p><span style="color: red;"><b>Matheusrodf</b></span> conseguiu um novo recorde de <b>01h 56m 48s</b>!</p>
-                        <div class="run-desc-container">
-                            <p class="text-3 run-desc">O record durou <b>1</b> dia e melhorou ele em <b>Tudo</b> <button class="btn see-more" id="seeMoreBtn" onclick="toggleSeeMore(this)">Ver mais</button></p>
-                            <p class="see-more-text text-3" style="display: none;">Essa foi a primeira run de RSG brasileira a ser postada no speedrun.comEssa foi a primeira run de RSG brasileira a ser postada no speedrun.comEssa foi a primeira run de RSG brasileira a ser postada no speedrun.comEssa foi a primeira run de RSG brasileira a ser postada no speedrun.comEssa foi a primeira run de RSG brasileira a ser postada no speedrun.com</p>
-                        </div>         
-                    </div>
-                </div>   
-            </div>
-            <div class="run-outside-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
-        </div>
-
-        <div class="run-container d-flex justify-content-around">
-            <div class="run-circle-indicator">
-                <div class="d-flex justify-content-center">
-                    <p class="test">2020.01.04</p>
-                    <i class="fa-solid fa-circle circle-icon"></i>
-                </div>
-                <div class="vertical-line"></div> 
-            </div>
-            <div class="run">
-                <div class="runinfo-container">
-                    <h2 class="run-date"></h2>
-                    <div class="run-info text-1">
-                        <p><span style="color: red;"><b>Matheusrodf</b></span> conseguiu um novo recorde de <b>01h 56m 48s</b>!</p>
-                        <div class="run-desc-container">
-                            <p class="text-3 run-desc">O record durou <b>1</b> dia e melhorou ele em <b>Tudo</b> <button class="btn see-more" id="seeMoreBtn" onclick="toggleSeeMore(this)">Ver mais</button></p>
-                            <p class="see-more-text text-3" style="display: none;">Essa foi a primeira run de RSG brasileira a ser postada no speedrun.comEssa foi a primeira run de RSG brasileira a ser postada no speedrun.comEssa foi a primeira run de RSG brasileira a ser postada no speedrun.comEssa foi a primeira run de RSG brasileira a ser postada no speedrun.comEssa foi a primeira run de RSG brasileira a ser postada no speedrun.com</p>
-                        </div>         
-                    </div>
-                </div>   
-            </div>
-            <div class="run-outside-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
-        </div>
-
-        <div class="run-container d-flex justify-content-around">
-            <div class="run-circle-indicator">
-                <div class="d-flex justify-content-center">
-                    <p class="test">2020.01.04</p>
-                    <i class="fa-solid fa-circle circle-icon"></i>
-                </div>
-                <div class="vertical-line"></div> 
-            </div>
-            <div class="run">
-                <div class="runinfo-container">
-                    <h2 class="run-date"></h2>
-                    <div class="run-info text-1">
-                        <p><span style="color: red;"><b>Matheusrodf</b></span> conseguiu um novo recorde de <b>01h 56m 48s</b>!</p>
-                        <div class="run-desc-container">
-                            <p class="text-3 run-desc">O record durou <b>1</b> dia e melhorou ele em <b>Tudo</b> <button class="btn see-more" id="seeMoreBtn" onclick="toggleSeeMore(this)">Ver mais</button></p>
-                            <p class="see-more-text text-3" style="display: none;">Essa foi a primeira run de RSG brasileira a ser postada no speedrun.comEssa foi a primeira run de RSG brasileira a ser postada no speedrun.comEssa foi a primeira run de RSG brasileira a ser postada no speedrun.comEssa foi a primeira run de RSG brasileira a ser postada no speedrun.comEssa foi a primeira run de RSG brasileira a ser postada no speedrun.com</p>
-                        </div>         
-                    </div>
-                </div>   
-            </div>
-            <div class="run-outside-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+        
         </div>
 
         
