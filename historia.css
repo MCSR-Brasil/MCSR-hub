@@ -69,10 +69,12 @@ body {
 
 .text-1 {
     font-size: 3vmin;
+    color: #ffffff;
 }
 
 .text-2 {
     font-size: 2.5vmin;
+    color: #ffffff;
 }
 
 .text-3 {
@@ -117,4 +119,20 @@ body {
 
 .circle-icon {
     scale: 200%;
+}
+
+
+.title {
+    color: white;
+    text-align: center;
+    font-weight: bolder;
+    padding: 5px;
+    font-size: 13vmin;
+}
+
+.title-container {
+    text-align: center;
+    padding: 5vmin 15vmin;
+    background-color: rgba(45, 57, 105, 0.315);
+    width: 100%;
 }
