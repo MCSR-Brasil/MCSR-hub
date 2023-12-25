@@ -109,6 +109,8 @@ body {
 	border: none;
 	color: aliceblue;
 	border-radius: 6px;
+	line-height: 4.5vh;
+
 }
 
 .brasilBtn:hover {
