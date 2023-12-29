@@ -1,0 +1,40 @@
+.button-container {
+    display: flex;
+    align-items: center; /* Horizontal alignment */
+    justify-content: center; /* Vertical alignment */
+    height: 100vh; /* Adjust height as needed */
+    width: 60vw;
+    flex-wrap: wrap;
+}
+
+.button-wrapper {
+    display: flex;
+    flex-direction: column; /* Align buttons vertically */
+    align-items: center; /* Horizontal alignment */
+    justify-content: center; /* Vertical alignment */
+    height: 100%; /* Occupy full height of the container */
+}
+
+.button-container button  {
+    width: 40vmin;
+    height: 35vmin;
+    margin-inline: 20px;
+    background-color: rgb(49, 49, 49);
+    border-radius: 10px;
+    border: none;
+}
+
+.button-container p {
+    color: rgb(255, 255, 255);
+}
+
+.button-container button:hover  {
+    margin-inline: 20px;
+    background-color: rgb(68, 68, 68);
+
+}
+
+.button-text {
+    font-size: calc(30px + 0.390625vw);
+    font-weight: bold;
+}
