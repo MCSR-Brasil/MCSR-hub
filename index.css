@@ -1,31 +1,44 @@
 .button-container {
     display: flex;
-    align-items: center; /* Horizontal alignment */
-    justify-content: center; /* Vertical alignment */
-    height: 100vh; /* Adjust height as needed */
+    align-items: center; 
+    justify-content: center; 
+    height: 100vh; 
     width: 60vw;
-    flex-wrap: wrap;
+    flex-wrap:wrap;
+   
 }
 
 .button-wrapper {
     display: flex;
-    flex-direction: column; /* Align buttons vertically */
-    align-items: center; /* Horizontal alignment */
-    justify-content: center; /* Vertical alignment */
-    height: 100%; /* Occupy full height of the container */
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center;
+    height: 100%; 
 }
+
+
+
 
 .button-container button  {
     width: 40vmin;
     height: 35vmin;
     margin-inline: 20px;
-    background-color: rgb(49, 49, 49);
+    background: rgb(49, 49, 49) url(./images/goldingot.png) 10px 10px no-repeat;
+    background-size: 50%;
+    background-position: bottom;
     border-radius: 10px;
     border: none;
 }
 
+
+/* Nao funciona com monitar ultra wide */
+.button-container button:nth-child(n+3) {
+    margin-top: -150px; 
+}
+
 .button-container p {
     color: rgb(255, 255, 255);
+    vertical-align: auto;
 }
 
 .button-container button:hover  {
@@ -34,7 +47,33 @@
 
 }
 
+
+
+
 .button-text {
     font-size: calc(30px + 0.390625vw);
     font-weight: bold;
+}
+
+.index-title {
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    color: aliceblue;
+    font-size: 7vmin;
+    font-weight: bold;
+}
+
+
+.index-image {
+ 
+   width: 11vw;
+   height: 20vh;
+    
+}
+
+.spacer {
+    height: 8vw;
+    width: 8vw;
+
 }
