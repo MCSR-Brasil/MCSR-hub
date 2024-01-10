@@ -1,3 +1,14 @@
+/* 
+
+fazer o 2x2 funcionar melhor
+fazer o 1x4 no mobile funcionar
+fazer as fontes serem mais dinamicas
+
+
+*/
+
+
+/* Containers dos botoes principais 2x2 */
 .button-container {
     display: flex;
     align-items: center; 
@@ -7,7 +18,6 @@
     flex-wrap:wrap;
    
 }
-
 .button-wrapper {
     display: flex;
     flex-direction: column; 
@@ -18,7 +28,7 @@
 
 
 
-
+/*  Todos os botos individuais */
 .button-container button  {
     width: 40vmin;
     height: 35vmin;
@@ -28,6 +38,7 @@
 }
 
 
+/* Cada botao tem sua imagem background e hover event */
 .button-container button#brRankingButton  {
     background: rgb(49, 49, 49) url(./images/goldingot.png) 10px 10px no-repeat;
     background-position: bottom;
@@ -51,8 +62,6 @@
     background-color: rgb(104, 104, 104);
 
 }
-
-
 
 
 
@@ -83,26 +92,29 @@
 
 
 
-/* Nao funciona com monitar ultra wide */
+
+
+
+/* o 2x2 sem essa linha tem um espaco bizarro entre linhas, isso aqui diminui ele */
+/* Nao funciona com monitor ultra wide */
 .button-container button:nth-child(n+3) {
     margin-top: -150px; 
 }
 
+
+
+/* texto do botao */
 .button-container p {
     color: rgb(255, 255, 255);
     vertical-align: auto;
 }
 
-
-
-
-
-
+/* texto do botao */
 .button-text {
     font-size: calc(30px + 0.390625vw);
     font-weight: bold;
 }
-
+/* titulo */
 .index-title {
     text-align: center;
     width: 100%;
@@ -112,14 +124,7 @@
     font-weight: bold;
 }
 
-
-.index-image {
- 
-   width: 11vw;
-   height: 20vh;
-    
-}
-
+/* div para dar um espaco entre elementos*/
 .spacer {
     height: 8vw;
     width: 8vw;
