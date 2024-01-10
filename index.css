@@ -23,12 +23,64 @@
     width: 40vmin;
     height: 35vmin;
     margin-inline: 20px;
-    background: rgb(49, 49, 49) url(./images/goldingot.png) 10px 10px no-repeat;
-    background-size: 50%;
-    background-position: bottom;
     border-radius: 10px;
     border: none;
 }
+
+
+.button-container button#brRankingButton  {
+    background: rgb(49, 49, 49) url(./images/goldingot.png) 10px 10px no-repeat;
+    background-position: bottom;
+    background-size: 50%;
+}
+.button-container button#brRankingButton:hover  {
+    margin-inline: 20px;
+    background-color: rgb(104, 104, 104);
+
+}
+
+
+
+.button-container button#estadosRankingButton  {
+    background: rgb(49, 49, 49) url(./images/estados.png) 10px 10px no-repeat;
+    background-position: bottom;
+    background-size: 35%;
+}
+.button-container button#estadosRankingButton:hover  {
+    margin-inline: 20px;
+    background-color: rgb(104, 104, 104);
+
+}
+
+
+
+
+
+.button-container button#rankedRankingButton  {
+    background: rgb(49, 49, 49) url(./images/ranked.png) 10px 10px no-repeat;
+    background-position: bottom;
+    background-size: 50%;
+}
+.button-container button#rankedRankingButton:hover  {
+    margin-inline: 20px;
+    background-color: rgb(104, 104, 104);
+
+}
+
+
+
+.button-container button#recursosButton  {
+    background: rgb(49, 49, 49) url(./images/recursos.png) 10px 10px no-repeat;
+    background-position: bottom;
+    background-size: 50%;
+    
+}
+.button-container button#recursosButton:hover  {
+    margin-inline: 20px;
+    background-color: rgb(104, 104, 104);
+
+}
+
 
 
 /* Nao funciona com monitar ultra wide */
@@ -41,11 +93,7 @@
     vertical-align: auto;
 }
 
-.button-container button:hover  {
-    margin-inline: 20px;
-    background-color: rgb(68, 68, 68);
 
-}
 
 
 
@@ -60,7 +108,7 @@
     width: 100%;
     position: absolute;
     color: aliceblue;
-    font-size: 7vmin;
+    font-size: 9vmin;
     font-weight: bold;
 }
 
