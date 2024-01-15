@@ -120,7 +120,7 @@ body {
 .back-button {
 	font-size: calc(15px + 0.390625vw);
 	margin-top: 6px;
-    width: 7vw;
+    	width: 7vw;
 	height: 3.5vw;
 	border: none;
 	background-color: #5b799b;
