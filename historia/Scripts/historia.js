@@ -18,7 +18,7 @@ function toggleSeeMore(button) {
 }
 
 function parseAndCreateElements(slice1, slice2) {
-    Papa.parse("./Scripts/Mcsr.csv", {
+    Papa.parse("./Scripts/mcsr.csv", {
       download: true,
       header: false,
       complete: function(results) {
