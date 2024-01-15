@@ -19,6 +19,7 @@ body {
 }
 
 .Title {
+	padding-top: 50px;
 	font-size: 2.5vw;
 	font-weight: bold;
 	text-align: center;
@@ -118,17 +119,17 @@ body {
 }
 
 .back-button {
-	font-size: calc(15px + 0.390625vw);
+	font-size: calc(10px + 0.390625vw);
 	margin-top: 6px;
-    width: 7vw;
-	height: 3.5vw;
+    width: 5vw;
+	height: 2.5vw;
 	border: none;
 	background-color: #5b799b;
 	color: white;
 	border-radius: 5px;
 	font-weight: bold;
 	position: absolute;
-	margin-right: 20vw;
+	margin-right: 23vw;
 
 }
 
