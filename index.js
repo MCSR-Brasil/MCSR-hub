@@ -9,3 +9,7 @@ document.getElementById('estadosRankingButton').addEventListener('click', () => 
 document.getElementById('rankedRankingButton').addEventListener('click', () => {
     location.href = "https://brazilian-mcsr-ranked-leaderboard.vercel.app/leaderboard";
 });
+
+document.getElementById('recursosButton').addEventListener('click', () => {
+    location.href = "recursos/recursos.html";
+});
