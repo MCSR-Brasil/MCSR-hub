@@ -29,7 +29,7 @@ fazer as fontes serem mais dinamicas
 
 
 /*  Todos os botos individuais */
-.button-container button  {
+.button-container-button  {
     width: 40vmin;
     height: 35vmin;
     margin-inline: 20px;
@@ -39,6 +39,20 @@ fazer as fontes serem mais dinamicas
 
 
 /* Cada botao tem sua imagem background e hover event */
+.button-container button#normalButton  {
+    background: rgb(49, 49, 49);
+    background-position: bottom;
+    background-size: 50%;
+}
+
+.button-container button#normalButton:hover  {
+    background-color: rgb(104, 104, 104);
+    background-position: bottom;
+    background-size: 50%;
+}
+
+
+
 .button-container button#brRankingButton  {
     background: rgb(49, 49, 49) url(./images/goldingot.png) 10px 10px no-repeat;
     background-position: bottom;
@@ -104,16 +118,35 @@ fazer as fontes serem mais dinamicas
 
 
 /* texto do botao */
-.button-container p {
-    color: rgb(255, 255, 255);
-    vertical-align: auto;
-}
 
 /* texto do botao */
 .button-text {
     font-size: calc(30px + 0.390625vw);
     font-weight: bold;
+    vertical-align: auto;
+    color: rgb(255, 255, 255);
+    vertical-align: auto;
 }
+
+.small-button-text {
+    font-size: calc(30px + 0.390625vw);
+    font-weight: bold;
+    vertical-align: auto;
+    color: rgb(255, 255, 255);
+    line-height: 3.5vw;
+}
+
+.small-button-container-button {
+    width: 83vmin;
+    height: 8vmin;
+    margin-inline: 20px;
+    border-radius: 10px;
+    border: none;
+    position: fixed;
+   bottom: 1%;
+}
+
+
 /* titulo */
 .index-title {
     text-align: center;

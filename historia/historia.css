@@ -161,3 +161,19 @@ body {
 }
 
 
+.back-button {
+	font-size: calc(10px + 0.390625vw);
+    width: 5vw;
+	height: 2.5vw;
+	border: none;
+	background-color: #5b799b;
+	color: white;
+	border-radius: 5px;
+	font-weight: bold;
+
+
+}
+
+.back-button:hover {
+	background-color: #6f90b3;
+}

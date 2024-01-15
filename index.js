@@ -13,3 +13,7 @@ document.getElementById('rankedRankingButton').addEventListener('click', () => {
 document.getElementById('recursosButton').addEventListener('click', () => {
     location.href = "recursos/recursos.html";
 });
+
+document.getElementById('normalButton').addEventListener('click', () => {
+    location.href = "historia/historia.html";
+});
