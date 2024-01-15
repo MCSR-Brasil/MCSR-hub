@@ -1,5 +1,5 @@
 document.getElementById('brRankingButton').addEventListener('click', () => {
-    location.href = "https://docs.google.com/spreadsheets/d/1ovMyHrmk0J4BumPygSigTScmt7T-saKqaHrPCjSQG-Y/edit?usp=sharing";
+    location.href = "BrasilRanking/brRanking.html";
 });
 
 document.getElementById('estadosRankingButton').addEventListener('click', () => {

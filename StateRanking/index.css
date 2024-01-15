@@ -116,3 +116,26 @@ body {
 .brasilBtn:hover {
 	background-color: #297021;
 }
+
+.back-button {
+	font-size: calc(15px + 0.390625vw);
+	margin-top: 6px;
+    width: 7vw;
+	height: 3.5vw;
+	border: none;
+	background-color: #5b799b;
+	color: white;
+	border-radius: 5px;
+	font-weight: bold;
+	position: absolute;
+	margin-right: 20vw;
+
+}
+
+.back-button:hover {
+	background-color: #6f90b3;
+}
+
+.spacer {
+    width: 6vw;
+}

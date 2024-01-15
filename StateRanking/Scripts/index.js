@@ -1,6 +1,10 @@
 stateColors = ["#038ba6", "#02b087", "#4da302", "#99b002", "#b07602", "#ad5a02", "#b02c00", "#b00202", "#6e011a"]
 selectedState = "none"
 
+
+document.getElementById("backBtn").addEventListener("click", () => {
+  location.href = "../index.html";
+})
 am4core.ready(function () {
     var chart = am4core.create("chartdiv", am4maps.MapChart);
     chart.hiddenState.properties.opacity = 0;
