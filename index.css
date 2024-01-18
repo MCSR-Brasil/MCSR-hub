@@ -11,29 +11,72 @@ fazer as fontes serem mais dinamicas
 /* Containers dos botoes principais 2x2 */
 .button-container {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
-    flex-direction: row;
-    min-height: 100%;
-    width: 50%;
-   
+    justify-content: center;
+    gap: 10px;
+    width: 55%;
 }
+
+
+
+
+@media (max-width: 1200px) {
+    .button-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        width: 70%;
+    }
+}
+
+@media (max-width: 1000px) {
+    .button-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        width: 80%;
+    }
+}
+
 
 
 /*  Todos os botos individuais */
 .button-container-button  {
-    float: left;
-    width: 50%;
-    background: #fff;
-    color: #ccc;
+    
+    flex: 0 0 calc(50% - 10px);
+    max-width: calc(50% - 10px);
+    min-width: 40%;
+
     text-align: center;  
     height: 50%;
     font-size: 50vmin;
-    font-family: helvetica;
+    
     border: none;
     border-radius: 10px;
+
+    display: flex;
+    flex-basis: calc(45% - 10px);
+    justify-content: center;
+    flex-direction: column;
+
+    margin: 20px auto;
+    margin-inline: 20px;
+  
+    height: 40vh;
+
 }
 
+@media (max-width: 800px) {
+    .button-container-button {
+        flex: 0 0 100%; /* Make buttons take full width on small screens */
+        min-width: 300px;
+    }
+    body {
+        height: 100vh;
+    }
+}
 
 /* Cada botao tem sua imagem background e hover event */
 .button-container button#normalButton  {
@@ -89,7 +132,7 @@ fazer as fontes serem mais dinamicas
 .button-container button#recursosButton  {
     background: rgb(49, 49, 49) url(./images/recursos.png) 10px 10px no-repeat;
     background-position: bottom;
-    background-size: 50%;
+    background-size: 40%;
     
 }
 .button-container button#recursosButton:hover  {
@@ -105,33 +148,12 @@ fazer as fontes serem mais dinamicas
 .button-text {
     font-size: calc(30px + 0.390625vw);
     font-weight: bold;
-    vertical-align: auto;
-    padding-bottom: 100px;
+    padding-bottom: 120px;
     color: rgb(255, 255, 255);
-    min-width: 0;
+    text-align: center;
 }
 
-.flex-grid {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  flex-direction: row;
-  min-height: 100%;
-  width: 50%;
-}
 
-.grid-item {
-  display: flex;
-  flex-basis: calc(45% - 10px);
-  justify-content: center;
-  flex-direction: column;
-  margin: 20px auto;
-  margin-inline: 20px;
-  max-width: 70vmin;
-  min-width: 40vmin;
-  height: 40vh;
-  background: #d7d7d7;
-}
 
 .grid-item h3 {
   font-size: 30px;
@@ -142,9 +164,8 @@ fazer as fontes serem mais dinamicas
 .center-grid {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
-    flex-direction: row;
-    min-height: 100%;
+    align-items: center;
+    min-height: 100vh; /* Use min-height instead of height */
     
 }
 
