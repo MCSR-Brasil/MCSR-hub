@@ -11,30 +11,27 @@ fazer as fontes serem mais dinamicas
 /* Containers dos botoes principais 2x2 */
 .button-container {
     display: flex;
-    align-items: center; 
-    justify-content: center; 
-    height: 100vh; 
-    width: 60vw;
-    flex-wrap:wrap;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    min-height: 100%;
+    width: 50%;
    
 }
-.button-wrapper {
-    display: flex;
-    flex-direction: column; 
-    align-items: center; 
-    justify-content: center;
-    height: 100%; 
-}
-
 
 
 /*  Todos os botos individuais */
 .button-container-button  {
-    width: 40vmin;
-    height: 35vmin;
-    margin-inline: 20px;
-    border-radius: 10px;
+    float: left;
+    width: 50%;
+    background: #fff;
+    color: #ccc;
+    text-align: center;  
+    height: 50%;
+    font-size: 50vmin;
+    font-family: helvetica;
     border: none;
+    border-radius: 10px;
 }
 
 
@@ -59,7 +56,6 @@ fazer as fontes serem mais dinamicas
     background-size: 50%;
 }
 .button-container button#brRankingButton:hover  {
-    margin-inline: 20px;
     background-color: rgb(104, 104, 104);
 
 }
@@ -72,7 +68,6 @@ fazer as fontes serem mais dinamicas
     background-size: 35%;
 }
 .button-container button#estadosRankingButton:hover  {
-    margin-inline: 20px;
     background-color: rgb(104, 104, 104);
 
 }
@@ -85,7 +80,6 @@ fazer as fontes serem mais dinamicas
     background-size: 50%;
 }
 .button-container button#rankedRankingButton:hover  {
-    margin-inline: 20px;
     background-color: rgb(104, 104, 104);
 
 }
@@ -99,20 +93,8 @@ fazer as fontes serem mais dinamicas
     
 }
 .button-container button#recursosButton:hover  {
-    margin-inline: 20px;
     background-color: rgb(104, 104, 104);
 
-}
-
-
-
-
-
-
-/* o 2x2 sem essa linha tem um espaco bizarro entre linhas, isso aqui diminui ele */
-/* Nao funciona com monitor ultra wide */
-.button-container button:nth-child(n+3) {
-    margin-top: -150px; 
 }
 
 
@@ -124,42 +106,47 @@ fazer as fontes serem mais dinamicas
     font-size: calc(30px + 0.390625vw);
     font-weight: bold;
     vertical-align: auto;
+    padding-bottom: 100px;
     color: rgb(255, 255, 255);
-    vertical-align: auto;
+    min-width: 0;
 }
 
-.small-button-text {
-    font-size: calc(30px + 0.390625vw);
-    font-weight: bold;
-    vertical-align: auto;
-    color: rgb(255, 255, 255);
-    line-height: 3.5vw;
+.flex-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  min-height: 100%;
+  width: 50%;
 }
 
-.small-button-container-button {
-    width: 83vmin;
-    height: 8vmin;
-    margin-inline: 20px;
-    border-radius: 10px;
-    border: none;
-    position: fixed;
-   bottom: 1%;
+.grid-item {
+  display: flex;
+  flex-basis: calc(45% - 10px);
+  justify-content: center;
+  flex-direction: column;
+  margin: 20px auto;
+  margin-inline: 20px;
+  max-width: 70vmin;
+  min-width: 40vmin;
+  height: 40vh;
+  background: #d7d7d7;
+}
+
+.grid-item h3 {
+  font-size: 30px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+.center-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    min-height: 100%;
+    
 }
 
 
-/* titulo */
-.index-title {
-    text-align: center;
-    width: 100%;
-    position: absolute;
-    color: aliceblue;
-    font-size: 9vmin;
-    font-weight: bold;
-}
-
-/* div para dar um espaco entre elementos*/
-.spacer {
-    height: 8vw;
-    width: 8vw;
-
-}
+  
