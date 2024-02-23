@@ -1,3 +1,4 @@
-document.getElementById("test").addEventListener('click', () => {
+document.getElementById("back-button").addEventListener('click', () => {    
     location.href = "../index.html";
 })
+
