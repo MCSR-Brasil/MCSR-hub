@@ -32,9 +32,7 @@ function parseAndCreateElements(slice1, slice2) {
         let data = results.data.slice(0, 100); //primeiras 100 linhas
   
         let divContainer = document.getElementById('main-container');
-        //clearContainer(divContainer); // limpa a div
   
-       // generateDivWithClasses(divContainer, data[0].slice(slice1, slice2)); //corta as colunas que quer
   
         for (let i = 1; i < data.length; i++) {
           let rowData = data[i].slice(slice1, slice2);

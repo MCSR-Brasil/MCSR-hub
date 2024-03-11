@@ -1,3 +1,12 @@
+/* 
+Refazer o jeito que as states sao armazenadas, porque qualquer mudanca no arquivo que nao foi eu quebra tudo
+E refazer o script de getStates.js e principalmente o getRuns.js
+Tentar usar uma database real, ou so refazer o CSV
+
+*/
+
+//NAO MUDE NADA
+
 function getState() {
   if (selectedState == "none") {
     if (selectedCat == "1.16rsg") {

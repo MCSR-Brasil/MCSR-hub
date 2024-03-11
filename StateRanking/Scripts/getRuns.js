@@ -1,3 +1,11 @@
+/* 
+Refazer o jeito que as runs sao armazenadas, porque qualquer mudanca no arquivo que nao foi eu quebra tudo
+E refazer o script de getRuns.js e principalmente o getState.js
+Tentar usar uma database real, ou so refazer o CSV
+
+*/
+
+
 setButtons("rsgBtn");
 document.getElementById("1.16Btn").style = "background-color: #666494"
 
@@ -180,5 +188,4 @@ document.getElementById("1.16Btn").addEventListener("click", function() {
 
 });
 
-// Initial data load
 parseAndCreateElements(0,3);

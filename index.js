@@ -17,3 +17,5 @@ document.getElementById('recursosButton').addEventListener('click', () => {
 document.getElementById('normalButton').addEventListener('click', () => {
     location.href = "historia/historia.html";
 });
+
+//i gotta delete this
