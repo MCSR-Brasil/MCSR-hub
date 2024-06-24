@@ -9,6 +9,13 @@ fazer as fontes serem mais dinamicas
 
 
 /* Containers dos botoes principais 2x2 */
+
+a {
+ 
+}
+
+
+
 .button-container {
     display: flex;
     flex-wrap: wrap;
@@ -79,63 +86,56 @@ fazer as fontes serem mais dinamicas
 }
 
 /* Cada botao tem sua imagem background e hover event */
-.button-container button#normalButton  {
-    background: rgb(49, 49, 49);
-    background-position: bottom;
-    background-size: 50%;
-}
-
-.button-container button#normalButton:hover  {
-    background-color: rgb(104, 104, 104);
-    background-position: bottom;
-    background-size: 50%;
+.button-container a  {
+    text-decoration: none;
 }
 
 
 
-.button-container button#brRankingButton  {
+.button-container a#brRankingButton  {
     background: rgb(49, 49, 49) url(./images/goldingot.png) 10px 10px no-repeat;
     background-position: bottom;
     background-size: 50%;
+    
 }
-.button-container button#brRankingButton:hover  {
+.button-container a#brRankingButton:hover  {
     background-color: rgb(104, 104, 104);
 
 }
 
 
 
-.button-container button#estadosRankingButton  {
+.button-container a#estadosRankingButton  {
     background: rgb(49, 49, 49) url(./images/estados.png) 10px 10px no-repeat;
     background-position: bottom;
     background-size: 35%;
 }
-.button-container button#estadosRankingButton:hover  {
+.button-container a#estadosRankingButton:hover  {
     background-color: rgb(104, 104, 104);
 
 }
 
 
 
-.button-container button#rankedRankingButton  {
+.button-container a#rankedRankingButton  {
     background: rgb(49, 49, 49) url(./images/ranked.png) 10px 10px no-repeat;
     background-position: bottom;
     background-size: 50%;
 }
-.button-container button#rankedRankingButton:hover  {
+.button-container a#rankedRankingButton:hover  {
     background-color: rgb(104, 104, 104);
 
 }
 
 
 
-.button-container button#recursosButton  {
+.button-container a#recursosButton  {
     background: rgb(49, 49, 49) url(./images/recursos.png) 10px 10px no-repeat;
     background-position: bottom;
     background-size: 40%;
     
 }
-.button-container button#recursosButton:hover  {
+.button-container a#recursosButton:hover  {
     background-color: rgb(104, 104, 104);
 
 }

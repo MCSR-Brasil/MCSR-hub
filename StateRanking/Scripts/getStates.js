@@ -1,11 +1,23 @@
-/* 
-Refazer o jeito que as states sao armazenadas, porque qualquer mudanca no arquivo que nao foi eu quebra tudo
-E refazer o script de getStates.js e principalmente o getRuns.js
-Tentar usar uma database real, ou so refazer o CSV
-
-*/
-
-//NAO MUDE NADA
+const stateCategoryMapping = {
+  "none": {
+    "1.16rsg": [0, 4],
+    "1.16ssg": [13, 17],
+    "1.14rsg": [5, 8],
+    "1.7rsg": [9, 12]
+  },
+  "Rio Grande do Sul": {
+    "1.16rsg": [17, 20],
+    "1.16ssg": [22, 25],
+    "1.14rsg": [26, 29],
+    "1.7rsg": [30, 33]
+  },
+  "Santa Catarina": {
+    "1.16rsg": [34, 37],
+    "1.16ssg": [38, 41],
+    "1.14rsg": [42, 45],
+    "1.7rsg": [46, 49]
+  }
+};
 
 function getState() {
   if (selectedState == "none") {
