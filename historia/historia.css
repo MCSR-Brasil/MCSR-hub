@@ -162,8 +162,11 @@ body {
 }
 
 
+
+
 .back-button {
 	font-size: calc(10px + 0.390625vw);
+	margin-top: 6px;
     width: 5vw;
 	height: 2.5vw;
 	border: none;
@@ -171,7 +174,7 @@ body {
 	color: white;
 	border-radius: 5px;
 	font-weight: bold;
-
+    margin-left: 10px;
 
 }
 
