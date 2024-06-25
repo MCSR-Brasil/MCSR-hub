@@ -1,15 +1,7 @@
-/* 
-Refazer o jeito que as runs sao armazenadas, porque qualquer mudanca no arquivo que nao foi eu quebra tudo
-E refazer o script de getRuns.js e principalmente o getState.js
-Tentar usar uma database real, ou so refazer o CSV
-
-*/
-
-
-setButtons("rsgBtn");
+setCatButton("rsgBtn");
 document.getElementById("1.16Btn").style = "background-color: #666494"
-
 selectedCat = "1.16rsg"
+parseAndCreateElements(0,3);
 
 document.getElementById("brBtn").addEventListener("click", function(){
   document.getElementById("estado").innerHTML = "Brasil"
@@ -90,25 +82,20 @@ function clearContainer(container) {
   }
 }
 
-function setButtons(selectedButtonId) {
-  var buttons = ["ssgBtn", "rsgBtn", "1.16Btn", "1.14Btn", "1.7Btn"];
-
-  for (var i = 0; i < buttons.length; i++) {
-    if (buttons[i] === selectedButtonId) {
-      document.getElementById(buttons[i]).style.backgroundColor = "#666494";
-    } else {
-      document.getElementById(buttons[i]).style.backgroundColor = "";
-    }
+function setCatButton(selectedButtonId) {
+  document.getElementById("rsgBtn").style.backgroundColor = "#666494";
+  if (selectedButtonId === "rsgBtn"){
+    document.getElementById("ssgBtn").style.backgroundColor = "";
   }
-
-}
+  else if (selectedButtonId === "ssgBtn"){
+    document.getElementById("rsgBtn").style.backgroundColor = "";
+  }
+  }
 
 
 
 document.getElementById("ssgBtn").addEventListener("click", function() {
-
-  setButtons("ssgBtn");
-
+  setCatButton("ssgBtn");
   selectedCat = "1.16ssg";
   if (selectedState != "none"){
     getState();
@@ -121,12 +108,9 @@ document.getElementById("ssgBtn").addEventListener("click", function() {
 });
 
 document.getElementById("rsgBtn").addEventListener("click", function() {
-
-  setButtons("rsgBtn");
+  setCatButton("rsgBtn");
   document.getElementById("1.16Btn").style = "background-color: #666494"
-
   selectedCat = "1.16rsg"
-
   if (selectedState != "none"){
     getState();
     document.getElementById("verDiv").style = "visibility: visible;"
@@ -135,18 +119,13 @@ document.getElementById("rsgBtn").addEventListener("click", function() {
     parseAndCreateElements(0,4);
     document.getElementById("verDiv").style = "visibility: visible;"
   }
-
 });
 
-document.getElementById("outrasBtn").addEventListener("click", function() {
 
-});
 
 document.getElementById("1.7Btn").addEventListener("click", function() {
-
-  setButtons("rsgBtn");
+  setCatButton("rsgBtn");
   document.getElementById("1.7Btn").style = "background-color: #666494"
-
   selectedCat = "1.7rsg"
   if (selectedState != "none"){
     getState();
@@ -154,15 +133,11 @@ document.getElementById("1.7Btn").addEventListener("click", function() {
   else if (selectedState == "none"){
     parseAndCreateElements(9,12);
   }
-  
 });
 
 document.getElementById("1.14Btn").addEventListener("click", function() {
-
-  setButtons("rsgBtn");
+  setCatButton("rsgBtn");
   document.getElementById("1.14Btn").style = "background-color: #666494"
-
-
   selectedCat = "1.14rsg"
   if (selectedState != "none"){
     getState();
@@ -170,22 +145,18 @@ document.getElementById("1.14Btn").addEventListener("click", function() {
   else if (selectedState == "none"){
     parseAndCreateElements(5,8);
   }
-
 });
 
 document.getElementById("1.16Btn").addEventListener("click", function() {
-  setButtons("rsgBtn");
+  setCatButton("rsgBtn");
   document.getElementById("1.16Btn").style = "background-color: #666494"
-
   selectedCat = "1.16rsg"
-
   if (selectedState != "none"){
     getState();
   } 
   else if (selectedState == "none"){
     parseAndCreateElements(0,3);
   }
-
 });
 
-parseAndCreateElements(0,3);
+
