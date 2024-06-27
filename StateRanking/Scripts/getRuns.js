@@ -1,34 +1,31 @@
 setCatButton("rsgBtn");
-document.getElementById("1.16Btn").style = "background-color: #666494"
-selectedCat = "1.16rsg"
 parseAndCreateElements(0,3);
 
-document.getElementById("brBtn").addEventListener("click", function(){
-  document.getElementById("estado").innerHTML = "Brasil"
+// 1.16 is default
+button116.style = "background-color: #666494"
+
+
+buttonBrasil.addEventListener("click", function(){
+  document.getElementById(STATE_DISPLAY_ID).innerHTML = "Brasil";
   selectedState = "none"
   getState();
 });
 
 // Function to parse and create elements
-function generateDivWithClasses(container, classes) {
+function createCatDiv(container, classes) {
   let div = document.createElement('div');
-  div.classList.add('d-flex', 'justify-content-between', 'runner');
-  
+  div.classList.add(...runsClasses);
   let p1 = document.createElement('p');
-  p1.textContent = classes[0]; // Use the first value from the array
-  
-  let p2 = document.createElement('p');
-  p2.textContent = classes[1]; // Use the second value from the array
-  
+  p1.textContent = classes[0];
+
   div.appendChild(p1);
-  div.appendChild(p2);
-  
   container.appendChild(div);
+  
 }
 
-function generateDivWithValues(container, values) {
+function createRunsDiv(container, values) {
   let div = document.createElement('div');
-  div.classList.add('d-flex', 'justify-content-between', 'runner');
+  div.classList.add(...runsClasses);
 
   let pIndex = document.createElement('p');
   pIndex.textContent = values[0]; // Display the row index
@@ -63,11 +60,11 @@ function parseAndCreateElements(slice1, slice2) {
       let divContainer = document.getElementById('tbl-data');
       clearContainer(divContainer); // limpa a div
 
-      generateDivWithClasses(divContainer, data[0].slice(slice1, slice2)); //corta as colunas que quer
+      createCatDiv(divContainer, data[0].slice(slice1, slice2)); //corta as colunas que quer
 
       for (let i = 1; i < data.length; i++) {
         let rowData = data[i].slice(slice1, slice2);
-        generateDivWithValues(divContainer, rowData);
+        createRunsDiv(divContainer, rowData);
         if (rowData[0] == false){
           return
         }
@@ -83,80 +80,67 @@ function clearContainer(container) {
 }
 
 function setCatButton(selectedButtonId) {
-  document.getElementById("rsgBtn").style.backgroundColor = "#666494";
+  buttonRSG.style.backgroundColor = "#666494";
   if (selectedButtonId === "rsgBtn"){
-    document.getElementById("ssgBtn").style.backgroundColor = "";
+    buttonSSG.style.backgroundColor = "";
   }
   else if (selectedButtonId === "ssgBtn"){
-    document.getElementById("rsgBtn").style.backgroundColor = "";
+    buttonRSG.style.backgroundColor = "";
   }
   }
 
 
 
-document.getElementById("ssgBtn").addEventListener("click", function() {
-  setCatButton("ssgBtn");
-  selectedCat = "1.16ssg";
-  if (selectedState != "none"){
-    getState();
-    document.getElementById("verDiv").style = "visibility: hidden;"
-  } 
-  else if (selectedState == "none"){
-    parseAndCreateElements(13,17);
-    document.getElementById("verDiv").style = "visibility: hidden;"
+  function handleButtonClick(buttonId, cat, parseStart, parseEnd, visibility) {
+    unselectButtons(buttonId);
+    setCatButton(buttonId);
+    document.getElementById(buttonId).style.backgroundColor = "#666494";
+    selectedCat = cat;
+    if (selectedState != "none") {
+      getState();
+      if (cat === "1.16ssg"){
+        divVer.style.visibility = "hidden";
+      }
+       else divVer.style.visibility = "visible";
+      
+    } else {
+      parseAndCreateElements(parseStart, parseEnd);
+      divVer.style.visibility = visibility;
+    }
   }
-});
+  
+  buttonSSG.addEventListener("click", function() {
+    handleButtonClick("ssgBtn", "1.16ssg", 13, 17, "hidden");
 
-document.getElementById("rsgBtn").addEventListener("click", function() {
-  setCatButton("rsgBtn");
-  document.getElementById("1.16Btn").style = "background-color: #666494"
-  selectedCat = "1.16rsg"
-  if (selectedState != "none"){
-    getState();
-    document.getElementById("verDiv").style = "visibility: visible;"
-  } 
-  else if (selectedState == "none"){
-    parseAndCreateElements(0,4);
-    document.getElementById("verDiv").style = "visibility: visible;"
-  }
-});
+  });
+  
+  buttonRSG.addEventListener("click", function() {
+    handleButtonClick("rsgBtn", "1.16rsg", 0, 4, "visible");
+    document.getElementById("1.16Btn").style.backgroundColor = "#666494";
 
+  });
+  
+  button17.addEventListener("click", function() {
+    handleButtonClick("1.7Btn", "1.7rsg", 9, 12, "visible");
 
+  });
+  
+  button114.addEventListener("click", function() {
+    handleButtonClick("1.14Btn", "1.14rsg", 5, 8, "visible");
 
-document.getElementById("1.7Btn").addEventListener("click", function() {
-  setCatButton("rsgBtn");
-  document.getElementById("1.7Btn").style = "background-color: #666494"
-  selectedCat = "1.7rsg"
-  if (selectedState != "none"){
-    getState();
-  } 
-  else if (selectedState == "none"){
-    parseAndCreateElements(9,12);
-  }
-});
+  });
+  
+  button116.addEventListener("click", function() {
+    handleButtonClick("1.16Btn", "1.16rsg", 0, 3, "visible");
 
-document.getElementById("1.14Btn").addEventListener("click", function() {
-  setCatButton("rsgBtn");
-  document.getElementById("1.14Btn").style = "background-color: #666494"
-  selectedCat = "1.14rsg"
-  if (selectedState != "none"){
-    getState();
-  } 
-  else if (selectedState == "none"){
-    parseAndCreateElements(5,8);
-  }
-});
+  });
 
-document.getElementById("1.16Btn").addEventListener("click", function() {
-  setCatButton("rsgBtn");
-  document.getElementById("1.16Btn").style = "background-color: #666494"
-  selectedCat = "1.16rsg"
-  if (selectedState != "none"){
-    getState();
-  } 
-  else if (selectedState == "none"){
-    parseAndCreateElements(0,3);
-  }
-});
-
-
+function unselectButtons(selectedButtonId) {
+  const buttonIds = ["1.16Btn", "1.14Btn", "1.7Btn"];
+  for(let i = 0; i < buttonIds.length; i++) {
+    if (buttonIds[i] !== selectedButtonId) {
+      document.getElementById(buttonIds[i]).style.backgroundColor = "#3d3b5a";
+    }
+  
+}
+}

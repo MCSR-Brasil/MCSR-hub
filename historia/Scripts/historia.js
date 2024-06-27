@@ -39,7 +39,7 @@ function parseAndCreateElements(slice1, slice2) {
           if (rowData[0] == false){
             return
           }
-          generateDivWithValues(divContainer, rowData);
+          createRunsDiv(divContainer, rowData);
 
         }
       }
@@ -49,7 +49,7 @@ function parseAndCreateElements(slice1, slice2) {
 
   
 
-  function generateDivWithValues(container, values) {
+  function createRunsDiv(container, values) {
     let div = document.createElement('div');
     if (values[2] != pastVersion ) {
       console.log(values[2])

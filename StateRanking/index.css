@@ -119,6 +119,9 @@ body {
 }
 
 .back-button {
+	text-align: center;
+	line-height: 2.5vw;
+	text-decoration: none;
 	font-size: calc(10px + 0.390625vw);
 	margin-top: 6px;
     width: 5vw;

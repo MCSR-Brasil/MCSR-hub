@@ -1,3 +1,17 @@
+const STATE_DISPLAY_ID = "estado";
+const button116 = document.getElementById("1.16Btn");
+const button17 = document.getElementById("1.7Btn");
+const button114 = document.getElementById("1.14Btn");
+const buttonBrasil = document.getElementById("brBtn");  
+const buttonRSG = document.getElementById("rsgBtn");
+const buttonSSG = document.getElementById("ssgBtn");
+
+const divVer = document.getElementById("verDiv");
+
+const runsClasses = ["d-flex","justify-content-between", "runner"]
+
+let selectedCat = "1.16rsg"
+
 const stateColors = ["#038ba6", "#02b087", "#4da302", "#99b002", "#b07602", "#ad5a02", "#b02c00", "#b00202", "#6e011a"]
 const stateColorMapping = {
   "BR-AC": stateColors[0],
@@ -30,10 +44,6 @@ const stateColorMapping = {
 };
 let selectedState = "none"
 
-
-document.getElementById("backBtn").addEventListener("click", () => {
-  location.href = "../index.html";
-})
 am4core.ready(function () {
     const chart = am4core.create("chartdiv", am4maps.MapChart);
     chart.geodata = am4geodata_brazilLow;
@@ -50,9 +60,11 @@ am4core.ready(function () {
     polygonTemplate.events.on("hit", function (event) {
       let clickedPolygonData = event.target.dataItem.dataContext;
       let stateName = clickedPolygonData.name;
-      document.getElementById("estado").innerHTML = stateName;
+      console.log(STATE_DISPLAY_ID);
+      document.getElementById(STATE_DISPLAY_ID).innerHTML = stateName;
       
       selectedState = stateName;
+      
       getState();
     })
 
