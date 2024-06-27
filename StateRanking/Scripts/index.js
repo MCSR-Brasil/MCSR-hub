@@ -1,4 +1,4 @@
-const STATE_DISPLAY_ID = "estado";
+const StateDisplayText = document.getElementById("estado");
 const button116 = document.getElementById("1.16Btn");
 const button17 = document.getElementById("1.7Btn");
 const button114 = document.getElementById("1.14Btn");
@@ -60,8 +60,7 @@ am4core.ready(function () {
     polygonTemplate.events.on("hit", function (event) {
       let clickedPolygonData = event.target.dataItem.dataContext;
       let stateName = clickedPolygonData.name;
-      console.log(STATE_DISPLAY_ID);
-      document.getElementById(STATE_DISPLAY_ID).innerHTML = stateName;
+      StateDisplayText.innerHTML = stateName;
       
       selectedState = stateName;
       

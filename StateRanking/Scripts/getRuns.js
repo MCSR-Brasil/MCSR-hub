@@ -6,7 +6,7 @@ button116.style = "background-color: #666494"
 
 
 buttonBrasil.addEventListener("click", function(){
-  document.getElementById(STATE_DISPLAY_ID).innerHTML = "Brasil";
+  StateDisplayText.innerHTML = "Brasil";
   selectedState = "none"
   getState();
 });

@@ -165,6 +165,9 @@ body {
 
 
 .back-button {
+    text-align: center;
+    text-decoration: none;
+    line-height: 2.5vw;
 	font-size: calc(10px + 0.390625vw);
 	margin-top: 6px;
     width: 5vw;
@@ -179,5 +182,6 @@ body {
 }
 
 .back-button:hover {
+    color: white;
 	background-color: #6f90b3;
 }

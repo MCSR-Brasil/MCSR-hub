@@ -9,6 +9,9 @@ h1, p {
 }
 
 .back-button {
+    line-height: 2.5vw;
+    text-decoration: none;
+    text-align: center;
 	font-size: calc(10px + 0.390625vw);
 	margin-top: 6px;
     width: 5vw;
@@ -25,6 +28,7 @@ h1, p {
 
 .back-button:hover {
 	background-color: #6f90b3;
+    color: white;
 }
 
 .center-grid {
