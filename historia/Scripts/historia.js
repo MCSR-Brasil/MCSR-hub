@@ -1,12 +1,4 @@
-document.getElementById('back-button').addEventListener('click', () => {
-  location.href = "../recursos/recursos.html";
-});
-
-
-
 let pastVersion = ""
-
-
 
 function toggleSeeMore(button) {
     var container = button.closest('.run-desc-container');
@@ -53,6 +45,7 @@ function parseAndCreateElements(slice1, slice2) {
     let div = document.createElement('div');
     if (values[2] != pastVersion ) {
       console.log(values[2])
+      console.log(pastVersion)
       let versionDiv = document.createElement('div')
       versionDiv.innerHTML = 
                     `<div class="version-division">
@@ -83,6 +76,7 @@ function parseAndCreateElements(slice1, slice2) {
                             <div class="run-outside-link"><a href="${values[8]}"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
                       </div>`
     pastVersion = values[2]
+    console.log(pastVersion)
     
     container.appendChild(div);
     
