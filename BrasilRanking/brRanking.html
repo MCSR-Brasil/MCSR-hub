@@ -9,13 +9,27 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 <body>
-    <div style="position: fixed;">
-    <button class="back-button" id="test">Voltar Para tela inicial</button>
-</div>
-    <div class="test">
-        <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vS33iUPsSAi4AO__RaMG6iBppA7TZXh61BC7LFRtiBnJQFabiOMG1aMp2STZfGArkrLphuIPbTLjfTK/pubhtml?widget=true&amp;headers=false"></iframe>
+    <div class="text">
+        <h1>Ranking Brasileiro</h1>
+        <p>To fazendo ainda 29/06</p>
     </div>
-    
+    <div class="text d-flex align-items-center justify-content-between"> 
+        <button onclick="renderData(jsonData.values, 0, 3)">1.16+</button>
+        <button onclick="renderData(jsonData.values, 6, 9)">1.13-1.15</button>
+        <button onclick="renderData(jsonData.values, 11, 14)">Pre 1.9</button>
+        <button onclick="renderData(jsonData.values, 16, 19)">SSG 1.16+</button>
+        <button onclick="renderData(jsonData.values, 21, 24)">1.9-1.12</button>
+    </div>
+    <div class="test d-flex align-items-center justify-content-between">
+        <table id="data-table">
+            <thead>
+            </thead>
+            <tbody>
+                <!-- Dynamic rows will be inserted here -->
+            </tbody>
+        </table>
+    </div>
+
     <script src="brRanking.js"></script>
 </body>
 </html>
