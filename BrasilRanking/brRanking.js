@@ -1,3 +1,4 @@
+
 let jsonData = null; // Global variable to store JSON data
 
 async function fetchData(variableName, catStart, catEnd) {
@@ -23,6 +24,26 @@ async function fetchData(variableName, catStart, catEnd) {
     }
     
     function renderData(values, catStart, catEnd) {
+        const title = document.getElementById('title');
+
+        if (catStart == 0) {
+            title.textContent = "1.16+";
+        }
+        else if (catStart == 16) {
+            title.textContent = "SSG 1.16+";
+        }
+        else if (catStart == 6) {
+            title.textContent = "1.13-1.15";
+        }
+        else if (catStart == 21) {
+            title.textContent = "1.9-1.12";
+        }
+        else if (catStart == 11) {
+            title.textContent = "Pre 1.9";
+        }
+        else {
+            title.textContent = "Ranking Brasileiro";
+        }
         const tbody = document.querySelector('#data-table tbody');
         tbody.innerHTML = ''; // Clear existing content
         
