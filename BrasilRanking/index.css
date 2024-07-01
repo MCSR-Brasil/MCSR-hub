@@ -1,6 +1,7 @@
 body {
     background-image: url("https://static.planetminecraft.com/files/resource_media/screenshot/1147/Void_872770.jpg");
-    padding-inline: 100px;
+    overflow-y: hidden;
+    
 	
 }
 
@@ -23,7 +24,7 @@ th {
 
 td {
     text-align: center;
-    font-size: 4.5vmin;
+    font-size: 2.1vw;
     min-width: 100px; /* Adjust as necessary */
     white-space: nowrap; /* Prevent text wrapping */
     overflow: hidden;    /* Hide overflow */
@@ -39,12 +40,8 @@ tr td:nth-child(2) {
 }
 
 tbody tr:nth-child(1) td{
-    font-size: 5.5vmin;
+    font-size: 2.5vw;
     font-weight: bold;
-
-   
-   
-   
 }
 
 
@@ -57,10 +54,10 @@ tbody tr:nth-child(1) td{
 
 .test { 
 	width: 100%;
-	height: 60vh;
+	height: 70vh;
 	background-color: rgba(90, 107, 255, 0.137);
 	color: white;
-	font-size: 3vmin;
+	font-size: calc(22px + 0.390625vw);
 	text-align: center;
     margin-top: 40px;
     padding-inline: 10vmin;
@@ -71,25 +68,26 @@ tbody tr:nth-child(1) td{
     position: relative;
 }
 
+
 .text h1{
 	color: white;
-	font-size: 6vmin;
+	font-size: calc(50px + 0.390625vw);
 	text-align: center;
-	padding-top: 10vmin;
+    padding-top: 10px;
 }
 
 .text p{
 	color: rgb(255, 255, 255);
-	font-size: 3vmin;
+	font-size: calc(22px + 0.390625vw);
 	text-align: center;
 }
 
 .text button{
 	color: rgb(255, 255, 255);
     background-color: rgba(90, 107, 255, 0.267);
-	font-size: 3vmin;
     border: none;
     padding: 10px;
+    font-size: 1.5vw;
 	text-align: center;
     border-radius: 10px;
     width: 10vw;
@@ -97,4 +95,40 @@ tbody tr:nth-child(1) td{
 
 .text button:hover{
 	background-color: rgba(132, 144, 255, 0.432)
+}
+
+.back-button {
+    position: relative;
+    line-height: 2.5vw;
+    text-decoration: none;
+    text-align: center;
+	font-size: calc(10px + 0.390625vw);
+	margin-top: 6px;
+    width: 5vw;
+	height: 2.5vw;
+	border: none;
+	background-color: #5b799b;
+	color: white;
+	border-radius: 5px;
+	font-weight: bold;
+	position: fixed;
+    margin-left: 10px;
+
+}
+
+.table-container {
+    padding-inline: 100px;
+    
+}
+
+@media (max-width:1100px) { 
+    .table-container     {
+        padding-inline: 20px;
+    }
+}
+
+@media (max-height:800px) { 
+    .test   {
+         height: 60vh;
+    }
 }
