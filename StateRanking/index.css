@@ -138,6 +138,7 @@ body {
 
 .back-button:hover {
 	background-color: #6f90b3;
+    color: white;
 }
 
 .spacer {

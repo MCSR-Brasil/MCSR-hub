@@ -113,7 +113,11 @@ tbody tr:nth-child(1) td{
 	font-weight: bold;
 	position: fixed;
     margin-left: 10px;
+}
 
+.back-button:hover {
+	background-color: #6f90b3;
+    color: white;
 }
 
 .table-container {
