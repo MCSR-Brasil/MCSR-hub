@@ -49,13 +49,18 @@ async function fetchData(variableName, catStart, catEnd) {
         
         if (values && values.length > 0) {
             values.forEach((row, rowIndex) => {
-                const tr = document.createElement('tr');
-                for (let cellIndex = catStart; cellIndex <= catEnd; cellIndex++) {
-                    const td = document.createElement('td');
-                    td.textContent = row[cellIndex] || ''; // Display cell content, or empty string if undefined
-                    tr.appendChild(td);
+                // Check if the row has any non-empty cells within the range
+                const hasContent = row.slice(catStart, catEnd + 1).some(cell => cell !== undefined && cell !== '');
+        
+                if (hasContent) {
+                    const tr = document.createElement('tr');
+                    for (let cellIndex = catStart; cellIndex <= catEnd; cellIndex++) {
+                        const td = document.createElement('td');
+                        td.textContent = row[cellIndex] || ''; // Display cell content, or empty string if undefined
+                        tr.appendChild(td);
+                    }
+                    tbody.appendChild(tr);
                 }
-                tbody.appendChild(tr);
             });
         } else {
             tbody.innerHTML = '<tr><td colspan="5">No data found</td></tr>';
