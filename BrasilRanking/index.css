@@ -23,7 +23,7 @@ th {
 
 td {
     text-align: center;
-    font-size: 40px;
+    font-size: 4.5vmin;
     min-width: 100px; /* Adjust as necessary */
     white-space: nowrap; /* Prevent text wrapping */
     overflow: hidden;    /* Hide overflow */
@@ -39,7 +39,7 @@ tr td:nth-child(2) {
 }
 
 tbody tr:nth-child(1) td{
-    font-size: 55px;
+    font-size: 5.5vmin;
     font-weight: bold;
 
    
@@ -57,7 +57,7 @@ tbody tr:nth-child(1) td{
 
 .test { 
 	width: 100%;
-	height: 100%;
+	height: 60vh;
 	background-color: rgba(90, 107, 255, 0.137);
 	color: white;
 	font-size: 3vmin;
@@ -65,6 +65,10 @@ tbody tr:nth-child(1) td{
     margin-top: 40px;
     padding-inline: 10vmin;
     border-radius: 10px;
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y:auto;
+    position: relative;
 }
 
 .text h1{
