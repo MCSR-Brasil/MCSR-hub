@@ -14,10 +14,11 @@
             <h1 id="title">1.16+</h1>
             <p>Nao esta vendo sua run? mande ela <a href="https://discord.gg/wshxtk64Jj">Aqui</a></p>
         </div>
+        
         <div class="table-container">
-            <div class="text d-flex align-items-center justify-content-between"> 
+            <div class="text d-flex align-items-center justify-content-between "> 
                 <button onclick="renderData(jsonData.values, 0, 3)">1.16+</button>
-                <button onclick="renderData(jsonData.values, 16, 19)">SSG 1.16+</button>
+                <button onclick="renderData(jsonData.values, 16, 20)">SSG 1.16+</button>
                 <button onclick="renderData(jsonData.values, 6, 9)">1.13-1.15</button>
                 <button onclick="renderData(jsonData.values, 21, 24)">1.9-1.12</button>
                 <button onclick="renderData(jsonData.values, 11, 14)">Pre 1.9</button>
@@ -32,6 +33,19 @@
                 </table>
             </div>
         </div>
+            <div class="modal-container d-flex justify-content-center align-items-center" id="modal-container">
+                <div class="run-modal" id="runModal">
+                    <div class="run-modal-content">
+                        <div class="modal-close-container"><button class="modal-close" onclick="closeModal()">Voltar</button></div>
+                        <div class="modal-iframe-container d-flex justify-content-center">
+                            <iframe class="modal-iframe" id="modalIframe" allowfullscreen frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+          
     
 
     <script src="brRanking.js"></script>

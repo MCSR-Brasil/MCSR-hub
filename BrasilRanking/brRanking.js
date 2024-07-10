@@ -54,9 +54,22 @@ async function fetchData(variableName, catStart, catEnd) {
         
                 if (hasContent) {
                     const tr = document.createElement('tr');
+                    
+                    // Get the URL from the fifth column (assuming zero-based indexing)
+                    const url = row[4 + catStart];
+                    
+        
+                    // Add event listener to the row
+                    tr.addEventListener('click', () => {
+                        if (url) {
+                            createRun(1, url);
+                            console.log(row);
+                        }
+                    });
+        
                     for (let cellIndex = catStart; cellIndex <= catEnd; cellIndex++) {
                         const td = document.createElement('td');
-                        td.textContent = row[cellIndex] || ''; // Display cell content, or empty string if undefined
+                        td.textContent = row[cellIndex] || '';
                         tr.appendChild(td);
                     }
                     tbody.appendChild(tr);
@@ -65,7 +78,44 @@ async function fetchData(variableName, catStart, catEnd) {
         } else {
             tbody.innerHTML = '<tr><td colspan="5">No data found</td></tr>';
         }
+        
     }
     
-    // Example usage:
-    fetchData('Principais', 0, 3); // Replace 'Sheet1', 0, and 4 with your variable name and start/end indices
+
+    function createRun(runIndex, runUrl) {
+        // Extract the video ID using regex
+        const videoId = extractYouTubeVideoId(runUrl);
+        if (!videoId) {
+            console.error('Invalid YouTube URL');
+            return;
+        }
+    
+        const embedUrl = `https://www.youtube.com/embed/${videoId}?si=Ul2hMu_3HWnljoMw`;
+    
+        // Update the modal content
+        const modalIframe = document.getElementById('modalIframe');
+        modalIframe.src = embedUrl;
+    
+        // Display the modal
+        const modal = document.getElementById('runModal');
+        modal.style.display = 'block';
+    }
+    
+    function closeModal() {
+        const modal = document.getElementById('runModal');
+        modal.style.display = 'none';
+        
+        // Stop the video by clearing the iframe src
+        const modalIframe = document.getElementById('modalIframe');
+        modalIframe.src = '';
+    }
+
+
+    function extractYouTubeVideoId(url) {
+        const regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+        const match = url.match(regex);
+        return match ? match[1] : null;
+    }
+
+   
+    fetchData('Principais', 0, 3);
