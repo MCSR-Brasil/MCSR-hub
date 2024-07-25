@@ -1,3 +1,35 @@
+
+
+let jsonData = null; // Global variable to store JSON data
+
+fetchData("estados", 0, 3);
+
+async function fetchData(variableName, catStart, catEnd) {
+    const apiKey = 'AIzaSyAgRJh3hMNn84hWJYnwoXhq3Pw_Ew1yyrw';
+    const spreadsheetId = '1wHgbckH2QZwaD_yxUynviNxNGsN0o7H97aN8BKOkIBM';
+    const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${variableName}?alt=json&key=${apiKey}`;
+    
+        try {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            jsonData = await response.json();
+            
+            console.log(jsonData.values);
+            
+            parseAndCreateElements(catStart, catEnd, jsonData.values);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    }
+    
+
+
+
+
+
+
 setCatButton("rsgBtn");
 parseAndCreateElements(0,3);
 
@@ -49,28 +81,31 @@ function createRunsDiv(container, values) {
   container.appendChild(div);
 }
 
-function parseAndCreateElements(slice1, slice2) {
-  Papa.parse("./Scripts/tabela.csv", {
-    download: true,
-    header: false,
-    complete: function(results) {
 
-      let data = results.data.slice(0, 100); //primeiras 100 linhas
+function parseAndCreateElements(slice1, slice2, jsonData) {
+  const divContainer = document.getElementById('tbl-data');
+  clearContainer(divContainer); // Clear container before creating elements
 
-      let divContainer = document.getElementById('tbl-data');
-      clearContainer(divContainer); // limpa a div
+  // Extract category names
+  const categoryNames = jsonData[0].slice(slice1, slice2);
 
-      createCatDiv(divContainer, data[0].slice(slice1, slice2)); //corta as colunas que quer
+  // Create container for category headers
+  const categoryHeaderDiv = document.createElement('div');
+  categoryHeaderDiv.classList.add('category-headers'); // Add CSS class
 
-      for (let i = 1; i < data.length; i++) {
-        let rowData = data[i].slice(slice1, slice2);
-        createRunsDiv(divContainer, rowData);
-        if (rowData[0] == false){
-          return
-        }
-      }
+  divContainer.appendChild(categoryHeaderDiv); // Add headers to container
+
+  createCatDiv(divContainer, jsonData[0].slice(slice1, slice2));  
+
+  // Create rows
+  for (let i = 1; i < jsonData.length; i++) {
+    const rowData = jsonData[i].slice(slice1, slice2);
+    if (rowData[0] == ".") { // Check for stop condition, adjust if needed
+      break;
     }
-  });
+
+    createRunsDiv(divContainer, rowData); // Create row elements for data
+  }
 }
 
 function clearContainer(container) {

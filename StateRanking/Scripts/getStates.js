@@ -174,6 +174,6 @@ const stateCategoryMapping = {
 function getState() {
   if (stateCategoryMapping.hasOwnProperty(selectedState) && stateCategoryMapping[selectedState].hasOwnProperty(selectedCat)) {
     const [start, end] = stateCategoryMapping[selectedState][selectedCat];
-    parseAndCreateElements(start, end);
+    fetchData("estados", start, end);
   }
 }
