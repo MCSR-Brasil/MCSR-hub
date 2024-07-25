@@ -139,13 +139,14 @@ function setCatButton(selectedButtonId) {
        else divVer.style.visibility = "visible";
       
     } else {
-      parseAndCreateElements(parseStart, parseEnd);
+      fetchData("estados", parseStart, parseEnd);
       divVer.style.visibility = visibility;
     }
   }
   
   buttonSSG.addEventListener("click", function() {
     handleButtonClick("ssgBtn", "1.16ssg", 13, 17, "hidden");
+    
 
   });
   
