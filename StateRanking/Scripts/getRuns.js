@@ -31,7 +31,6 @@ async function fetchData(variableName, catStart, catEnd) {
 
 
 setCatButton("rsgBtn");
-parseAndCreateElements(0,3);
 
 // 1.16 is default
 button116.style = "background-color: #666494"
@@ -118,9 +117,10 @@ function setCatButton(selectedButtonId) {
   buttonRSG.style.backgroundColor = "#666494";
   if (selectedButtonId === "rsgBtn"){
     buttonSSG.style.backgroundColor = "";
+    button116.style.backgroundColor = "#666494";
   }
   else if (selectedButtonId === "ssgBtn"){
-    buttonRSG.style.backgroundColor = "";
+    buttonRSG.style.backgroundColor = "#3d3b5a";
   }
   }
 
@@ -143,38 +143,12 @@ function setCatButton(selectedButtonId) {
       divVer.style.visibility = visibility;
     }
   }
-  
-  buttonSSG.addEventListener("click", function() {
-    handleButtonClick("ssgBtn", "1.16ssg", 13, 17, "hidden");
-    
-
-  });
-  
-  buttonRSG.addEventListener("click", function() {
-    handleButtonClick("rsgBtn", "1.16rsg", 0, 4, "visible");
-    document.getElementById("1.16Btn").style.backgroundColor = "#666494";
-
-  });
-  
-  button17.addEventListener("click", function() {
-    handleButtonClick("1.7Btn", "1.7rsg", 9, 12, "visible");
-
-  });
-  
-  button114.addEventListener("click", function() {
-    handleButtonClick("1.14Btn", "1.14rsg", 5, 8, "visible");
-
-  });
-  
-  button116.addEventListener("click", function() {
-    handleButtonClick("1.16Btn", "1.16rsg", 0, 3, "visible");
-
-  });
 
 function unselectButtons(selectedButtonId) {
   const buttonIds = ["1.16Btn", "1.14Btn", "1.7Btn"];
   for(let i = 0; i < buttonIds.length; i++) {
     if (buttonIds[i] !== selectedButtonId) {
+      console.log(buttonIds[i]);
       document.getElementById(buttonIds[i]).style.backgroundColor = "#3d3b5a";
     }
   
