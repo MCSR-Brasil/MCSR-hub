@@ -9,6 +9,11 @@ fazer as fontes serem mais dinamicas
 
 
 /* Containers dos botoes principais 2x2 */
+body {
+    background-color: #000000;
+}
+
+
 
 a {
  
