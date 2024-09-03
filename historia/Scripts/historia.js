@@ -1,5 +1,29 @@
 let pastVersion = ""
 
+
+let jsonData = null; // Global variable to store JSON data
+
+async function fetchData(variableName) {
+    const apiKey = 'AIzaSyAgRJh3hMNn84hWJYnwoXhq3Pw_Ew1yyrw';
+    const spreadsheetId = '1wHgbckH2QZwaD_yxUynviNxNGsN0o7H97aN8BKOkIBM';
+    const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${variableName}?alt=json&key=${apiKey}`;
+    
+        try {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            jsonData = await response.json();
+            jsonData.values.shift();
+            console.log(jsonData.values); // Log the entire data array
+            // Call a function to render data in HTML
+            parseAndCreateElements(0, 10, jsonData)
+        } catch (error) {
+        
+        }
+    }
+
+
 function toggleSeeMore(button) {
     var container = button.closest('.run-desc-container');
     
@@ -15,28 +39,26 @@ function toggleSeeMore(button) {
     }
 }
 
-function parseAndCreateElements(slice1, slice2) {
-    Papa.parse("./Scripts/mcsr.csv", {
-      download: true,
-      header: false,
-      complete: function(results) {
-  
-        let data = results.data.slice(0, 100); //primeiras 100 linhas
-  
-        let divContainer = document.getElementById('main-container');
-  
-  
-        for (let i = 1; i < data.length; i++) {
-          let rowData = data[i].slice(slice1, slice2);
-          if (rowData[0] == false){
-            return
-          }
-          createRunsDiv(divContainer, rowData);
+function parseAndCreateElements(slice1, slice2, jsonData) {
+  console.log(jsonData.values)
+ 
+  let divContainer = document.getElementById('main-container');
 
-        }
+  for (let i = 1; i < jsonData.values.length; i++) {
+      let rowData = jsonData.values[i].slice(slice1, slice2);
+      console.log(rowData)
+      if (rowData[0] == false) {
+          return;
       }
-    });
+      
+      createRunsDiv(divContainer, rowData);
   }
+}
+
+// Example usage:
+// Assuming 'jsonData' is the array of arrays retrieved from the Google Sheets API
+// parseAndCreateElements(slice1, slice2, jsonData);
+
 
 
   
@@ -81,5 +103,5 @@ function parseAndCreateElements(slice1, slice2) {
     container.appendChild(div);
     
   }
+  fetchData("historico") 
 
-  parseAndCreateElements(0, 10)
