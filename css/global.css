@@ -1,7 +1,7 @@
 
 body {
     background-color: #000000;
-    background-image: url("./images/background.jpg");
+    background-image: url("../images/background.jpg");
 }
 
 h1, p, button {
@@ -59,19 +59,10 @@ h1, p, button {
     width: 6vw;
 }
 
-::-webkit-scrollbar {
-	width: 6px;
-  }
+.background-transparent {
+    background-color: rgba(45, 57, 105, 0.315);
+}
 
-::-webkit-scrollbar-track {
-	background: #f1f1f1;
-  }
-  
-
-::-webkit-scrollbar-thumb {
-	background: #888;
-  }
-
-::-webkit-scrollbar-thumb:hover {
-	background: #525258;
-  }
+.background-transparent-bright {
+    background-color: rgba(62, 72, 107, 0.774);
+}

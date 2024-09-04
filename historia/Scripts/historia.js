@@ -84,7 +84,7 @@ function parseAndCreateElements(slice1, slice2, jsonData) {
                                 <div class="vertical-line"></div> 
                             </div>
                             <div class="run">
-                                <div class="runinfo-container">
+                                <div class="runinfo-container background-transparent-bright">
                                     <h2 class="run-date"></h2>
                                     <div class="run-info text-1">
                                         <p><span style="color: ${values[7]};"><b>${values[1]}</b></span> conseguiu um novo recorde de <b>${values[3]}</b>!</p>
