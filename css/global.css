@@ -1,0 +1,77 @@
+
+body {
+    background-color: #000000;
+    background-image: url("./images/background.jpg");
+}
+
+h1, p, button {
+    color: white;
+}
+
+.back-button {
+    text-align: center;
+    text-decoration: none;
+	font-size: calc(10px + 0.390625vw);
+    line-height: 2.5vw;
+    font-weight: bold;
+    
+	margin-top: 6px;
+    width: 5vw;
+	height: 2.5vw;
+
+	border: none;
+    border-radius: 5px;
+	background-color: #5b799b;
+	color: white;
+    margin-left: 10px;
+}
+
+.back-button:hover {
+    color: white;
+	background-color: #6f90b3;
+}
+
+.fixed {
+    position: fixed;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.margin-right-80 {
+    margin-right: 80%;
+}
+
+.text-1 {
+    font-size: 3vmin;
+}
+
+.text-2 {
+    font-size: 2.5vmin;
+}
+
+.text-3 {
+    font-size: 2.2vmin;
+}
+
+.spacer {
+    width: 6vw;
+}
+
+::-webkit-scrollbar {
+	width: 6px;
+  }
+
+::-webkit-scrollbar-track {
+	background: #f1f1f1;
+  }
+  
+
+::-webkit-scrollbar-thumb {
+	background: #888;
+  }
+
+::-webkit-scrollbar-thumb:hover {
+	background: #525258;
+  }

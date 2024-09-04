@@ -59,22 +59,6 @@ body {
     cursor: pointer;
 }
 
-
-.text-1 {
-    font-size: 3vmin;
-    color: #ffffff;
-}
-
-.text-2 {
-    font-size: 2.5vmin;
-    color: #ffffff;
-}
-
-.text-3 {
-    font-size: 2.2vmin;
-    
-}
-
 .vertical-line { 
     width: 0px; 
     border-left: 3px solid #ffffff; 
@@ -153,27 +137,3 @@ body {
    
 }
 
-
-
-
-.back-button {
-    text-align: center;
-    text-decoration: none;
-    line-height: 2.5vw;
-	font-size: calc(10px + 0.390625vw);
-	margin-top: 6px;
-    width: 5vw;
-	height: 2.5vw;
-	border: none;
-	background-color: #5b799b;
-	color: white;
-	border-radius: 5px;
-	font-weight: bold;
-    margin-left: 10px;
-
-}
-
-.back-button:hover {
-    color: white;
-	background-color: #6f90b3;
-}

@@ -1,10 +1,3 @@
-body {
-    background-image: url("../images/background.jpg");
-    overflow-y: hidden;
-    
-	
-}
-
 table {
     width: 100%;
     table-layout: fixed;
@@ -100,29 +93,6 @@ tbody tr:nth-child(1) td{
 
 .text button:hover{
 	background-color: rgba(132, 144, 255, 0.432)
-}
-
-.back-button {
-    position: relative;
-    line-height: 2.5vw;
-    text-decoration: none;
-    text-align: center;
-	font-size: calc(10px + 0.390625vw);
-	margin-top: 6px;
-    width: 5vw;
-	height: 2.5vw;
-	border: none;
-	background-color: #5b799b;
-	color: white;
-	border-radius: 5px;
-	font-weight: bold;
-	position: fixed;
-    margin-left: 10px;
-}
-
-.back-button:hover {
-	background-color: #6f90b3;
-    color: white;
 }
 
 .table-container {

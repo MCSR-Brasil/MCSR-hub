@@ -13,11 +13,6 @@
 	height: 100%;
 }
 
-body {
-	background-color: #000000;
-	background-image: url("../images/background.jpg");
-}
-
 .Title {
 	padding-top: 50px;
 	font-size: 2.5vw;
@@ -80,23 +75,6 @@ body {
 	overflow-y: auto;
 }
 
-::-webkit-scrollbar {
-	width: 6px;
-  }
-
-::-webkit-scrollbar-track {
-	background: #f1f1f1;
-  }
-  
-
-::-webkit-scrollbar-thumb {
-	background: #888;
-  }
-
-::-webkit-scrollbar-thumb:hover {
-	background: #525258;
-  }
-
 .brasilBtn {
 	position: fixed;
 	width: 9vw;
@@ -118,29 +96,4 @@ body {
 	background-color: #297021;
 }
 
-.back-button {
-	text-align: center;
-	line-height: 2.5vw;
-	text-decoration: none;
-	font-size: calc(10px + 0.390625vw);
-	margin-top: 6px;
-    width: 5vw;
-	height: 2.5vw;
-	border: none;
-	background-color: #5b799b;
-	color: white;
-	border-radius: 5px;
-	font-weight: bold;
-	position: absolute;
-	margin-right: 23vw;
 
-}
-
-.back-button:hover {
-	background-color: #6f90b3;
-    color: white;
-}
-
-.spacer {
-    width: 6vw;
-}
