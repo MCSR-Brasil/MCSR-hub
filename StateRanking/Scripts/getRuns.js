@@ -1,34 +1,36 @@
-
-
-let jsonData = null; // Global variable to store JSON data
+let jsonData = null;
+let isFetching = false;
 
 fetchData("estados", 0, 3);
 
 async function fetchData(variableName, catStart, catEnd) {
-    const apiKey = 'AIzaSyAgRJh3hMNn84hWJYnwoXhq3Pw_Ew1yyrw';
-    const spreadsheetId = '1wHgbckH2QZwaD_yxUynviNxNGsN0o7H97aN8BKOkIBM';
-    const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${variableName}?alt=json&key=${apiKey}`;
-    
-        try {
-            const response = await fetch(url);
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            jsonData = await response.json();
-            
-            console.log(jsonData.values);
-            
-            parseAndCreateElements(catStart, catEnd, jsonData.values);
-        } catch (error) {
-            console.error('Error fetching data:', error);
-        }
+  // Check if cache exists
+  if (jsonData && !isFetching) {
+    parseAndCreateElements(catStart, catEnd, jsonData.values);
+    return;
+  }
+  isFetching = true;
+
+  const apiKey = 'AIzaSyAgRJh3hMNn84hWJYnwoXhq3Pw_Ew1yyrw';
+  const spreadsheetId = '1wHgbckH2QZwaD_yxUynviNxNGsN0o7H97aN8BKOkIBM';
+  const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${variableName}?alt=json&key=${apiKey}`;
+
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
+    jsonData = await response.json();
+
+    console.log("Fetched data:", jsonData.values);
+    parseAndCreateElements(catStart, catEnd, jsonData.values);
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  } finally {
+    isFetching = false;
+  }
+}
     
-
-
-
-
-
 
 setCatButton("rsgBtn");
 
