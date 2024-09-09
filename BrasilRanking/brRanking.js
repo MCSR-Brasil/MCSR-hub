@@ -1,7 +1,7 @@
 
-let jsonData = null; // Global variable to store JSON data
+let brRankingjsonData = null; // Global variable to store JSON data
 
-async function fetchData(variableName, catStart, catEnd) {
+async function fetchBrRankingData(variableName, catStart, catEnd) {
     const apiKey = 'AIzaSyAgRJh3hMNn84hWJYnwoXhq3Pw_Ew1yyrw';
     const spreadsheetId = '1wHgbckH2QZwaD_yxUynviNxNGsN0o7H97aN8BKOkIBM';
     const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${variableName}?alt=json&key=${apiKey}`;
@@ -11,11 +11,11 @@ async function fetchData(variableName, catStart, catEnd) {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
-            jsonData = await response.json();
-            jsonData.values.shift();
-            console.log(jsonData.values); // Log the entire data array
+            brRankingjsonData = await response.json();
+            brRankingjsonData.values.shift();
+            console.log(brRankingjsonData.values); // Log the entire data array
             // Call a function to render data in HTML
-            renderData(jsonData.values, catStart, catEnd);
+            renderData(brRankingjsonData.values, catStart, catEnd);
         } catch (error) {
             console.error('Error fetching data:', error);
             const tbody = document.querySelector('#data-table tbody');
@@ -118,4 +118,4 @@ async function fetchData(variableName, catStart, catEnd) {
     }
 
    
-    fetchData('Principais', 0, 3);
+    fetchBrRankingData('Principais', 0, 3);
