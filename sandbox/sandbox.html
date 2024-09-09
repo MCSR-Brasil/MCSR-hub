@@ -18,7 +18,7 @@
     <button class ="background-transparent-bright" onclick="clearFromId('tbody')">Clear Ranking</button>
     <button class ="background-transparent-bright" onclick="clearFromId('main-container')">Clear RBS</button>
     <button class ="background-transparent-bright" onclick="fetchRBSData('historico')">Show RBS</button>
-    <button class ="background-transparent-bright" onclick="fetchData('estados', 66, 69)">Sao paulo</button>
+    <a href="../index.html" class="back-button fixed">Voltar</a>
 
     <p id="title">Brasil</p>
     <table id="data-table">
@@ -26,9 +26,11 @@
         </tbody>
     </table>
     <div id="main-container"></div>
+    <div class="d-flex flex-column justify-content-center"  id="tbl-data">
+        <hr>
+    </div>
 
     <script src="sandbox.js"></script>
-    <script src="../StateRanking/Scripts/getRuns.js"></script>
     <script src="../BrasilRanking/brRanking.js"></script>
     <script src="../historia/Scripts/historia.js"></script>
 </body>

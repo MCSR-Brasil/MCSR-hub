@@ -17,7 +17,7 @@ async function fetchRBSData(variableName) {
             RBSjsonData.values.shift();
             console.log(RBSjsonData.values); // Log the entire data array
             // Call a function to render data in HTML
-            parseAndCreateElements(0, 10, RBSjsonData)
+            parseAndCreateRBS(0, 10, RBSjsonData)
         } catch (error) {
         
         }
@@ -39,7 +39,7 @@ function toggleSeeMore(button) {
     }
 }
 
-function parseAndCreateElements(slice1, slice2, RBSjsonData) {
+function parseAndCreateRBS(slice1, slice2, RBSjsonData) {
   console.log(RBSjsonData.values)
  
   let divContainer = document.getElementById('main-container');
@@ -54,11 +54,6 @@ function parseAndCreateElements(slice1, slice2, RBSjsonData) {
       createRunsDiv(divContainer, rowData);
   }
 }
-
-// Example usage:
-// Assuming 'RBSjsonData' is the array of arrays retrieved from the Google Sheets API
-// parseAndCreateElements(slice1, slice2, RBSjsonData);
-
 
 
   
