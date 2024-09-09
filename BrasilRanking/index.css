@@ -116,7 +116,7 @@ tbody tr:nth-child(1) td{
     }
 }
 
-@media (max-width:600px) {
+@media (max-width:800px) {
     tr td:nth-child(3) {
         display: none;
         
