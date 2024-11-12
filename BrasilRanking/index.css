@@ -5,7 +5,6 @@ table {
 }
 
 th, td {
-    border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
 }
@@ -65,7 +64,9 @@ tbody tr:nth-child(1) td{
     position: relative;
 }
 
-
+.text {
+    text-align: center;
+}
 .text h1{
 	color: white;
 	font-size: calc(50px + 0.390625vw);
@@ -229,3 +230,35 @@ tbody tr:nth-child(1) td{
   .item-4 {
     grid-column: 2 / span 2; /* Make it start at the 2nd column and span two columns */
   }
+
+
+
+
+  select {
+    width: 180px; /* Adjust width as needed */
+    height: 80px;
+    text-align: center;
+    font-size: 28px !important;
+    font-family: Arial, sans-serif;
+    border: 2px solid #929292;
+    border-radius: 8px;
+    background-color: #f2f2f2;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: rgba(45, 57, 105, 0.315);
+    margin-top: 20px;
+}
+
+select option {
+    font-size: 26px; /* Increase font size in options */
+    background-color: rgb(22, 22, 22);
+
+}
+
+/* Change background on focus */
+select:focus {
+    border-color: #ffffff;
+    outline: none;
+    background-color: rgba(0, 0, 0, 0.315);
+}

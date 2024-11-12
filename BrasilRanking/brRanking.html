@@ -5,26 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Ranking Brasileiro</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../css/scrollbar.css">
     <link rel="stylesheet" href="index.css">
     <link rel="icon" type="image/x-icon" href="../images/icon.ico">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 <body>
     <a href="../index.html" class="back-button fixed">Voltar</a>
         <div class="text">
-            <h1 class="text" id="title">1.16+</h1>
+            <select name="cat" id="cat" onchange="handleCatChange(event.target.value)">
+                <option value="1.16+">1.16+</option>
+                <option value="SSG 1.16+">SSG 1.16+</option>
+                <option value="1.13-1.15">1.13-1.15</option>
+                <option value="1.9-1.12">1.9-1.12</option>
+                <option value="Pre 1.9">Pre 1.9</option>
+            </select>
         </div>
         
         <div class="table-container">
-            <div class="text d-flex align-items-center justify-content-between">
-                <button class="bold background-transparent-bright" onclick="renderData(brRankingjsonData.values, 0, 3)">1.16+</button>
-                <button class="bold background-transparent-bright" onclick="renderData(brRankingjsonData.values, 16, 19)">SSG 1.16+</button>
-                <button class="bold background-transparent-bright" onclick="renderData(brRankingjsonData.values, 6, 9)">1.13-1.15</button>
-                <button class="bold background-transparent-bright" onclick="renderData(brRankingjsonData.values, 21, 24)">1.9-1.12</button>
-                <button class="bold background-transparent-bright" onclick="renderData(brRankingjsonData.values, 11, 14)">Pre 1.9</button>
-            </div>
             <div class="data-table-container background-transparent">
                 <table id="data-table">
                     <tbody>

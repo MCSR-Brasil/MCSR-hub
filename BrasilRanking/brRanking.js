@@ -24,26 +24,7 @@ async function fetchBrRankingData(variableName, catStart, catEnd) {
     }
     
     function renderData(values, catStart, catEnd) {
-        const title = document.getElementById('title');
 
-        if (catStart == 0) {
-            title.textContent = "1.16+";
-        }
-        else if (catStart == 16) {
-            title.textContent = "SSG 1.16+";
-        }
-        else if (catStart == 6) {
-            title.textContent = "1.13-1.15";
-        }
-        else if (catStart == 21) {
-            title.textContent = "1.9-1.12";
-        }
-        else if (catStart == 11) {
-            title.textContent = "Pre 1.9";
-        }
-        else {
-            title.textContent = "Ranking Brasileiro";
-        }
         const tbody = document.querySelector('#data-table tbody');
         tbody.innerHTML = ''; // Clear existing content
         
@@ -117,5 +98,23 @@ async function fetchBrRankingData(variableName, catStart, catEnd) {
         return match ? match[1] : null;
     }
 
+
+    function handleCatChange(cat) {
+        if (cat == "1.16+") {
+            renderData(brRankingjsonData.values, 0, 3);
+        }
+        else if (cat == "SSG 1.16+") {
+            renderData(brRankingjsonData.values, 16, 19);
+        }
+        else if (cat == "1.13-1.15") {
+            renderData(brRankingjsonData.values, 6, 9);
+        }
+        else if (cat == "1.9-1.12") {
+            renderData(brRankingjsonData.values, 21, 24);
+        }
+        else if (cat == "Pre 1.9") {
+            renderData(brRankingjsonData.values, 11, 14);
+        }
+    }
    
     fetchBrRankingData('Principais', 0, 3);
