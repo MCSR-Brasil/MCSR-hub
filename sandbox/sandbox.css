@@ -1,0 +1,48 @@
+
+
+.version-division{
+    background-color: rgb(92, 92, 92);
+    text-align: center;
+    width: fit-content;
+    margin-left: auto; margin-right: auto;
+    border-radius: 10px;
+    padding-inline: 10px;
+    padding-block: 1px;
+    
+    
+}
+
+.run-desc {
+    padding-left: 3.5vw;
+}
+.runinfo-container{
+
+    text-align: center;
+    border-radius: 10px;
+    margin-top: 10px;
+    padding: 20px;
+    width: 40vw;
+}
+
+.test {
+    position: absolute;
+    padding-right: 220px;
+    padding-left: 20px;
+    line-height: 15px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.see-more {
+    width: fit-content;
+    background-color: rgba(255, 255, 255, 0.205);
+    padding: 0.7vb;
+    border-radius: 5px;
+    margin-left: 10px;
+    font-size: 2.2vmin;
+    color: aliceblue;
+}
+
+.see-more:hover {
+    background-color: rgba(255, 255, 255, 0.322);
+}
