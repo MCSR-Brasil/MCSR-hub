@@ -50,7 +50,7 @@ tbody tr:nth-child(1) td{
     padding: 10px;
 }
 
-.test { 
+.data-table-container { 
 	width: 100%;
 	height: 75vh;
 	color: white;
@@ -184,7 +184,7 @@ tbody tr:nth-child(1) td{
 
 
 .modal-iframe {
-    padding-right: 40px;
+    padding: 1px;
     margin-top: 10vh;
     margin: 0 auto;
     width: 60%;
@@ -200,19 +200,32 @@ tbody tr:nth-child(1) td{
     padding-inline: 20px;
 }
 
-.red-test {
-    width: 20%;
-    height: 100%;
-}
-
-.green-test {
-    width: 20%;
-    height: 100%;
-}
-
 .modal-info-text div{
     background-color: #55555577;
     border-radius: 10px;
     margin: 5px;
     padding: 10px;
+    height:min-content;
+    width: 100%;
 }
+.modal-info-text p{
+    color: rgb(226, 226, 226);
+}
+.modal-info-text h1{
+    font-size: calc(20px + 0.390625vw);
+}
+
+
+.flex-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 10px;
+  }
+  
+  .item {
+    width: 100%;
+  }
+  
+  .item-4 {
+    grid-column: 2 / span 2; /* Make it start at the 2nd column and span two columns */
+  }

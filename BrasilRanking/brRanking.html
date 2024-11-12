@@ -19,67 +19,79 @@
         
         <div class="table-container">
             <div class="text d-flex align-items-center justify-content-between">
-                <button class="background-transparent-bright" onclick="renderData(brRankingjsonData.values, 0, 3)">1.16+</button>
-                <button class="background-transparent-bright" onclick="renderData(brRankingjsonData.values, 16, 19)">SSG 1.16+</button>
-                <button class="background-transparent-bright" onclick="renderData(brRankingjsonData.values, 6, 9)">1.13-1.15</button>
-                <button class="background-transparent-bright" onclick="renderData(brRankingjsonData.values, 21, 24)">1.9-1.12</button>
-                <button class="background-transparent-bright" onclick="renderData(brRankingjsonData.values, 11, 14)">Pre 1.9</button>
+                <button class="bold background-transparent-bright" onclick="renderData(brRankingjsonData.values, 0, 3)">1.16+</button>
+                <button class="bold background-transparent-bright" onclick="renderData(brRankingjsonData.values, 16, 19)">SSG 1.16+</button>
+                <button class="bold background-transparent-bright" onclick="renderData(brRankingjsonData.values, 6, 9)">1.13-1.15</button>
+                <button class="bold background-transparent-bright" onclick="renderData(brRankingjsonData.values, 21, 24)">1.9-1.12</button>
+                <button class="bold background-transparent-bright" onclick="renderData(brRankingjsonData.values, 11, 14)">Pre 1.9</button>
             </div>
-            <div class="test background-transparent">
+            <div class="data-table-container background-transparent">
                 <table id="data-table">
                     <tbody>
-                        <tr>
-                            
-                        <!-- Dynamic rows will be inserted here -->
+                        <tr> 
+                        <!-- RANKING VAI APARECER AQUI -->
                     </tbody>
                 </table>
             </div>
         </div>
 
-
+        <!-- MODAL DE QUANDO CLICA A RUN -->
         <div class="modal-container d-flex justify-content-center align-items-center" id="modal-container">
             <div class="run-modal" id="runModal">
                 <div class="modal-close-container">
                     <button id="modal-close-btn" class="modal-close" onclick="closeModal()">Voltar</button>
                 </div>
-                <div class="d-flex justify-content-between modal-info-container">
+    
+                <div class="flex-container">
                     <iframe
                         id="modalIframe"
-                        class="modal-iframe"
+                        class="modal-iframe item"
                         src=""
                         frameborder="0"
                         allowfullscreen>
                     </iframe> 
-                    <div class="red-test modal-info-text">
-                        <div>
-                            <h1>Data</h1>
-                            <p>11/02/2023</p>
+                    <div class="d-flex flex-column direction-column">
+                        <div class="modal-info-text item d-flex justify-content-between">
+                            <div>
+                                <h1>Data</h1>
+                                <p>**/**/****</p>
+                            </div>
+                            <div>
+                                <h1>Verificada</h1>
+                                <p>***</p>
+                            </div>
                         </div>
-                        <div>
-                            <h1>Verificada</h1>
-                            <p>Sim</p>
+                        <div class="modal-info-text item d-flex justify-content-between"> 
+                            <div>
+                                <h1>Bastion</h1>
+                                <p>******</p>
+                            </div>
+                            <div>
+                                <h1>Seed</h1>
+                                <p>****************</p>
+                            </div>
                         </div>
-                        <div>
-                            <h1>Tempo</h1>
-                            <p>00:00:00</p>
+                        <div class="modal-info-text item d-flex justify-content-between"> 
+                            <div>
+                                <h1>Tempo</h1>
+                                <p>**:**:**</p>
+                            </div>
+                            <div>
+                                <h1>Rank &#127757;</h1>
+                                <p>#**</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="green-test modal-info-text"> 
-                        <div>
-                            <h1>Bastion</h1>
-                            <p>Housing</p>
+                        <div class="modal-info-text item d-flex justify-content-between"> 
+                            <div>
+                                <h1></h1>
+                                <p>Lorem ipsum</p>
+                            </div>
                         </div>
-                        <div>
-                            <h1>Seed</h1>
-                            <p>128097198412087124</p>
-                        </div>
-                        <div>
-                            <h1>Rank SRC</h1>
-                            <p>#19</p>
-                        </div>
-                    </div>
-            </div>
+            
 
+                    </div>
+                </div>
+            </div>
         </div>
           
     

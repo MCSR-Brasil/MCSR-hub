@@ -66,3 +66,7 @@ h1, p, button, td {
 .background-transparent-bright {
     background-color: rgba(62, 72, 107, 0.774);
 }
+
+.bold  {
+    font-weight: bold;
+}
