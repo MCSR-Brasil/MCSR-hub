@@ -39,11 +39,12 @@
                 category: "116"
             };
 
-            // Fetch the token (assuming it's stored in a cookie or sessionStorage/localStorage)
-            const token = sessionStorage.getItem('auth_token'); // Replace with the actual way you're storing the token
+            // Extract the token from the URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const token = urlParams.get('token'); // Get the token from the URL
 
             if (!token) {
-                alert('Please login first!');
+                alert('Token is missing. Please login first!');
                 return;
             }
 
@@ -52,7 +53,7 @@
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}` // Use the token from sessionStorage or wherever you store it
+                    'Authorization': `Bearer ${token}` // Use the token from the URL
                 },
                 body: JSON.stringify(requestData)
             })
