@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Request Example</title>
+</head>
+<body>
+
+    <h1>Fetch Request Example</h1>
+
+    <!-- Button to authenticate (redirects to /login) -->
+    <button id="loginBtn">Login</button>
+
+    <br><br>
+
+    <!-- Button to make the POST request to /api/runs -->
+    <button id="submitBtn">Submit Data</button>
+
+    <script>
+        // Login button logic
+        document.getElementById('loginBtn').addEventListener('click', function() {
+            window.location.href = '/login'; // This will redirect to /login for authentication
+        });
+
+        // Submit button logic to send POST request to the API
+        document.getElementById('submitBtn').addEventListener('click', function() {
+            const requestData = {
+                name: "asky",
+                verification: true,
+                data: "27/05/2024",
+                bastion: "housing",
+                seed: "125321326",
+                timestamp: "15:42.525",
+                description: "This is a description for asky.",
+                link: "w",
+                version: "1.16.1",
+                category: "116"
+            };
+
+            // Send POST request with the data
+            fetch('https://back-end-mjtwrg.fly.dev/api/runs', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer <your-token-here>' // Replace with actual token if needed
+                },
+                body: JSON.stringify(requestData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                alert('Data submitted successfully!');
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                alert('Error submitting data');
+            });
+        });
+    </script>
+
+</body>
+</html>
