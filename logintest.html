@@ -9,7 +9,7 @@
 
     <h1>Fetch Request Example</h1>
 
-    <!-- Button to authenticate (redirects to /login) -->
+    <!-- Button to authenticate (redirects to https://back-end-mjtwrg.fly.dev/login) -->
     <button id="loginBtn">Login</button>
 
     <br><br>
@@ -20,7 +20,8 @@
     <script>
         // Login button logic
         document.getElementById('loginBtn').addEventListener('click', function() {
-            window.location.href = '/login'; // This will redirect to /login for authentication
+            // Redirect to the login page on the backend server
+            window.location.href = 'https://back-end-mjtwrg.fly.dev/login';
         });
 
         // Submit button logic to send POST request to the API
@@ -38,12 +39,20 @@
                 category: "116"
             };
 
+            // Fetch the token (assuming it's stored in a cookie or sessionStorage/localStorage)
+            const token = sessionStorage.getItem('auth_token'); // Replace with the actual way you're storing the token
+
+            if (!token) {
+                alert('Please login first!');
+                return;
+            }
+
             // Send POST request with the data
             fetch('https://back-end-mjtwrg.fly.dev/api/runs', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': 'Bearer <your-token-here>' // Replace with actual token if needed
+                    'Authorization': `Bearer ${token}` // Use the token from sessionStorage or wherever you store it
                 },
                 body: JSON.stringify(requestData)
             })
