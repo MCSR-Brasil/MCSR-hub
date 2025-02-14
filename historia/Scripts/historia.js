@@ -23,6 +23,29 @@ async function fetchRBSData(variableName) {
         }
     }
 
+function changeRBSversion(version) {
+    document.getElementById("run-container").innerHTML = ""
+    fetchRBSData(version)
+    if (version == "historicossg") {
+        document.getElementById("title").textContent = "RECORDES PASSADOS SSG"
+        document.getElementById("descriptionRSG").style.display = "none"
+        document.getElementById("descriptionSSG").style.display = "block"
+
+        document.getElementById("version-selector-SSG").classList.add("version-selector-active")
+        document.getElementById("version-selector-RSG").classList.add("version-selector-text")
+        document.getElementById("version-selector-RSG").classList.remove("version-selector-active")
+    } else {
+        document.getElementById("title").textContent = "RECORDES PASSADOS RSG"
+
+        document.getElementById("descriptionRSG").style.display = "block"
+        document.getElementById("descriptionSSG").style.display = "none"
+
+        document.getElementById("version-selector-SSG").classList.remove("version-selector-active")
+        document.getElementById("version-selector-SSG").classList.add("version-selector-text")
+        document.getElementById("version-selector-RSG").classList.add("version-selector-active")
+    }
+}
+
 
 function toggleSeeMore(button) {
     var container = button.closest('.run-desc-container');
@@ -42,11 +65,11 @@ function toggleSeeMore(button) {
 function parseAndCreateRBS(slice1, slice2, RBSjsonData) {
   console.log(RBSjsonData.values)
  
-  let divContainer = document.getElementById('main-container');
+  let divContainer = document.getElementById('run-container');
 
-  for (let i = 1; i < RBSjsonData.values.length; i++) {
+  for (let i = 0; i < RBSjsonData.values.length; i++) {
       let rowData = RBSjsonData.values[i].slice(slice1, slice2);
-      console.log(rowData)
+      console.log("passed",rowData)
       if (rowData[0] == false) {
           return;
       }
@@ -60,10 +83,12 @@ function parseAndCreateRBS(slice1, slice2, RBSjsonData) {
 
   function createRunsDiv(container, values) {
     let div = document.createElement('div');
+    div.id = "rbs-container"
     if (values[2] != pastVersion ) {
       console.log(values[2])
       console.log(pastVersion)
       let versionDiv = document.createElement('div')
+      versionDiv.id = "version-division-container"
       versionDiv.innerHTML = 
                     `<div class="version-division">
                         <h1>${values[2]}</h1>

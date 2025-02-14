@@ -15,19 +15,21 @@
 <body>
     <div class="d-flex justify-content-between version-selector" style="position: absolute;">
         <a href="../recursos/recursos.html" class="back-button">Voltar</a>
-        <p class="version-selector-active">Todas RSG</p>
-        <p class="version-selector-text">Em breve SSG</p> 
+        <a id="version-selector-RSG" href="#" class="version-selector-active" onclick="changeRBSversion('historico'); return false;">Todos RSG</a>
+        <a id="version-selector-SSG" href="#" class="version-selector-text" onclick="changeRBSversion('historicossg'); return false;">Todos SSG</a>
         <p class="version-selector-text">,</p>
         <p class="version-selector-text">,</p>
         <p class="version-selector-text">,</p>
     </div>
     <div class="title-container background-transparent">
-        <h1 class="title">Recordes Passados</h1>
-        <p class="text-1">Aqui temos todos os recordes brasileiros combinando todas as versões em um único ranking, todas as runs de RSG mais rápidas do nosso país desde antes da 1.14 ser jogada, ou da 1.16 ser lançada. É preciso voltar ao passado para entender o presente ou algo assim sla</p>
+        <h1 id="title" class="title">RECORDES PASSADOS</h1>
+        <p id="descriptionRSG" class="text-1">Aqui temos todos os recordes brasileiros combinando todas as versões em um único ranking, todas as runs de RSG mais rápidas do nosso país desde antes da 1.14 ser jogada, ou da 1.16 ser lançada. É preciso voltar ao passado para entender o presente ou algo assim sla</p>
+        <p id="descriptionSSG" class="text-1">Timeline mostrando o tempo mais rapido de SSG combinando todas as versões<br>"ta xitado ja sabe onde ta as coisa"<br>"como que o portal tava aceso?"</p>
+        
     </div>
     <div class="main-container" id="main-container">
         <h1 class="d-flex justify-content-center pb-5"><b>RECORDES PASSADOS:</b></h1>
-        <div class="run-container d-flex justify-content-around" id="run-container">
+        <div id="run-container">
     </div>
 
     </div>
