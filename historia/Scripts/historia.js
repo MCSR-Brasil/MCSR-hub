@@ -49,6 +49,12 @@ function changeRBSversion(version) {
 
 function toggleSeeMore(button) {
     var container = button.closest('.run-desc-container');
+
+    if (button.innerText === "Ver Menos") {
+        button.innerText = "Ver Mais";
+    } else {
+        button.innerText = "Ver Menos";
+    }
     
     if (container) {
         // Find the .see-more-text element within the same container
@@ -78,10 +84,7 @@ function parseAndCreateRBS(slice1, slice2, RBSjsonData) {
   }
 }
 
-
-  
-
-  function createRunsDiv(container, values) {
+function createRunsDiv(container, values) {
     let div = document.createElement('div');
     div.id = "rbs-container"
     if (values[2] != pastVersion ) {
@@ -115,7 +118,7 @@ function parseAndCreateRBS(slice1, slice2, RBSjsonData) {
                                     </div>
                                 </div>   
                             </div>
-                            <div class="run-outside-link"><a href="${values[8]}"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+                            <div class="run-outside-link"><a href="${values[8]}" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
                       </div>`
     pastVersion = values[2]
     console.log(pastVersion)
