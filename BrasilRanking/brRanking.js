@@ -46,6 +46,25 @@ async function fetchBrRankingData(variableName, catStart, catEnd) {
             tbody.innerHTML = `<tr><td colspan="5">Error loading data: ${error.message}</td></tr>`;
         }
     }
+
+    async function fetchDataOnly(variableName, catStart, catEnd) {
+        const apiKey = 'AIzaSyAgRJh3hMNn84hWJYnwoXhq3Pw_Ew1yyrw';
+        const spreadsheetId = '1wHgbckH2QZwaD_yxUynviNxNGsN0o7H97aN8BKOkIBM';
+        const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${variableName}?alt=json&key=${apiKey}`;
+        
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                brRankingjsonData = await response.json();
+                brRankingjsonData.values.shift();
+                console.log(brRankingjsonData.values);
+                
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
     
     function renderData(values, catStart, catEnd) {
         const tbody = document.querySelector('#data-table tbody');
@@ -91,7 +110,7 @@ async function fetchBrRankingData(variableName, catStart, catEnd) {
         if (values && values.length > 0) {
             // HEADER
             const headerRow = document.createElement('tr');
-            const headers = ['#', 'RUNNER', 'TIME', 'BASTION'];
+            const headers = ['#', 'RUNNER', 'TEMPO', 'BASTION'];
             
             headers.forEach(headerText => {
                 const td = document.createElement('td');
@@ -214,6 +233,6 @@ async function fetchBrRankingData(variableName, catStart, catEnd) {
         }
     }
    
-    fetchBrRankingData('Principais', 0, 3);
+    fetchDataOnly('Principais', 0, 3);
     fetch116SheetsBackend('116rsg', 1, 3);
     
