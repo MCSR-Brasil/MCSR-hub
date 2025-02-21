@@ -217,7 +217,7 @@ async function fetchBrRankingData(variableName, catStart, catEnd) {
 
     function handleCatChange(cat) {
         if (cat == "1.16+") {
-            renderSheets116Data(data116.values, 1, 3);
+            renderSheets116Data(data116.values, 11, 13);
         }
         else if (cat == "SSG 1.16+") {
             renderData(brRankingjsonData.values, 16, 19);
@@ -234,5 +234,5 @@ async function fetchBrRankingData(variableName, catStart, catEnd) {
     }
    
     fetchDataOnly('Principais', 0, 3);
-    fetch116SheetsBackend('116rsg', 1, 3);
+    fetch116SheetsBackend('116rsg', 11, 13);
     
