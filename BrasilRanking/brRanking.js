@@ -131,7 +131,7 @@ async function fetchBrRankingData(variableName, catStart, catEnd) {
                     const tr = document.createElement('tr');
                     
                     // Get the URL from the fifth column (assuming zero-based indexing)
-                    const url = row[7];
+                    const url = row[sheetsPadding + 7];
                     
                     // Add event listener to the row
                     tr.addEventListener('click', () => {
