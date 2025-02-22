@@ -104,6 +104,7 @@ async function fetchBrRankingData(variableName, catStart, catEnd) {
     }
 
     function renderSheets116Data(values, catStart, catEnd) {
+        const sheetsPadding = 10
         const tbody = document.querySelector('#data-table tbody');
         tbody.innerHTML = ''; // Clear existing content
         
@@ -135,7 +136,7 @@ async function fetchBrRankingData(variableName, catStart, catEnd) {
                     // Add event listener to the row
                     tr.addEventListener('click', () => {
                         
-                            createRun(1, row[2], row[3], row[4], row[5], row[6], url, row[8], row[9]);
+                            createRun(1, row[sheetsPadding + 2], row[sheetsPadding + 3], row[sheetsPadding + 4], row[sheetsPadding + 5], row[sheetsPadding + 6], url, row[sheetsPadding + 8], row[sheetsPadding + 9]); createRun
                             console.log(url);
                         
                     });
