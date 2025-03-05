@@ -111,11 +111,13 @@ async function fetchBrRankingData(variableName, catStart, catEnd) {
         if (values && values.length > 0) {
             // HEADER
             const headerRow = document.createElement('tr');
+            headerRow.classList.add('header-row');
             const headers = ['#', 'RUNNER', 'TEMPO', 'BASTION'];
             
             headers.forEach(headerText => {
                 const td = document.createElement('td');
                 td.textContent = headerText;
+                
                 headerRow.appendChild(td);
             });
             

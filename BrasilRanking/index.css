@@ -36,8 +36,8 @@ tr td:nth-child(2) {
     text-align: left;
 }
 
-tbody tr:nth-child(1) td{
-    font-size: 2.5vw;
+.header-row td{
+    font-size: calc(25px + 0.390625vw);
     font-weight: bold;
 }
 
@@ -118,12 +118,12 @@ tbody tr:nth-child(1) td{
 }
 
 @media (max-width:800px) {
-    tr td:nth-child(3) {
+    tr td:nth-child(4) {
         display: none;
         
 
     }
-    tr td:nth-child(4){
+    tr td:nth-child(3){
 
         width: 40%;
         font-size: 5vw;
@@ -136,12 +136,11 @@ tbody tr:nth-child(1) td{
         text-align: left;
     }
     tr td:nth-child(1) {
-        font-size: large;
+       font-size: large;
        margin: 0px;
        padding: 0px;
        width: 15%
     }
-    
 }
 
 
