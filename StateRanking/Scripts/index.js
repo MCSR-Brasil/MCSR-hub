@@ -6,6 +6,13 @@ const buttonBrasil = document.getElementById("brBtn");
 const buttonRSG = document.getElementById("rsgBtn");
 const buttonSSG = document.getElementById("ssgBtn");
 
+const PCwarningBTN = document.getElementById("PC-warning");
+
+PCwarningBTN.addEventListener("click", function() {
+  document.getElementsByClassName("PC-warning")[0].style.display = "none";
+});
+
+
 const divVer = document.getElementById("verDiv");
 
 const runsClasses = ["d-flex","justify-content-between", "runner"]

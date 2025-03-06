@@ -9,21 +9,34 @@ h1, p, button, td {
 }
 
 .back-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
     text-align: center;
     text-decoration: none;
-	font-size: calc(10px + 0.390625vw);
-    line-height: 2.5vw;
+    font-size: min(1rem, 4vw);
     font-weight: bold;
-    
-	margin-top: 6px;
-    width: 5vw;
-	height: 2.5vw;
 
-	border: none;
+    margin-top: 6px;
+    width: min(9vw, 90px);
+    height: min(4vw, 40px);
+
+    border: none;
     border-radius: 5px;
-	background-color: #5b799b;
-	color: white;
-    margin-left: 10px;
+    background-color: #5b799b;
+    color: white;
+    margin-left: 15px;
+    padding: 5px 10px;
+}
+
+/* Adjust styles for smaller screens */
+@media (max-width: 600px) {
+    .back-button {
+        font-size: 0.9rem;
+        width: 80px;
+        height: 40px;
+    }
 }
 
 .back-button:hover {

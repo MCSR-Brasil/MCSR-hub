@@ -3,6 +3,23 @@
 	height: 100%;
   }
 
+.PC-warning {
+	display: none;
+	position: fixed;
+	top: 0;
+    left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #297021;
+	z-index: 99999; /* Ensures it's above everything */
+}
+
+@media (max-width: 800px) {
+	.PC-warning {
+		display: block;
+		
+	}
+}
 .run-container {
 	position: fixed;
 	font-size: 1.5vw;
