@@ -22,7 +22,6 @@ async function fetchData(variableName, catStart, catEnd) {
     }
     jsonData = await response.json();
 
-    console.log("Fetched data:", jsonData.values);
     parseAndCreateElements(catStart, catEnd, jsonData.values);
   } catch (error) {
     console.error('Error fetching data:', error);
@@ -150,7 +149,6 @@ function unselectButtons(selectedButtonId) {
   const buttonIds = ["1.16Btn", "1.14Btn", "1.7Btn"];
   for(let i = 0; i < buttonIds.length; i++) {
     if (buttonIds[i] !== selectedButtonId) {
-      console.log(buttonIds[i]);
       document.getElementById(buttonIds[i]).style.backgroundColor = "#3d3b5a";
     }
   
