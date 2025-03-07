@@ -2,6 +2,9 @@ const uuids = ["cb860439-54a7-4ba0-abbd-d21179d00bfa", "97800bfa-7f1c-42e1-9162-
 const cache = [];
 let dataRanked = null;
 
+const titleRow = ["MCSR Ranked Any%"];
+const HeaderRow = ["#º", "RUNNER", "TEMPO"];
+
 async function fetchRanked(variableName) {
     const apiKey = 'AIzaSyAgRJh3hMNn84hWJYnwoXhq3Pw_Ew1yyrw';
     const spreadsheetId = '1zTaSiWIDf2VQjf4yW6mdYkOXx1g7Mrs1s3b8vWVMeAw';
@@ -55,29 +58,47 @@ async function fetchRankedUserData(data) {
     return cache; // Return cache for later use
 }
 
-function handleRankedButtonClick() {
-    console.log(cache);
-    createRankedElements()
+function handleRankedButtonClick(buttonId, cat, visibility) {
+    unselectButtons(buttonId);
+    setCatButton(buttonId);
+    document.getElementById(buttonId).style.backgroundColor = "#666494";
+    selectedCat = cat;
+    if (selectedState != "none") {
+      //getState();
+      if (cat === "1.16ssg"){
+        divVer.style.visibility = "hidden";
+      }
+       else divVer.style.visibility = "visible";
+      
+    } else {
+        createRankedElements()
+        divVer.style.visibility = visibility;
+    }
     
 }
 
 function createRankedElements() {
     const divContainer = document.getElementById('tbl-data');
     clearContainer(divContainer); // Clear container before creating elements
-  
-    // Create rows
-    for (let i = 1; i < cache.length; i++) {
-      const rowData = cache[i];
-      console.log(rowData);
-      if (rowData[0] == ".") { // Check for stop condition, adjust if needed
-        break;
-      }
-  
-      createRankedCells(i,divContainer, rowData); // Create row elements for data
-    }
-  }
 
-fetchRanked("ranked");
+    createRankedHeader(divContainer, titleRow);
+    createRankedHeader(divContainer, HeaderRow);
+
+    // Sort cache by bestTime.ranked (lowest first)
+    let sortedCache = cache.slice(1).sort((a, b) => {
+        let timeA = a.data.statistics.total.bestTime.ranked ?? Infinity; // If null, place last
+        let timeB = b.data.statistics.total.bestTime.ranked ?? Infinity;
+        return timeA - timeB; // Ascending order
+    });
+
+    sortedCache.forEach((rowData, index) => {
+        if (rowData.name === ".") return; // Stop condition
+
+        createRankedCells(index + 1, divContainer, rowData); // Create row elements
+    });
+}
+
+
 
 function createRankedCells(i,container, values) {
     let div = document.createElement('div');
@@ -109,3 +130,28 @@ function createRankedCells(i,container, values) {
     
     container.appendChild(div);
   }
+
+function createRankedHeader(container, values) {
+    let div = document.createElement('div');
+    div.classList.add(...runsClasses);
+  
+    let pIndex = document.createElement('p');
+    pIndex.textContent = values[0]
+  
+    let p1 = document.createElement('p');
+    p1.textContent = values[1];
+    
+    let p2 = document.createElement('p');
+    p2.textContent = values[2];
+  
+    document.body.appendChild(p2);
+    
+    div.appendChild(pIndex);
+    div.appendChild(p1);
+    div.appendChild(p2);
+    
+    
+    container.appendChild(div);
+  }
+
+  fetchRanked("ranked");

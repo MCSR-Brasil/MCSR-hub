@@ -115,19 +115,27 @@ function clearContainer(container) {
 }
 
 function setCatButton(selectedButtonId) {
-  buttonRSG.style.backgroundColor = "#666494";
   if (selectedButtonId === "rsgBtn"){
     buttonSSG.style.backgroundColor = "";
+    buttonRanked.style.backgroundColor = "";
+    buttonRSG.style.backgroundColor = "#666494";
     button116.style.backgroundColor = "#666494";
   }
   else if (selectedButtonId === "ssgBtn"){
-    buttonRSG.style.backgroundColor = "#3d3b5a";
+    buttonRanked.style.backgroundColor = "";
+    buttonRSG.style.backgroundColor = "";
+    buttonSSG.style.backgroundColor = "#666494";
+  }
+  else if (selectedButtonId === "rankedBtn"){
+    buttonRanked.style.backgroundColor = "#666494";
+    buttonRSG.style.backgroundColor = "";
+    buttonSSG.style.backgroundColor = "";
   }
   }
 
 
 
-  function handleButtonClick(buttonId, cat, parseStart, parseEnd, visibility) {
+function handleButtonClick(buttonId, cat, parseStart, parseEnd, visibility) {
     unselectButtons(buttonId);
     setCatButton(buttonId);
     document.getElementById(buttonId).style.backgroundColor = "#666494";
@@ -146,7 +154,7 @@ function setCatButton(selectedButtonId) {
   }
 
 function unselectButtons(selectedButtonId) {
-  const buttonIds = ["1.16Btn", "1.14Btn", "1.7Btn"];
+  const buttonIds = ["1.16Btn", "1.14Btn", "1.7Btn", "rankedBtn"];
   for(let i = 0; i < buttonIds.length; i++) {
     if (buttonIds[i] !== selectedButtonId) {
       document.getElementById(buttonIds[i]).style.backgroundColor = "#3d3b5a";

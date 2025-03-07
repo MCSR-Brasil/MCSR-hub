@@ -5,6 +5,7 @@ const button114 = document.getElementById("1.14Btn");
 const buttonBrasil = document.getElementById("brBtn");  
 const buttonRSG = document.getElementById("rsgBtn");
 const buttonSSG = document.getElementById("ssgBtn");
+const buttonRanked = document.getElementById("rankedBtn");
 
 const PCwarningBTN = document.getElementById("PC-warning");
 
