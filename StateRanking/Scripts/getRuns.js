@@ -143,7 +143,7 @@ function handleButtonClick(buttonId, cat, parseStart, parseEnd, visibility) {
     if (selectedState != "none") {
       getState();
       if (cat === "1.16ssg"){
-        divVer.style.visibility = "hidden";
+        document.getElementById("verDiv").style.visibility = "hidden";
       }
        else divVer.style.visibility = "visible";
       
@@ -161,4 +161,8 @@ function unselectButtons(selectedButtonId) {
     }
   
 }
+}
+
+function hideVerDiv() {
+  document.getElementById("verDiv").style.visibility = "hidden";
 }
