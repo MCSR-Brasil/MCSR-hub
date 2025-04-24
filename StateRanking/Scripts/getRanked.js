@@ -150,7 +150,7 @@ function handleRankedButtonClick(buttonId, cat, visibility) {
         const divContainer = document.getElementById('tbl-data');
         if (divContainer) {
             clearContainer(divContainer);
-            divContainer.textContent = "Loading ranked data...";
+            divContainer.innerHTML = '<div class="d-flex justify-content-between runner"><p>Carregando API da Ranked...</p></div>';
         }
     }
 
