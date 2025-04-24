@@ -83,7 +83,7 @@ async function fetchBrRankingData(variableName, catStart, catEnd) {
                     
         
                     // Add event listener to the row
-                    tr.addEventListener('click', () => {
+                    tr.addEventListener('mousedown', () => {
                         if (url) {
                             createRun(1, url);
                             console.log(row);
@@ -136,7 +136,7 @@ async function fetchBrRankingData(variableName, catStart, catEnd) {
                     const url = row[sheetsPadding + 7];
                     
                     // Add event listener to the row
-                    tr.addEventListener('click', () => {
+                    tr.addEventListener('mousedown', () => {
                         
                             createRun(1, row[sheetsPadding + 2], row[sheetsPadding + 3], row[sheetsPadding + 4], row[sheetsPadding + 5], row[sheetsPadding + 6], url, row[sheetsPadding + 8], row[sheetsPadding + 9]); createRun
                             console.log(url);

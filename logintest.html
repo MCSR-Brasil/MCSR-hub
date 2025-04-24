@@ -19,13 +19,13 @@
 
     <script>
         // Login button logic
-        document.getElementById('loginBtn').addEventListener('click', function() {
+        document.getElementById('loginBtn').addEventListener('mousedown', function() {
             // Redirect to the login page on the backend server
             window.location.href = 'https://back-end-mjtwrg.fly.dev/login';
         });
 
         // Submit button logic to send POST request to the API
-        document.getElementById('submitBtn').addEventListener('click', function() {
+        document.getElementById('submitBtn').addEventListener('mousedown', function() {
             const requestData = {
                 name: "asky",
                 verification: true,

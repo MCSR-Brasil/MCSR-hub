@@ -37,7 +37,7 @@ setCatButton("rsgBtn");
 button116.style = "background-color: #666494"
 
 
-buttonBrasil.addEventListener("click", function(){
+buttonBrasil.addEventListener("mousedown", function(){
   StateDisplayText.innerHTML = "Brasil";
   selectedState = "none"
   getState();

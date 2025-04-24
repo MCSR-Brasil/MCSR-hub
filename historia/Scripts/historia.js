@@ -102,7 +102,7 @@ function createRunsDiv(container, values) {
                         <p><span style="color: ${values[7]};"><b>${values[1]}</b></span> conseguiu um novo recorde de <b>${values[3]}</b>!</p>
                         <div class="run-desc-container">
                             <p class="text-3 run-desc">O recorde durou <b>${values[5]}</b> dias e melhorou ele em <b>${values[9]}</b> 
-                            <button class="btn see-more" onclick="toggleSeeMore(this)">Ver mais</button></p>
+                            <button class="btn see-more" onmousedown="toggleSeeMore(this)">Ver mais</button></p>
                             <p class="see-more-text text-3" style="display: none;">${values[6]}</p>
                         </div>         
                     </div>

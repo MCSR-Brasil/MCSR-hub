@@ -9,7 +9,7 @@ const buttonRanked = document.getElementById("rankedBtn");
 
 const PCwarningBTN = document.getElementById("PC-warning");
 
-PCwarningBTN.addEventListener("click", function() {
+PCwarningBTN.addEventListener("mousedown", function() {
   document.getElementsByClassName("PC-warning")[0].style.display = "none";
 });
 
