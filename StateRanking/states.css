@@ -113,4 +113,10 @@
 	background-color: #297021;
 }
 
+a {
+    -webkit-user-drag: none;
+}
 
+button {
+	user-select: none;
+}

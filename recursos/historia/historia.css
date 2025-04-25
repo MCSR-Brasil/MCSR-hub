@@ -136,3 +136,7 @@
 #descriptionSSG {
     display: none;
 }
+
+a {
+    -webkit-user-drag: none;
+}

@@ -152,4 +152,8 @@
 
 a {
     -webkit-user-drag: none;
-  }
+}
+
+button {
+  user-select: none;
+}
