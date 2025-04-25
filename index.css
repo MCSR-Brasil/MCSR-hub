@@ -150,5 +150,6 @@
     
 }
 
-
-  
+a {
+    -webkit-user-drag: none;
+  }
