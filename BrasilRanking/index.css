@@ -1,269 +1,381 @@
-table {
-    width: 100%;
-    table-layout: fixed;
-    border-collapse: collapse;
-}
-
-th, td {
-    padding: 8px;
-    text-align: left;
-}
-
-th {
-    background-color: #f2f2f2;
-    font-weight: bold;
-}
-
-td {
-    text-align: center;
-    font-size: 2.1vw;
-    min-width: 100px; /* Adjust as necessary */
-    white-space: nowrap; /* Prevent text wrapping */
-    overflow: hidden;    /* Hide overflow */
-    text-overflow: ellipsis; /* Display ellipsis (...) for overflow */
-}
-
-tr:hover {
-    background-color: rgba(164, 173, 250, 0.233);
-    cursor: pointer;
-}
-
-tr td:nth-child(1) {
-    text-align: left;
-    font-weight: bold;
-}
-tr td:nth-child(2) {
-    text-align: left;
-}
-
-.header-row td{
-    font-size: calc(25px + 0.390625vw);
-    font-weight: bold;
-}
-
-
-.error-message {
-    background-color: #f44336;
-    color: white;
-    text-align: center;
-    padding: 10px;
-}
-
-.data-table-container { 
-	width: 100%;
-	height: 75vh;
-	color: white;
-	font-size: calc(22px + 0.390625vw);
-	text-align: center;
-    margin-top: 40px;
-    padding-inline: 10vmin;
-    border-radius: 10px;
-    overflow: scroll;
+/* Basic Reset & Body Styles (Consider moving to a global.css) */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    margin: 0;
+    background-color: rgb(18, 27, 45); /* Dark background */
+    color: #e0e0e0; /* Light text */
+    line-height: 1.6;
     overflow-x: hidden;
-    overflow-y:auto;
-    position: relative;
 }
 
-.text {
-    text-align: center;
-}
-.text h1{
-	color: white;
-	font-size: calc(50px + 0.390625vw);
-	text-align: center;
-    padding-top: 10px;
-}
-
-.text p{
-	color: rgb(255, 255, 255);
-	font-size: calc(22px + 0.390625vw);
-	text-align: center;
-}
-
-.text button{
-	color: rgb(255, 255, 255);
-    border: none;
-    padding: 10px;
-    font-size: 1.5vw;
-	text-align: center;
-    border-radius: 10px;
-    width: 10vw;
-}
-
-.text button:hover{
-	background-color: rgba(110, 119, 196, 0.651)
-}
-
-.table-container {
-    padding-inline: 100px;
-    
-}
-
-@media (max-width:1100px) { 
-    .table-container     {
-        padding-inline: 20px;
-    }
-}
-
-@media (max-width:700px) { 
-    .table-container     {
-        padding-inline: 0px;
-    }
-}
-
-@media (max-height:800px) { 
-    .test   {
-         height: 70vh;
-    }
-}
-
-@media (max-width:800px) {
-    tr td:nth-child(4) {
-        display: none;
-        
-
-    }
-    tr td:nth-child(3){
-
-        width: 40%;
-        font-size: 5vw;
-        text-align: right; 
-        padding-inline: 0;
-    }
-    tr td:nth-child(2) {
-        padding: 0px;
-        font-size: 5vw;
-        text-align: left;
-    }
-    tr td:nth-child(1) {
-       font-size: large;
-       margin: 0px;
-       padding: 0px;
-       width: 15%
-    }
-}
-
-
-.run-modal {
-    margin: 15px;
+/* Header Styling */
+header {
+    background-color: rgb(16, 25, 41); /* Dark background */
     padding: 20px;
-    width: 95%; 
-    height: 95%; 
-    border-radius: 10px;
-    display: none; 
-    position: fixed; 
-    z-index: 1; 
-    top: 0;
-    overflow: auto;
-    background-color: #19191d;
-}
-
-.modal-close-container {
-    display: flex;
-    justify-content: center;
-    padding-bottom: 10px;
-}
-.modal-close {
-    padding: 7px;
-    padding-inline: 15px;
-    background-color: #5b799b;
-    color: white;
-    float: right;
-    font-size: 20px;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
-}
-
-.modal-close:hover,
-.modal-close:focus {
-    background-color: #6f90b3;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-
-.modal-iframe {
-    padding: 1px;
-    margin-top: 10vh;
-    margin: 0 auto;
-    width: 60%;
-    aspect-ratio: 16 / 9;
-    background-color: rgba(0, 0, 0, 0);
-}
-
-.modal-iframe-container {
-    padding-block: 2vh;
-}
-
-.modal-info {
-    padding-inline: 20px;
-}
-
-.modal-info-text div{
-    background-color: #55555577;
-    border-radius: 10px;
-    margin: 5px;
-    padding: 10px;
-    height:min-content;
-    width: 100%;
-}
-.modal-info-text p{
-    color: rgb(226, 226, 226);
-}
-.modal-info-text h1{
-    font-size: calc(20px + 0.390625vw);
-}
-
-
-.flex-container {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 10px;
-  }
-  
-  .item {
-    width: 100%;
-  }
-  
-  .item-4 {
-    grid-column: 2 / span 2; /* Make it start at the 2nd column and span two columns */
-  }
-
-
-
-
-  select {
-    width: 10vw; /* Adjust width as needed */
-    height: 10vh;
-    min-width: 180px;
-    min-height: 50px;
     text-align: center;
-    font-size: 33px !important;
-    font-family: Arial, sans-serif;
-    border: 2px solid #929292;
-    border-radius: 8px;
-    background-color: #f2f2f2;
+    border-bottom: 1px solid #adadad;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.title-container h1 {
     color: #ffffff;
+    font-size: clamp(28px, 5vw, 40px);
+    margin-bottom: 15px;
+}
+
+.fixed-back-button {
+    position: absolute; /* Relative to header */
+    top: 20px;
+    left: 20px;
+    background-color: rgb(23, 37, 59); /* Dark background */
+    color: rgb(255, 255, 255);
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    font-size: 1.0em;
+    font-weight: bold;
+}
+
+.fixed-back-button:hover {
+    background-color: rgb(53, 73, 105); /* Dark background */
+    color: white;
+}
+
+
+/* Select Dropdown Styling */
+select#cat {
+    font-weight: bold;
+    min-width: 200px;
+    padding: 12px 15px;
+    font-size: clamp(16px, 3vw, 20px);
+    font-family: inherit;
+    border: 1px solid #adadad;
+    border-radius: 6px;
+    background-color: rgb(23, 37, 59); /* Dark background */
+    color: #e0e0e0;
     cursor: pointer;
-    transition: all 0.3s ease;
-    background-color: rgba(45, 57, 105, 0.315);
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+    appearance: none; /* Remove default arrow */
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23e0e0e0%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.4-5.4-12.8z%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 12px auto;
+}
+
+select#cat:focus {
+    border-color: #adadad; /* Accent color */
+    font-weight: bold;
+    outline: none;
+    background-color: rgb(23, 37, 59); /* Dark background */
+}
+
+select#cat option {
+    font-weight: bold;
+    font-size: 16px;
+        background-color: rgb(45, 60, 83); /* Dark background */
+    color: #e0e0e0;
+}
+
+/* Main Table Section */
+.table-section-container {
+    padding: 20px clamp(10px, 5vw, 50px);
     margin-top: 20px;
 }
 
-select option {
-    font-size: 26px; /* Increase font size in options */
-    background-color: rgb(22, 22, 22);
-
+.data-table-wrapper {
+    width: 100%;
+    max-height: 75vh; /* Max height for table container */
+    color: #e0e0e0;
+    background-color: #1e1e1e; /* Slightly lighter than body for contrast */
+    border-radius: 8px;
+    overflow: auto; /* Scroll for content overflow */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-/* Change background on focus */
-select:focus {
-    border-color: #ffffff;
-    outline: none;
-    background-color: rgba(0, 0, 0, 0.315);
+table#data-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
 }
 
-a {
-    -webkit-user-drag: none;
+thead th {
+    background-color: rgb(27, 39, 58); /* Darker header */
+    color: #ffffff; /* Accent color for header text */
+    font-weight: 600;
+    padding: 15px 10px;
+    text-align: left;
+    font-size: clamp(16px, 2.5vw, 20px);
+    position: sticky; /* Sticky header */
+    top: 0;
+    z-index: 10;
+}
+
+tbody tr {
+    background-color: rgb(32, 44, 61);
+    border:none;
+    transition: background-color 0.25s ease;
+}
+
+tbody tr:last-child {
+    border-bottom: none;
+}
+
+tbody tr:hover {
+    background-color: rgb(60, 74, 97); /* Dark background */
+    cursor: pointer;
+}
+
+tbody td {
+    padding: 12px 10px;
+    text-align: left;
+    font-size: clamp(15px, 2.2vw, 18px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Specific column alignments if needed */
+thead th:first-child, tbody td:first-child { /* Rank */
+    text-align: center;
+    width: 7%; /* Adjust width as needed, but keep it fixed */
+    font-weight: bold;
+}
+thead th:nth-child(2), tbody td:nth-child(2) { /* Runner */
+    width: 25%;
+}
+thead th:nth-child(3), tbody td:nth-child(3) { /* Time */
+    width: 25%;
+    text-align: center;
+}
+thead th:nth-child(4), tbody td:nth-child(4) { /* Bastion/Other */
+    width: 25%;
+    text-align: center;
+}
+
+
+/* Error Message Styling */
+.error-message {
+    background-color: #c7dbff; /* Red for errors */
+    color: white;
+    text-align: center;
+    padding: 15px;
+    border-radius: 0 0 8px 8px; /* If shown at bottom of table wrapper */
+}
+
+/* Modal Styling */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Darker, more prominent overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1050;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0s linear 0.3s;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0s;
+}
+
+.run-modal-content {
+    background-color: #25252d; /* Modal background */
+    color: #e0e0e0;
+    padding: 25px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 1000px; /* Max width for the modal */
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    position: relative; /* For close button positioning */
+    transform: scale(0.95) translateY(20px);
+    opacity: 0;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.3s ease-in-out;
+}
+
+.modal-overlay.active .run-modal-content {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+}
+
+.modal-close-button {
+    position: absolute;
+    top: 0px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: #ebebeb;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.modal-close-button:hover {
+    color: #ffffff;
+}
+
+.modal-body-grid {
+    display: grid;
+    grid-template-columns: 3fr 2fr; /* Video larger by default */
+    gap: 25px;
+    margin-top: 20px; /* Space below close button */
+}
+
+.modal-video-container {
+    width: 100%;
+}
+
+.modal-iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 6px;
+    background-color: #000; /* Placeholder background for iframe */
+}
+
+.modal-info-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns for info items */
+    gap: 15px;
+    align-content: start; /* Align items to the start of the container */
+}
+
+.modal-info-item {
+    background-color: #33333a;
+    padding: 15px;
+    border-radius: 6px;
+}
+
+.modal-info-item.modal-info-item-full {
+    grid-column: span 2; /* Make description span both columns */
+}
+
+.modal-info-item h2 {
+    font-size: clamp(14px, 2vw, 16px);
+    color: #4a90e2; /* Accent color for headings */
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.modal-info-item p {
+    font-size: clamp(13px, 1.8vw, 15px);
+    margin: 0;
+    color: #ccc; /* Lighter text for details */
+    word-wrap: break-word;
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 992px) { /* Medium devices (tablets) */
+    .modal-body-grid {
+        grid-template-columns: 1fr; /* Stack video and info */
+    }
+    .modal-video-container {
+        margin-bottom: 20px;
+    }
+    .modal-info-container {
+        grid-template-columns: 1fr 1fr; /* Keep two columns for info if space allows */
+    }
+}
+
+@media (max-width: 768px) { /* Small devices (landscape phones, large portrait) */
+    header {
+        padding: 15px;
+    }
+    .fixed-back-button {
+        top: 15px; left: 15px;
+        padding: 6px 10px;
+    }
+    .title-container h1 {
+        margin-bottom: 10px;
+    }
+    select#cat {
+        font-weight: bold;
+        min-width: 180px;
+        padding: 10px 12px;
+        background-position: right 12px center;
+    }
+
+    /* Table column visibility adjustments for smaller screens */
+    thead th:nth-child(4), tbody td:nth-child(4) { /* Hide 4th column (e.g., Bastion) */
+        display: none;
+    }
+    thead th:first-child, tbody td:first-child { /* Rank */
+        width: 15%;
+    }
+    thead th:nth-child(2), tbody td:nth-child(2) { /* Runner */
+        width: 55%;
+    }
+    thead th:nth-child(3), tbody td:nth-child(3) { /* Time */
+        width: 30%;
+    }
+
+    .run-modal-content {
+        width: 95%;
+        padding: 20px;
+    }
+    .modal-info-container { /* Info items stack on very small screens if needed */
+        grid-template-columns: 1fr;
+    }
+    .modal-info-item.modal-info-item-full {
+        grid-column: span 1;
+    }
+}
+
+@media (max-width: 480px) { /* Extra small devices (portrait phones) */
+    thead th:first-child, tbody td:first-child { /* Rank */
+        font-size: 12px;
+    }
+     tbody td {
+        font-size: 12px;
+        padding: 10px 8px;
+    }
+    thead th {
+        padding: 12px 8px;
+        font-size: 13px;
+    }
+}
+
+/* Custom Scrollbar (Example - use your scrollbar.css or this) */
+.data-table-wrapper::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+.data-table-wrapper::-webkit-scrollbar-track {
+    background: #2c2c2c;
+    border-radius: 10px;
+}
+.data-table-wrapper::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 10px;
+}
+.data-table-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #4a90e2;
+}
+/* For modal scrollbar if needed */
+.run-modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+.run-modal-content::-webkit-scrollbar-track {
+    background: #33333a;
+    border-radius: 10px;
+}
+.run-modal-content::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 10px;
+}
+.run-modal-content::-webkit-scrollbar-thumb:hover {
+    background: #4a90e2;
 }

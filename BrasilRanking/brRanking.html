@@ -3,18 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Ranking Brasileiro</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/global.css">
-    <link rel="stylesheet" href="../css/scrollbar.css">
     <link rel="stylesheet" href="index.css">
-    <link rel="icon" type="image/x-icon" href="../images/icon.ico">
-</head>
+    <link rel="icon" type="image/x-icon" href="../images/icon.ico"> </head>
 <body>
-    <a href="../index.html" class="back-button fixed">Voltar</a>
-        <div class="text">
-            <select name="cat" id="cat" onchange="handleCatChange(event.target.value)">
+    <header>
+        <a href="../index.html" class="back-button fixed-back-button">Voltar</a>
+        <div class="title-container">
+            <select name="cat" id="cat" onchange="handleCatChange(this.value)">
                 <option value="1.16+">1.16+</option>
                 <option value="SSG 1.16+">SSG 1.16+</option>
                 <option value="1.13-1.15">1.13-1.15</option>
@@ -22,78 +19,68 @@
                 <option value="Pre 1.9">Pre 1.9</option>
             </select>
         </div>
-        
-        <div class="table-container">
-            <div class="data-table-container background-transparent">
-                <table id="data-table">
-                    <tbody>
-                        <tr> 
-                        <!-- RANKING VAI APARECER AQUI -->
-                    </tbody>
-                </table>
-            </div>
-        </div>
+    </header>
 
-        <!-- MODAL DE QUANDO CLICA A RUN -->
-        <div class="modal-container d-flex justify-content-center align-items-center" id="modal-container">
-            <div class="run-modal" id="runModal">
-                <div class="modal-close-container">
-                    <button id="modal-close-btn" class="modal-close" onmousedown="closeModal()">Voltar</button>
-                </div>
-    
-                <div class="flex-container">
+    <main class="table-section-container">
+        <div class="data-table-wrapper">
+            <table id="data-table">
+                <thead>
+                    </thead>
+                <tbody>
+                    </tbody>
+            </table>
+            <div id="loading-indicator" style="display: none; text-align: center; padding: 20px; font-size: 1.2em;">Loading data...</div>
+            <div id="error-message-container" class="error-message" style="display: none;"></div>
+        </div>
+    </main>
+
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="run-modal-content" id="runModalContent">
+            <button id="modal-close-btn" class="modal-close-button" onmousedown="closeRunModal()">✕</button>
+            <div class="modal-body-grid">
+                <div class="modal-video-container">
                     <iframe
                         id="modalIframe"
-                        class="modal-iframe item"
+                        class="modal-iframe"
                         src=""
                         frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen>
-                    </iframe> 
-                    <div class="d-flex flex-column direction-column">
-                        <div class="modal-info-text item d-flex justify-content-between">
-                            <div>
-                                <h1>Data</h1>
-                                <p id="modalDate">**/**/****</p>
-                            </div>
-                            <div>
-                                <h1>Verificada</h1>
-                                <p id="modalVerified">*****</p>
-                            </div>
-                        </div>
-                        <div class="modal-info-text item d-flex justify-content-between"> 
-                            <div>
-                                <h1>Bastion</h1>
-                                <p id="modalBastion">*****</p>
-                            </div>
-                            <div>
-                                <h1>Seed</h1>
-                                <p id="modalSeed">*****</p>
-                            </div>
-                        </div>
-                        <div class="modal-info-text item d-flex justify-content-between"> 
-                            <div>
-                                <h1>Tempo</h1>
-                                <p id="modalTime">*****</p>
-                            </div>
-                            <div>
-                                <h1>Rank &#127757;</h1>
-                                <p id="modalRankGlobe">*****</p>
-                            </div>
-                        </div>
-                        <div class="modal-info-text item d-flex justify-content-between"> 
-                            <div>
-                                <h1></h1>
-                                <p id="modalDesc">*****</p>
-                            </div>
-                        </div>
-            
-
+                    </iframe>
+                </div>
+                <div class="modal-info-container">
+                    <div class="modal-info-item">
+                        <h2>Data</h2>
+                        <p id="modalDate">--/--/----</p>
+                    </div>
+                    <div class="modal-info-item">
+                        <h2>Verificada</h2>
+                        <p id="modalVerified">-----</p>
+                    </div>
+                    <div class="modal-info-item">
+                        <h2>Bastion</h2>
+                        <p id="modalBastion">-----</p>
+                    </div>
+                    <div class="modal-info-item">
+                        <h2>Seed</h2>
+                        <p id="modalSeed">-----</p>
+                    </div>
+                    <div class="modal-info-item">
+                        <h2>Tempo</h2>
+                        <p id="modalTime">--:--.---</p>
+                    </div>
+                    <div class="modal-info-item">
+                        <h2>Rank 🌍</h2>
+                        <p id="modalRankGlobe">-----</p>
+                    </div>
+                    <div class="modal-info-item modal-info-item-full">
+                        <h2>Descrição</h2>
+                        <p id="modalDesc">-----</p>
                     </div>
                 </div>
             </div>
         </div>
-          
-    
+    </div>
 
     <script src="brRanking.js" defer></script>
 </body>
