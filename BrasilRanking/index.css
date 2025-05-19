@@ -158,7 +158,7 @@ thead th:nth-child(4), tbody td:nth-child(4) { /* Bastion/Other */
 
 /* Error Message Styling */
 .error-message {
-    background-color: #c7dbff; /* Red for errors */
+    background-color: rgb(36, 49, 68); /* Red for errors */
     color: white;
     text-align: center;
     padding: 15px;
