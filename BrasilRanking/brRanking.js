@@ -1,9 +1,8 @@
-let brRankingjsonData = null; // Global variable for data from 'Principais' sheet
-let data116 = null; // Global variable for 1.16+ data
-
-const API_KEY = 'AIzaSyAgRJh3hMNn84hWJYnwoXhq3Pw_Ew1yyrw'; // Be cautious with API keys in client-side code
+let brRankingjsonData = null;
+let data116 = null; 
+const API_KEY = 'AIzaSyAgRJh3hMNn84hWJYnwoXhq3Pw_Ew1yyrw';
 const BR_RANKING_SPREADSHEET_ID = '1wHgbckH2QZwaD_yxUynviNxNGsN0o7H97aN8BKOkIBM';
-const RSG116_SPREADSHEET_ID = '1zTaSiWIDf2VQjf4yW6mdYkOXx1g7Mrs1s3b8vWVMeAw'; // Assuming this is for 1.16+ RSG
+const RSG116_SPREADSHEET_ID = '1zTaSiWIDf2VQjf4yW6mdYkOXx1g7Mrs1s3b8vWVMeAw';
 
 const loadingIndicator = document.getElementById('loading-indicator');
 const errorMessageContainer = document.getElementById('error-message-container');
