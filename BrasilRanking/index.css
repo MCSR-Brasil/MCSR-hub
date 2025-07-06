@@ -191,17 +191,20 @@ thead th:nth-child(4), tbody td:nth-child(4) { /* Bastion/Other */
 .run-modal-content {
     background-color: #25252d; /* Modal background */
     color: #e0e0e0;
-    padding: 25px;
-    border-radius: 10px;
-    width: 90%;
-    max-width: 1000px; /* Max width for the modal */
-    max-height: 90vh;
+    padding: 35px; /* Increased padding for more internal space */
+    border-radius: 12px;
+    width: 98%;
+    max-width: 1400px; /* Increased max width */
+    max-height: 95vh;
+    height: 62vh; /* Increased height */
     overflow-y: auto;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.5);
     position: relative; /* For close button positioning */
     transform: scale(0.95) translateY(20px);
     opacity: 0;
     transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
 }
 
 .modal-overlay.active .run-modal-content {
@@ -211,15 +214,22 @@ thead th:nth-child(4), tbody td:nth-child(4) { /* Bastion/Other */
 
 .modal-close-button {
     position: absolute;
-    top: 0px;
+    top: 10px;
     right: 15px;
-    background: none;
+    background: rgba(0, 0, 0, 0.5);
     border: none;
-    color: #ebebeb;
-    font-size: 24px;
+    color: #ffffff;
+    font-size: 28px;
     font-weight: bold;
     cursor: pointer;
-    transition: color 0.2s ease;
+    transition: all 0.2s ease;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
 }
 
 .modal-close-button:hover {
@@ -228,20 +238,30 @@ thead th:nth-child(4), tbody td:nth-child(4) { /* Bastion/Other */
 
 .modal-body-grid {
     display: grid;
-    grid-template-columns: 3fr 2fr; /* Video larger by default */
-    gap: 25px;
+    grid-template-columns: 3fr 1.5fr; /* Make video even larger relative to info */
+    gap: 30px; /* Increased gap */
     margin-top: 20px; /* Space below close button */
+    flex: 1; /* Take up all available space */
 }
 
 .modal-video-container {
     width: 100%;
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio (height/width = 9/16 = 0.5625) */
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    background-color: #000;
 }
 
 .modal-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    aspect-ratio: 16 / 9;
-    border-radius: 6px;
-    background-color: #000; /* Placeholder background for iframe */
+    height: 100%;
+    border: none;
+    border-radius: 8px;
 }
 
 .modal-info-container {
@@ -253,8 +273,12 @@ thead th:nth-child(4), tbody td:nth-child(4) { /* Bastion/Other */
 
 .modal-info-item {
     background-color: #33333a;
-    padding: 15px;
-    border-radius: 6px;
+    padding: 20px; /* More padding */
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    min-height: 80px; /* Ensure minimum height for better spacing */
 }
 
 .modal-info-item.modal-info-item-full {
@@ -262,18 +286,19 @@ thead th:nth-child(4), tbody td:nth-child(4) { /* Bastion/Other */
 }
 
 .modal-info-item h2 {
-    font-size: clamp(14px, 2vw, 16px);
-    color: #ffffff; /* Accent color for headings */
+    font-size: clamp(16px, 2.2vw, 20px); /* Larger font size */
+    color: #ffffff;
     margin-top: 0;
-    margin-bottom: 8px;
+    margin-bottom: 12px; /* More space below headings */
     font-weight: 600;
 }
 
 .modal-info-item p {
-    font-size: clamp(13px, 1.8vw, 15px);
+    font-size: clamp(15px, 2vw, 18px); /* Larger font size */
     margin: 0;
-    color: #ccc; /* Lighter text for details */
+    color: #e0e0e0; /* Brighter text for better readability */
     word-wrap: break-word;
+    line-height: 1.6; /* Better line spacing */
 }
 
 

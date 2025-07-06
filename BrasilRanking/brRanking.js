@@ -1,14 +1,19 @@
-let brRankingjsonData = null;
-let data116 = null; 
-const API_KEY = 'AIzaSyAgRJh3hMNn84hWJYnwoXhq3Pw_Ew1yyrw';
-const BR_RANKING_SPREADSHEET_ID = '1wHgbckH2QZwaD_yxUynviNxNGsN0o7H97aN8BKOkIBM';
-const RSG116_SPREADSHEET_ID = '1zTaSiWIDf2VQjf4yW6mdYkOXx1g7Mrs1s3b8vWVMeAw';
+// API Endpoints
+const API_URLS = {
+  rsg116: 'https://script.google.com/macros/s/AKfycbztdxz4Cm5x03Xs_1mdX9Uxkf4g51FqohS-SqoAn28CPuvMAAJgdJsYhstp57PogdY4/exec?action=getrsg116',
+  ssg116: 'https://script.google.com/macros/s/AKfycbztdxz4Cm5x03Xs_1mdX9Uxkf4g51FqohS-SqoAn28CPuvMAAJgdJsYhstp57PogdY4/exec?action=getssg116'
+};
+
+// Cache for storing API responses
+let cache = {
+  rsg116: null,
+  ssg116: null
+};
 
 const loadingIndicator = document.getElementById('loading-indicator');
 const errorMessageContainer = document.getElementById('error-message-container');
 const tableBody = document.querySelector('#data-table tbody');
 const tableHead = document.querySelector('#data-table thead');
-
 
 function showLoading(isLoading) {
     if (loadingIndicator) loadingIndicator.style.display = isLoading ? 'block' : 'none';
@@ -23,26 +28,70 @@ function displayError(message) {
     if (tableHead) tableHead.innerHTML = ''; // Clear head on error
 }
 
-async function fetchData(spreadsheetId, range, variableToStoreData) {
+async function fetchData(category) {
     showLoading(true);
     displayError(''); // Clear previous errors
-    const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${range}?alt=json&key=${API_KEY}`;
+    
+    // Check cache first
+    if (cache[category]) {
+        showLoading(false);
+        return cache[category];
+    }
+
     try {
-        const response = await fetch(url);
-        if (!response.ok) {
-            const errorData = await response.json();
-            throw new Error(`HTTP error! status: ${response.status} - ${errorData.error?.message || 'Unknown error'}`);
-        }
-        const jsonData = await response.json();
-        if (jsonData && jsonData.values) {
-            return jsonData.values;
+        let endpoint;
+        if (category === '1.16+') {
+            endpoint = API_URLS.rsg116;
+        } else if (category === 'SSG 1.16+') {
+            endpoint = API_URLS.ssg116;
         } else {
-            throw new Error('No data found or unexpected format.');
+            throw new Error('Categoria não suportada');
         }
+
+
+
+        // Fetch category data
+        let response;
+        try {
+            response = await fetch(endpoint);
+            if (!response.ok) {
+                throw new Error(`Erro HTTP! status: ${response.status} ${response.statusText}`);
+            }
+            
+            let data;
+            try {
+                data = await response.json();
+                console.log('Category data received:', data);
+            } catch (jsonError) {
+                console.error('Error parsing category JSON:', jsonError);
+                const responseText = await response.text();
+                console.error('Response text:', responseText);
+                throw new Error('Formato de resposta inválido');
+            }
+            
+            // Check if data is an object with a runs array
+            if (data && typeof data === 'object' && Array.isArray(data.runs)) {
+                console.log('Found runs array in response:', data.runs);
+                // Use the runs array
+                data = data.runs;
+            } else if (!Array.isArray(data)) {
+                console.error('Expected array or object with runs array but got:', typeof data, data);
+                throw new Error('Formato de dados inesperado: esperado um array ou objeto com propriedade runs');
+            }
+            
+            // Cache the response
+            cache[category] = data;
+            return data;
+        } catch (error) {
+            console.error('Error fetching category data:', error);
+            throw error; // Re-throw to be caught by the outer try-catch
+        }
+        return data;
+        
     } catch (error) {
-        console.error('Error fetching data:', error);
-        displayError(`Error loading data: ${error.message}`);
-        return null; // Return null on error
+        console.error('Erro ao buscar dados:', error);
+        displayError(`Erro ao carregar dados: ${error.message}`);
+        return null;
     } finally {
         showLoading(false);
     }
@@ -60,126 +109,102 @@ function setTableHeaders(headers) {
     tableHead.appendChild(headerRow);
 }
 
-function renderGenericData(values, columnConfig) {
-    if (!tableBody) return;
+function renderCategoryData(category, data) {
+    if (!tableBody || !data) return;
     tableBody.innerHTML = '';
 
-    if (!values || values.length === 0) {
+    if (!Array.isArray(data) || data.length === 0) {
         const tr = document.createElement('tr');
         const td = document.createElement('td');
-        td.colSpan = columnConfig.headers.length;
-        td.textContent = 'No data found for this category.';
+        td.colSpan = 4; // Adjust based on your columns
+        td.textContent = 'Nenhum dado encontrado para esta categoria.';
         td.style.textAlign = 'center';
         tr.appendChild(td);
         tableBody.appendChild(tr);
         return;
     }
 
-    setTableHeaders(columnConfig.headers);
+    // Set table headers based on category
+    const headers = ['#', 'Runner', 'Tempo', 'Data'];
+    if (category === '1.16+') {
+        headers.splice(3, 0, 'Bastion');
+    } else if (category === 'SSG 1.16+') {
+        headers.splice(3, 0, 'Seed');
+    }
+    setTableHeaders(headers);
 
-    let displayedRowCount = 0; // To keep your #1, #2, #3 ranking correct
+    // Sort data by time (ascending)
+    const sortedData = [...data].sort((a, b) => {
+        const timeA = a[1].replace(':', '').replace('.', '');
+        const timeB = b[1].replace(':', '').replace('.', '');
+        return timeA.localeCompare(timeB);
+    });
 
-    for (let rowIndex = 0; rowIndex < values.length; rowIndex++) {
-        const row = values[rowIndex];
+    
+    for (let i = 0; i < sortedData.length; i++) {
+        const run = sortedData[i];
+        if (!run || run.length === 0) continue;
 
-        if (!row) continue; // Skip if row is null/undefined
-
-        // --- CHECK FOR "STOP" in name or time column ---
-        const timeCellIndex = columnConfig.dataIndices.time;
-        const nameCellIndex = columnConfig.displayIndices[0]; // Assuming first displayIndex is name
-
-        let stopFound = false;
-
-        // Check time column for "STOP"
-        if (typeof timeCellIndex === 'number' && row.length > timeCellIndex &&
-            row[timeCellIndex] && typeof row[timeCellIndex] === 'string' &&
-            row[timeCellIndex].trim().toUpperCase() === "STOP") {
-            stopFound = true;
-        }
-
-        // Check name column for "STOP" (if not already found)
-        if (!stopFound && typeof nameCellIndex === 'number' && row.length > nameCellIndex &&
-            row[nameCellIndex] && typeof row[nameCellIndex] === 'string' &&
-            row[nameCellIndex].trim().toUpperCase() === "STOP") {
-            stopFound = true;
-        }
-
-        if (stopFound) {
-            console.log(`"STOP" marker encountered at source row index ${rowIndex}. Halting processing.`);
-            break; // Exit the loop
-        }
-        // --- END CHECK FOR "STOP" ---
-
-
-        // Your existing row skipping conditions (like N/A time)
-        if (row[columnConfig.dataIndices.time] === 'N/A') {
-            console.warn('Skipping row due to "N/A" time:', row);
-            continue; // Skip this iteration
-        }
-        // Add other conditions from your previous version if needed, for example:
-        // if (row.length < columnConfig.dataIndices.url) { ... continue; }
-
-
-        // If we reach here, the row is to be displayed
-        displayedRowCount++;
         const tr = document.createElement('tr');
 
-        // Add Rank
+        // Add rank
         const rankTd = document.createElement('td');
-        if (displayedRowCount === 1) {
+        if (i === 0) {
             rankTd.innerHTML = '<span style="color:rgb(255, 242, 58);">#1</span>';
-        } else if (displayedRowCount === 2) {
+        } else if (i === 1) {
             rankTd.innerHTML = '<span style="color:rgb(236, 242, 255);">#2</span>';
-        } else if (displayedRowCount === 3) {
+        } else if (i === 2) {
             rankTd.innerHTML = '<span style="color:rgb(156, 127, 83);">#3</span>';
         } else {
-            rankTd.textContent = `#${displayedRowCount}`;
+            rankTd.textContent = `#${i + 1}`;
         }
         tr.appendChild(rankTd);
 
-        // Add data cells based on displayIndices
-        columnConfig.displayIndices.forEach(dataIdx => {
-            const td = document.createElement('td');
-            td.textContent = (row.length > dataIdx && row[dataIdx] != null) ? String(row[dataIdx]) : '';
-            tr.appendChild(td);
-        });
+        // Add runner name
+        const runnerName = run[0] || 'Desconhecido';
+        const nameTd = document.createElement('td');
+        nameTd.textContent = runnerName;
+        tr.appendChild(nameTd);
 
-        // Event listener for modal
+        // Add time
+        const timeTd = document.createElement('td');
+        timeTd.textContent = run[1] || '--:--';
+        tr.appendChild(timeTd);
+
+        // Add category-specific data
+        if (category === '1.16+') {
+            const bastionTd = document.createElement('td');
+            bastionTd.textContent = run[2] || 'N/A';
+            tr.appendChild(bastionTd);
+        } else if (category === 'SSG 1.16+') {
+            const seedTd = document.createElement('td');
+            seedTd.textContent = run[2] || 'N/A';
+            tr.appendChild(seedTd);
+        }
+
+        // Add date
+        const dateTd = document.createElement('td');
+        dateTd.textContent = run[3] || '--/--/----';
+        tr.appendChild(dateTd);
+
+        // Add click event for modal
         tr.addEventListener('mousedown', () => {
-            const getData = (index, defaultVal = 'N/A') => (typeof index === 'number' && row.length > index && row[index] != null) ? String(row[index]) : defaultVal;
-            const getUrl = (index) => (typeof index === 'number' && row.length > index && row[index]) ? String(row[index]) : '';
-
             const runData = {
-                time: getData(columnConfig.dataIndices.time),
-                bastion: getData(columnConfig.dataIndices.bastion),
-                date: getData(columnConfig.dataIndices.date),
-                verified: getData(columnConfig.dataIndices.verified),
-                seed: getData(columnConfig.dataIndices.seed),
-                runUrl: getUrl(columnConfig.dataIndices.url),
-                desc: getData(columnConfig.dataIndices.description),
-                rankGlobe: getData(columnConfig.dataIndices.rankGlobe)
+                time: run[1] || '--:--',
+                date: run[3] || '--/--/----',
+                verified: run[4] || 'Não',
+                runUrl: run[category === '1.16+' ? 6 : 5] || '',
+                desc: run[category === '1.16+' ? 7 : 6] || 'Sem descrição',
+                ...(category === '1.16+' 
+                    ? { bastion: run[2] || 'N/A', seed: run[5] || 'N/A' }
+                    : { seed: run[2] || 'N/A' })
             };
-            if (runData.runUrl || Object.values(runData).some(val => val !== 'N/A' && val !== '')) { // Open if there's a URL or any other meaningful data
-                openRunModal(runData);
-            } else {
-                console.warn("No URL or significant data found for this run, modal not opened.", row);
-            }
+            openRunModal(runData);
         });
-        tableBody.appendChild(tr);
-    } // End of for loop
 
-    if (displayedRowCount === 0 && tableBody.innerHTML === '') {
-        // Simplified no data message
-        const tr = document.createElement('tr');
-        const td = document.createElement('td');
-        td.colSpan = columnConfig.headers.length > 0 ? columnConfig.headers.length : 1;
-        td.textContent = 'No displayable data found for this category.';
-        td.style.textAlign = 'center';
-        tr.appendChild(td);
         tableBody.appendChild(tr);
     }
 }
-
 
 function extractYouTubeVideoId(url) {
     if (!url) return 'dQw4w9WgXcQ'; // Default video if URL is missing (Rickroll :D)
@@ -189,132 +214,109 @@ function extractYouTubeVideoId(url) {
 }
 
 function openRunModal(runData) {
-    const videoId = extractYouTubeVideoId(runData.runUrl);
-    const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
-
-    document.getElementById('modalIframe').src = embedUrl;
-    document.getElementById('modalDate').textContent = runData.date;
-    document.getElementById('modalVerified').textContent = runData.verified;
-    document.getElementById('modalBastion').textContent = runData.bastion;
-    document.getElementById('modalSeed').textContent = runData.seed;
-    document.getElementById('modalTime').textContent = runData.time;
-    document.getElementById('modalDesc').textContent = runData.desc;
-    document.getElementById('modalRankGlobe').textContent = runData.rankGlobe;
-
     const modalOverlay = document.getElementById('modal-overlay');
+    const modalContent = document.getElementById('runModalContent');
+    const modalIframe = document.getElementById('modalIframe');
+    
+    // Set modal content
+    document.getElementById('modalDate').textContent = runData.date || '--/--/----';
+    document.getElementById('modalVerified').textContent = runData.verified || 'Não';
+    document.getElementById('modalBastion').textContent = runData.bastion || 'N/A';
+    document.getElementById('modalSeed').textContent = runData.seed || 'N/A';
+    document.getElementById('modalTime').textContent = runData.time || '--:--';
+    document.getElementById('modalDesc').textContent = runData.desc || 'Sem descrição';
+    
+    // Set video if available
+    if (runData.runUrl) {
+        const videoId = extractYouTubeVideoId(runData.runUrl);
+        const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
+        modalIframe.src = embedUrl;
+    } else {
+        modalIframe.src = '';
+    }
+    
+    // Show modal
+    modalOverlay.style.display = 'flex';
+    // Force reflow
+    void modalOverlay.offsetHeight;
+    // Add active class to trigger the CSS transition
     modalOverlay.classList.add('active');
-    document.body.style.overflow = 'hidden'; // Prevent background scroll
+    
+    // Focus the close button for better accessibility
+    document.getElementById('modal-close-btn').focus();
 }
 
 function closeRunModal() {
-    const modalOverlay = document.getElementById('modal-overlay');
-    modalOverlay.classList.remove('active');
-    document.body.style.overflow = ''; // Restore background scroll
-
-    const modalIframe = document.getElementById('modalIframe');
-    modalIframe.src = ''; // Stop video by clearing src
+    const modal = document.getElementById('modal-overlay');
+    const iframe = document.getElementById('modalIframe');
+    
+    if (modal) {
+        // Remove active class to trigger the CSS transition
+        modal.classList.remove('active');
+        
+        // Stop video when closing
+        if (iframe) {
+            // This is a more reliable way to stop YouTube videos
+            const iframeSrc = iframe.src;
+            iframe.src = ''; // This stops the video by removing the iframe source
+            
+            // If you want to be able to reopen the same video, you can store the src
+            // and restore it when opening the modal again, but we'll handle that in openRunModal
+        }
+        
+        // Wait for the transition to complete before hiding the modal
+        setTimeout(() => {
+            modal.style.display = 'none';
+        }, 300);
+    }
 }
 
 async function handleCatChange(categoryValue) {
-    let dataToRender = null;
-    let config = {};
+    // Clear previous data
+    if (tableBody) tableBody.innerHTML = '';
+    if (tableHead) tableHead.innerHTML = '';
+    displayError('');
 
-    // Define configurations for each category
-    // These indices are examples and need to match your Google Sheet columns
-    // The indices are 0-based for the `row` array after `shift()`
-    // `displayIndices` are for table columns (excluding rank)
-    // `dataIndices` are for modal data
-    const SHEETS_PADDING_116 = 10; // As per original script for 1.16+ data
-
-    switch (categoryValue) {
-        case "1.16+":
-            if (!data116) data116 = await fetchData(RSG116_SPREADSHEET_ID, '116rsg', data116);
-            dataToRender = data116;
-            config = {
-                headers: ['#', 'Runner', 'Tempo', 'Bastion'],
-                displayIndices: [SHEETS_PADDING_116 + 1, SHEETS_PADDING_116 + 2, SHEETS_PADDING_116 + 3],
-                dataIndices: {
-                    time: SHEETS_PADDING_116 + 2,
-                    bastion: SHEETS_PADDING_116 + 3,
-                    date: SHEETS_PADDING_116 + 4,
-                    verified: SHEETS_PADDING_116 + 5,
-                    seed: SHEETS_PADDING_116 + 6,
-                    url: SHEETS_PADDING_116 + 7,
-                    description: SHEETS_PADDING_116 + 8,
-                    rankGlobe: SHEETS_PADDING_116 + 9,
-                }
-            };
-            break;
-        case "SSG 1.16+":
-            if (!brRankingjsonData) brRankingjsonData = await fetchData(BR_RANKING_SPREADSHEET_ID, 'Principais', brRankingjsonData);
-            dataToRender = brRankingjsonData;
-            config = {
-                headers: ['#', 'Runner', 'Verificada', 'Tempo'],
-                displayIndices: [17, 18, 19],
-                dataIndices: {
-                    time: 17, bastion: 'N/A', date: 19, verified: 'N/A', seed: 'N/A', url: 20, description: 'N/A', rankGlobe: 'N/A'
-                }
-            };
-            break;
-        case "1.13-1.15":
-             if (!brRankingjsonData) brRankingjsonData = await fetchData(BR_RANKING_SPREADSHEET_ID, 'Principais', brRankingjsonData);
-            dataToRender = brRankingjsonData;
-            config = {
-                headers: ['#', 'Runner', 'Verificada', 'Tempo'],
-                displayIndices: [7, 8, 9],
-                dataIndices: {
-                    time: 9, bastion: 'N/A', date: 'N/A', verified: 8, seed: 'N/A', url: 'N/A', description: 'N/A', rankGlobe: 'N/A'
-                }
-            };
-            break;
-
-        case "1.9-1.12":
-            if (!brRankingjsonData) brRankingjsonData = await fetchData(BR_RANKING_SPREADSHEET_ID, 'Principais', brRankingjsonData);
-            dataToRender = brRankingjsonData;
-            config = {
-                headers: ['#', 'Runner', 'Verificada', 'Tempo'],
-                displayIndices: [22, 23, 24],
-                dataIndices: {
-                    time: 23, bastion: 'N/A', date: 24, verified: 'N/A', seed: 'N/A', url: 'N/A', description: 'N/A', rankGlobe: 'N/A'
-                }
-            };
-            break;
-        case "Pre 1.9":
-            if (!brRankingjsonData) brRankingjsonData = await fetchData(BR_RANKING_SPREADSHEET_ID, 'Principais', brRankingjsonData);
-            dataToRender = brRankingjsonData;
-            config = {
-                headers: ['#', 'Runner', 'Verificada', 'Tempo'],
-                displayIndices: [12, 13, 14], 
-                dataIndices: { 
-                    time: 13, bastion: 'N/A', date: 14, verified: 'N/A', seed: 'N/A', url: 'N/A', description: 'N/A', rankGlobe: 'N/A'
-                }
-            };
-            break;
-        default:
-            displayError("Selected category is not configured.");
-            return;
-    }
-
-    if (dataToRender) {
-        renderGenericData(dataToRender, config);
-    } else if (!loadingIndicator.style.display || loadingIndicator.style.display === 'none') {
-        if (!errorMessageContainer.style.display || errorMessageContainer.style.display === 'none') {
-             displayError("No data available for this category. It might still be loading or an error occurred.");
+    try {
+        let data;
+        
+        switch (categoryValue) {
+            case '1.16+':
+                data = await fetchData('1.16+');
+                break;
+                
+            case 'SSG 1.16+':
+                data = await fetchData('SSG 1.16+');
+                break;
+                
+            default:
+                displayError('Categoria não implementada ainda.');
+                return;
         }
+        
+        if (data) {
+            renderCategoryData(categoryValue, data);
+        }
+    } catch (error) {
+        console.error('Error handling category change:', error);
+        displayError(`Erro ao carregar dados: ${error.message}`);
     }
 }
-
 
 // Initial load (e.g., for the default selected category)
 document.addEventListener('DOMContentLoaded', () => {
     const initialCategory = document.getElementById('cat').value;
     handleCatChange(initialCategory);
-
-    // Close modal on Escape key
-    window.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && document.getElementById('modal-overlay').classList.contains('active')) {
-            closeRunModal();
-        }
+    
+    // Close modal when clicking outside content
+    const modalOverlay = document.getElementById('modal-overlay');
+    if (modalOverlay) {
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                closeRunModal();
+            }
+        });
+    }
     });
     // Close modal if overlay is clicked
      document.getElementById('modal-overlay').addEventListener('click', function(event) {
@@ -322,7 +324,6 @@ document.addEventListener('DOMContentLoaded', () => {
             closeRunModal();
         }
     });
-});
 
 // Prefetching and fast navigation (from original script)
 // Consider if this is still needed with modern browser caching and single-page app feel.
